@@ -351,17 +351,22 @@ a.offer-mini:hover { transform: translateY(-2px); border-color: var(--green); co
 /* Client logo carousel: full-colour official logos, slow continuous scroll */
 .logo-carousel { padding: 0 0 clamp(48px, 7vw, 80px); text-align: center; }
 .logo-carousel > p { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; }
-.marquee { display: flex; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.track { list-style: none; margin: 0; padding: 0; display: flex; flex: none; gap: clamp(28px, 4vw, 48px); padding-right: clamp(28px, 4vw, 48px); animation: logo-scroll 32s linear infinite; }
+.marquee { display: flex; overflow: hidden; position: relative; }
+/* Edge fades drawn as overlays (not masks) - masks + moving content glitch on iPhone/Safari */
+.marquee::before, .marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 8%; z-index: 1; pointer-events: none; }
+.marquee::before { left: 0; background: linear-gradient(90deg, #fff, rgba(255,255,255,0)); }
+.marquee::after { right: 0; background: linear-gradient(270deg, #fff, rgba(255,255,255,0)); }
+.track { list-style: none; margin: 0; padding: 0; display: flex; flex: none; gap: clamp(28px, 4vw, 48px); padding-right: clamp(28px, 4vw, 48px); animation: logo-scroll 32s linear infinite; -webkit-transform: translate3d(0,0,0); will-change: transform; }
 .marquee:hover .track { animation-play-state: paused; }
 .track li { display: flex; flex-direction: column; align-items: center; gap: .55rem; width: 128px; }
 .track img { width: 84px; height: 84px; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(26,31,26,.05), 0 6px 16px rgba(26,31,26,.06); background: #fff; }
 .track span { font-size: .82rem; font-weight: 600; color: var(--muted); line-height: 1.25; }
-@keyframes logo-scroll { to { transform: translateX(-100%); } }
+@keyframes logo-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-100%,0,0); } }
 @media (prefers-reduced-motion: reduce) {
   .track { animation: none; flex-wrap: wrap; justify-content: center; padding-right: 0; }
   .track[aria-hidden="true"] { display: none; }
-  .marquee { justify-content: center; -webkit-mask-image: none; mask-image: none; }
+  .marquee { justify-content: center; }
+  .marquee::before, .marquee::after { display: none; }
 }
 
 /* Testimonial headline pulled from the writer's own words */
