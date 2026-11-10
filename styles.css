@@ -357,7 +357,8 @@ a.offer-mini:hover { transform: translateY(-2px); border-color: var(--green); co
 .marquee::before { left: 0; background: linear-gradient(90deg, #fff, rgba(255,255,255,0)); }
 .marquee::after { right: 0; background: linear-gradient(270deg, #fff, rgba(255,255,255,0)); }
 .track { list-style: none; margin: 0; padding: 0; display: flex; flex: none; gap: clamp(28px, 4vw, 48px); padding-right: clamp(28px, 4vw, 48px); animation: logo-scroll 32s linear infinite; -webkit-transform: translate3d(0,0,0); will-change: transform; }
-.marquee:hover .track { animation-play-state: paused; }
+/* Pause on hover only where a real mouse exists - touch screens can get "stuck" in hover and freeze it */
+@media (hover: hover) and (pointer: fine) { .marquee:hover .track { animation-play-state: paused; } }
 .track li { display: flex; flex-direction: column; align-items: center; gap: .55rem; width: 128px; }
 .track img { width: 84px; height: 84px; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(26,31,26,.05), 0 6px 16px rgba(26,31,26,.06); background: #fff; }
 .track span { font-size: .82rem; font-weight: 600; color: var(--muted); line-height: 1.25; }
