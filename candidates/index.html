@@ -11,7 +11,7 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=23">
+<link rel="stylesheet" href="/styles.css?v=24">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Morley Talent Solutions">
 <meta property="og:title" content="Job Alerts for Candidates | Morley Talent Solutions">
@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<script src="/site.js?v=23" defer></script>
+<script src="/site.js?v=24" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -44,7 +44,7 @@
     <h1>Hear about new roles.</h1>
     <p class="lede">Many of my searches are never posted publicly. Sign up and I'll email you when a role matches what you're looking for.</p>
     <p><strong>Candidates never pay a fee.</strong></p>
-    <form class="card lead-form" name="job-alerts" method="POST" action="/thanks-candidates/" data-netlify="true" netlify-honeypot="company-url-confirm" data-netlify-recaptcha="true">
+    <form class="card lead-form js-form" name="job-alerts" method="POST" action="https://script.google.com/macros/s/AKfycbwLENOtIojDpp1Z90mL9oq6uzwGKtwO-88iLY_Nyq-N-EpiwEqJt-4Zm99JaVDPSUXr/exec" data-thanks="/thanks-candidates/" data-recaptcha="">
       <input type="hidden" name="form-name" value="job-alerts">
       <p class="hp" aria-hidden="true"><label>Leave this empty <input name="company-url-confirm" tabindex="-1" autocomplete="off"></label></p>
       <div class="field-row">
@@ -59,7 +59,6 @@
         <div class="checks"><label class="check"><input type="checkbox" name="areas" value="Sales"> Sales</label><label class="check"><input type="checkbox" name="areas" value="Marketing"> Marketing</label><label class="check"><input type="checkbox" name="areas" value="Customer success"> Customer success</label><label class="check"><input type="checkbox" name="areas" value="Product &amp; design"> Product &amp; design</label><label class="check"><input type="checkbox" name="areas" value="Engineering"> Engineering</label><label class="check"><input type="checkbox" name="areas" value="Finance"> Finance</label></div>
       </fieldset>
       <label class="check consent"><input type="checkbox" name="consent" value="yes" required> <span>Yes, Morley Talent Solutions Inc. may email me about new roles that match my interests. I can unsubscribe at any time using the link in any email. <span aria-hidden="true">*</span></span></label>
-      <div data-netlify-recaptcha="true"></div>
       <p class="small form-note">Please don't include your SIN, date of birth or other sensitive details. See the <a href="/privacy/">Privacy Policy</a>.</p>
       <button class="btn btn-primary" type="submit">Subscribe to new roles</button>
     </form>

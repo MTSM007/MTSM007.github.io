@@ -11,7 +11,7 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=23">
+<link rel="stylesheet" href="/styles.css?v=24">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Morley Talent Solutions">
 <meta property="og:title" content="Start Hiring | Morley Talent Solutions">
@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<script src="/site.js?v=23" defer></script>
+<script src="/site.js?v=24" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,7 +43,7 @@
   <div class="wrap form-wrap">
     <h1>Tell me what you're hiring for.</h1>
     <p class="lede">It takes about two minutes. If it looks like a fit, I'll reach out to set up a 20-minute video call.</p>
-    <form class="card lead-form" name="start-hiring" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company-url-confirm" data-netlify-recaptcha="true">
+    <form class="card lead-form js-form" name="start-hiring" method="POST" action="https://script.google.com/macros/s/AKfycbwLENOtIojDpp1Z90mL9oq6uzwGKtwO-88iLY_Nyq-N-EpiwEqJt-4Zm99JaVDPSUXr/exec" data-thanks="/thanks/" data-recaptcha="">
       <input type="hidden" name="form-name" value="start-hiring">
       <p class="hp" aria-hidden="true"><label>Leave this empty <input name="company-url-confirm" tabindex="-1" autocomplete="off"></label></p>
       <div class="field-row">
@@ -76,7 +76,6 @@
           </select>
       </div>
       <div class="field"><label for="f-roles">What roles are you hiring for? <span aria-hidden="true">*</span></label><textarea id="f-roles" name="roles" rows="5" required minlength="10" placeholder="e.g. Senior Account Executive, mid-market, Toronto or remote, needed by next quarter."></textarea></div>
-      <div data-netlify-recaptcha="true"></div>
       <p class="small form-note"><span aria-hidden="true">*</span> Required. Your details are only used to respond to your enquiry. See the <a href="/privacy/">Privacy Policy</a>.</p>
       <button class="btn btn-primary" type="submit">Start hiring</button>
     </form>
