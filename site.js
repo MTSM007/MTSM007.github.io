@@ -48,6 +48,17 @@
     var key = form.getAttribute('data-recaptcha');
     if (key) form.addEventListener('focusin', function () { recaptchaToken(key).catch(function () {}); }, { once: true });
 
+    // Checkbox groups marked data-required-group need at least one box ticked
+    var group = form.querySelectorAll('input[type="checkbox"][name="areas"]');
+    if (group.length) {
+      var checkGroup = function () {
+        var any = Array.prototype.some.call(group, function (c) { return c.checked; });
+        group[0].setCustomValidity(any ? '' : 'Please choose at least one type of role.');
+      };
+      group.forEach(function (c) { c.addEventListener('change', checkGroup); });
+      checkGroup();
+    }
+
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var button = form.querySelector('button[type="submit"]');

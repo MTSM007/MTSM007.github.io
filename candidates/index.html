@@ -13,7 +13,7 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=29">
+<link rel="stylesheet" href="/styles.css?v=30">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Morley Talent Solutions">
 <meta property="og:title" content="Job Alerts for Candidates | Morley Talent Solutions">
@@ -24,7 +24,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<script src="/site.js?v=29" defer></script>
+<script src="/site.js?v=30" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -54,10 +54,10 @@
         <div class="field"><label for="c-last">Last name <span aria-hidden="true">*</span></label><input id="c-last" name="last-name" autocomplete="family-name" required></div>
       </div>
       <div class="field"><label for="c-email">Email <span aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-loc">Where are you based? <span class="optional">(optional)</span></label><input id="c-loc" name="location" autocomplete="address-level2" placeholder="City, province or country"></div>
-      <div class="field"><label for="c-li">LinkedIn profile <span class="optional">(optional)</span></label><input id="c-li" name="linkedin" inputmode="url" placeholder="linkedin.com/in/yourname"></div>
+      <div class="field"><label for="c-loc">Where are you based? <span aria-hidden="true">*</span></label><input id="c-loc" name="location" autocomplete="address-level2" placeholder="City, province or country" required></div>
+      <div class="field"><label for="c-li">LinkedIn profile <span aria-hidden="true">*</span></label><input id="c-li" name="linkedin" inputmode="url" placeholder="linkedin.com/in/yourname" required minlength="8"></div>
       <fieldset class="field">
-        <legend>Roles you’re interested in <span class="optional">(optional)</span></legend>
+        <legend>Roles you’re interested in <span aria-hidden="true">*</span> <span class="optional">(choose at least one)</span></legend>
         <div class="checks"><label class="check"><input type="checkbox" name="areas" value="Sales"> Sales</label><label class="check"><input type="checkbox" name="areas" value="Marketing"> Marketing</label><label class="check"><input type="checkbox" name="areas" value="Customer success"> Customer success</label><label class="check"><input type="checkbox" name="areas" value="Product &amp; design"> Product &amp; design</label><label class="check"><input type="checkbox" name="areas" value="Engineering"> Engineering</label><label class="check"><input type="checkbox" name="areas" value="Finance"> Finance</label></div>
       </fieldset>
       <label class="check consent"><input type="checkbox" name="consent" value="yes" required> <span>Yes, Morley Talent Solutions Inc. may email me about new roles that match my interests. I can unsubscribe at any time using the link in any email. <span aria-hidden="true">*</span></span></label>
