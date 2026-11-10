@@ -74,4 +74,24 @@
       });
     });
   });
+
+  // Unsubscribe page: pass the signed link on to the form handler
+  var unsub = document.getElementById('unsub');
+  if (unsub) {
+    var q = new URLSearchParams(location.search);
+    var h1 = unsub.querySelector('h1'), lede = unsub.querySelector('.lede');
+    if (!q.get('e') || !q.get('t')) {
+      h1.textContent = 'Unsubscribe link incomplete';
+      lede.textContent = 'Please use the full link from your job-alert email.';
+    } else {
+      var url = unsub.getAttribute('data-endpoint') + '?unsubscribe=' + encodeURIComponent(q.get('e')) + '&t=' + encodeURIComponent(q.get('t'));
+      fetch(url, { mode: 'no-cors' }).then(function () {
+        h1.textContent = "You're unsubscribed.";
+        lede.textContent = "You won't receive any more job alerts from Morley Talent Solutions.";
+      }).catch(function () {
+        h1.textContent = 'Something went wrong';
+        lede.textContent = 'Please try the link again in a moment.';
+      });
+    }
+  }
 })();
