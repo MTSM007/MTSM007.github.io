@@ -58,6 +58,16 @@
       group.forEach(function (c) { c.addEventListener('change', checkGroup); });
       checkGroup();
     }
+    // Resource kits: choose at least one document
+    var items = form.querySelectorAll('input[type="checkbox"][name="items"]');
+    if (items.length) {
+      var checkItems = function () {
+        var any = Array.prototype.some.call(items, function (c) { return c.checked; });
+        items[0].setCustomValidity(any ? '' : 'Please choose at least one document.');
+      };
+      items.forEach(function (c) { c.addEventListener('change', checkItems); });
+      checkItems();
+    }
 
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
@@ -105,4 +115,9 @@
       });
     }
   }
+
+  // Resources: print / save-as-PDF buttons
+  document.querySelectorAll('[data-print]').forEach(function (b) {
+    b.addEventListener('click', function () { window.print(); });
+  });
 })();
