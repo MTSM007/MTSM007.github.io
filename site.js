@@ -116,6 +116,30 @@
     }
   }
 
+  // Confirm page (double opt-in): pass the signed link on to the form handler
+  var conf = document.getElementById('confirm');
+  if (conf) {
+    var cq = new URLSearchParams(location.search);
+    var ch1 = conf.querySelector('h1'), clede = conf.querySelector('.lede');
+    var list = cq.get('l');
+    if (!cq.get('e') || !cq.get('t') || (list !== 'alerts' && list !== 'updates')) {
+      ch1.textContent = 'Confirmation link incomplete';
+      clede.textContent = 'Please use the full link from your email.';
+    } else {
+      var curl = conf.getAttribute('data-endpoint') + '?confirm=' + encodeURIComponent(cq.get('e')) +
+        '&l=' + encodeURIComponent(list) + '&t=' + encodeURIComponent(cq.get('t'));
+      fetch(curl, { mode: 'no-cors' }).then(function () {
+        ch1.textContent = "You're confirmed.";
+        clede.textContent = list === 'alerts'
+          ? "I'll email you when a role matches what you're looking for. Every email includes a link to unsubscribe."
+          : "I'll let you know when new hiring resources are available. Every email includes a link to unsubscribe.";
+      }).catch(function () {
+        ch1.textContent = 'Something went wrong';
+        clede.textContent = 'Please try the link again in a moment.';
+      });
+    }
+  }
+
   // Resources: print / save-as-PDF buttons
   document.querySelectorAll('[data-print]').forEach(function (b) {
     b.addEventListener('click', function () { window.print(); });
