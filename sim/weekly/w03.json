@@ -1,0 +1,377 @@
+{
+ "id": "w03",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 3,
+ "version": "n1",
+ "title": "Customer success manager",
+ "manager": {
+  "name": "Priya",
+  "title": "Head of Customer Success",
+  "first": "Priya",
+  "persona": "Let down by recruiters before",
+  "persona_note": "Priya has had disappointing experiences with recruiters, which is fair. A good recruiter earns trust with sharp questions, not promises."
+ },
+ "teaser": "Priya runs customer success at a software company and isn't sure a recruiter can help.",
+ "context": [
+  "The company sells booking software to clinics and gyms and has about 80 people.",
+  "The new hire will report to Priya and join a team of four."
+ ],
+ "message": [
+  "I need a customer success manager. Honestly, recruiters haven't helped much before.",
+  "The job ad is from last year. Can we talk for 10 minutes?"
+ ],
+ "ad": [
+  "5 or more years in customer success",
+  "Must have managed 100 or more accounts",
+  "A real people person",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Priya will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to keep big customers from leaving, with fewer but larger accounts.",
+  "n2": "Someone to welcome lots of small new customers quickly.",
+  "n3": "Someone to build and lead a support team."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "Past searches",
+   "sam": "I'll be honest. The last two recruiters I worked with sent me people who were all wrong for this.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "I'm sorry to hear that. What was it about those candidates that made them the wrong fit?",
+     "reply": "They'd all handled hundreds of tiny accounts. That's not what we do here.",
+     "why": "Asking what went wrong shows you're listening, and it tells you exactly what to avoid this time.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Would it help if I walked you through how my process is different from the recruiters you worked with before?",
+     "reply": "Maybe. I've heard that before.",
+     "why": "Explaining your process is easy, but a manager who's been let down needs to see that you understand the problem first."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think the brief they were given was clear enough?",
+     "reply": "The brief was fine.",
+     "why": "Questioning their brief puts the manager on the defensive, which is the opposite of what you want early on.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "What great looks like",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would a great person get done in their first three months?",
+     "reply": "Visit our 25 biggest customers and spot who's unhappy before they decide to leave.",
+     "why": "An open follow-up turns a frustration into a clear picture of success.",
+     "clue": "first"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So you're looking for someone more senior than the people you saw?",
+     "reply": "Not more senior. Different.",
+     "why": "A leading guess narrows the answer. An open question would have given you the full picture."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Were the people you met really that far off?",
+     "reply": "Yes, they were.",
+     "why": "Questioning the manager's judgment costs trust, and you don't learn anything new about what they need.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "Why it's open",
+   "sam": "I don't think I need to explain the job much. It's pretty straightforward.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That makes sense. What's prompting the hire right now? Is something happening with customers?",
+     "reply": "Big customers are leaving after their first year, because nobody checks in until renewal time.",
+     "why": "Even a straightforward job is open for a reason. Asking why now usually uncovers what the hire really has to solve.",
+     "clue": "why"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I work from the standard customer success profile, then?",
+     "reply": "Yes, that's fine.",
+     "why": "Going with a standard profile saves time now, but you'd be guessing at what matters most for this team."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "In my experience, most searches go wrong because the job isn't explained properly. Couldn't that be what happened before?",
+     "reply": "Not this one.",
+     "why": "Even if it's often true, saying it to a manager who is already frustrated only confirms their doubts about recruiters.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "label": "The must-have",
+   "sam": "They must have managed 100 accounts. It says so in the ad.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "How many accounts will this person actually look after?",
+     "reply": "About 25, but they're our biggest ones.",
+     "why": "Checking a must-have against the real job shows that 100 small accounts is the wrong kind of experience here.",
+     "clue": "must"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I screen for 100 or more accounts, then?",
+     "reply": "Yes, that's right.",
+     "why": "It sounds reasonable, but you'd be screening for the wrong kind of experience."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So more accounts means more experience, right?",
+     "reply": "I suppose so.",
+     "why": "A leading question locked in a requirement that doesn't fit the job."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b4",
+   "label": "Shortlist",
+   "sam": "Just send me ten resumes and I'll sort it out myself.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "Happy to. Would it help if I added a short note on each one, so you can sort them faster?",
+     "reply": "That would actually help a lot.",
+     "why": "Agreeing to a fair request, and making it easier, is how you rebuild trust after past letdowns."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Would you rather see a smaller number of stronger candidates?",
+     "reply": "No, I'd like to see ten.",
+     "why": "A fair question, but it argued with a reasonable request. Sometimes going along with it is the better move."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Ten is quite a lot to review on top of everything else. Could I just send you my top three instead?",
+     "reply": "That's what the last recruiter said.",
+     "why": "Pushing back on a small request spends trust you'll need later in the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "label": "The pay",
+   "sam": "Pay is whatever's normal for this kind of job.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So I only bring you people you can afford, what range has been approved?",
+     "reply": "$85,000 to $100,000 base salary, and it's approved.",
+     "why": "Linking the question to their goal makes the range easy to share.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "It's hard to start without a number. Could we pin one down first?",
+     "reply": "Fine. $85,000 to $100,000.",
+     "why": "You got the range, but the pressure cost some goodwill. Tying it to their goal works better.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Is it okay if we figure out pay once we see who's interested?",
+     "reply": "Sure.",
+     "why": "Without a range, you can't tell which people the manager can actually afford."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b6",
+   "label": "Office days",
+   "sam": "They'll be in the office on Tuesdays. That's about it.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "One day a week is easy to explain. What happens on Tuesdays, so I can describe it to candidates?",
+     "reply": "It's our team day. We go through every big customer together.",
+     "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Could that day be flexible for the right person?",
+     "reply": "No, Tuesday is our team day.",
+     "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most people I talk to want to be fully remote. Could we drop the office day?",
+     "reply": "Then they can apply somewhere else.",
+     "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Honestly, anyone friendly could do this job.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great customer success manager choose this job over others?",
+     "reply": "They'd own our biggest customers and have a real say in the product.",
+     "why": "Asking what makes the job attractive gives you the story to tell the right people.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "So I should look for people who are great with customers?",
+     "reply": "Exactly.",
+     "why": "Being good with people matters, but it won't stop a big customer from leaving. You'd miss what makes this job different."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't it a bit more complex than being friendly?",
+     "reply": "Now you sound like the last recruiter.",
+     "why": "Correcting the manager rarely changes their mind. A question about the job does.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "why",
+   "first",
+   "must"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "jesse",
+   "name": "Jesse",
+   "job": "Customer success manager at a software company",
+   "facts": [
+    "Looks after 20 large customers",
+    "Saved 6 big accounts that planned to leave",
+    "Meets each customer every month"
+   ],
+   "ask": "$96,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Looks after a few big customers, stays in touch all year, and has saved six that planned to leave. That's what Priya needs, and it fits the range."
+   },
+   "view": {
+    "n1": "Jesse is the one I'd trust with our biggest customers."
+   }
+  },
+  {
+   "id": "reese",
+   "name": "Reese",
+   "job": "Customer success manager at an HR software company",
+   "facts": [
+    "Looks after 22 large customers",
+    "Strong renewal negotiator",
+    "Focuses on customers around renewal time"
+   ],
+   "ask": "$92,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Handles big accounts well, but focuses on them around renewal time. Priya said that's exactly why big customers are leaving."
+   },
+   "view": {
+    "n1": "Reese would call our customers once a year. That's our problem now."
+   },
+   "miss": "why"
+  },
+  {
+   "id": "casey",
+   "name": "Casey",
+   "job": "Account manager at a phone company",
+   "facts": [
+    "Manages 150 accounts",
+    "Answers every email within an hour",
+    "Customers rate them highly"
+   ],
+   "ask": "$90,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The 150 accounts match the old ad, but Priya confirmed the job is 25 of the biggest customers, which needs much deeper attention."
+   },
+   "view": {
+    "n1": "Casey's lovely, but our biggest customers need more time."
+   },
+   "miss": "must"
+  },
+  {
+   "id": "tobi",
+   "name": "Tobi",
+   "job": "Customer success director at a well-known software company",
+   "facts": [
+    "Leads a team of 12 customer success managers",
+    "Renewal rate of 98%",
+    "Presents to the company's leadership every quarter"
+   ],
+   "ask": "$98,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive resume, but the job is hands-on: visiting 25 big customers and spotting trouble early. Tobi has been leading a team, not doing that work."
+   },
+   "view": {
+    "n1": "Tobi would want a team to lead. I need someone in the room with customers."
+   },
+   "miss": "first"
+  }
+ ],
+ "v2": true
+}

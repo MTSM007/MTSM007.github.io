@@ -1,0 +1,379 @@
+{
+ "id": "w01",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 1,
+ "version": "n1",
+ "title": "Salesperson",
+ "manager": {
+  "name": "Sam",
+  "title": "Head of Sales",
+  "first": "Sam",
+  "persona": "A tight deadline",
+  "persona_note": "Sam is under real time pressure, and the work is piling up. A good recruiter moves fast, but first learns what went wrong last time."
+ },
+ "teaser": "Sam runs sales at a growing software company and wants a new salesperson by the end of the week.",
+ "context": [
+  "The company sells software to mid-sized businesses and has about 60 people.",
+  "The new salesperson will report to Sam, who still sells too."
+ ],
+ "message": [
+  "Hi! I need a salesperson to win new customers. These are mid-sized businesses, not the big ones.",
+  "The job ad is old, so don't trust it too much. Can we talk for 10 minutes?"
+ ],
+ "ad": [
+  "3 or more years selling software",
+  "Logistics experience is a must",
+  "A driven self-starter",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Sam will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to jump on another call. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to create the sales plan from scratch and find their own customers.",
+  "n2": "Someone to follow the existing sales plan and grow into leading the team.",
+  "n3": "Someone for bigger, slower deals, working alongside a technical expert."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "The timeline",
+   "sam": "I need a new salesperson, ideally someone like the last one but better. Could you get me a few candidates by Friday?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "I can move quickly on this. Before I start, can you tell me what happened with the last person in the role?",
+     "reply": "Sure. They were a strong closer, but they'd always had a team booking meetings for them. Here, nobody does that.",
+     "why": "Learning why the last hire didn't work out is the fastest way to avoid making the same hire twice, and it costs you one minute.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "Friday works for me. Should I look for people with a background very similar to your last salesperson, since you liked their style?",
+     "reply": "Yes, someone like them, just a bit better.",
+     "why": "It sounds helpful, but you'd be copying a hire that didn't work out without knowing why it didn't."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't Friday a little unrealistic for a role like this?",
+     "reply": "That's exactly what the last recruiter told me.",
+     "why": "Questioning the deadline before you understand the need turns the call into a negotiation. Ask about the last hire first, then talk about timing.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "The last hire",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That's really helpful. What would the right person need to do differently in their first few months?",
+     "reply": "Find their own customers and book their own meetings. Nobody is going to hand them leads here.",
+     "why": "A follow-up that turns 'it didn't work out' into what success looks like gives you something concrete to screen for.",
+     "clue": "lasthire"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So was the problem mostly their closing skills?",
+     "reply": "No, they closed well when they got the meeting.",
+     "why": "A leading guess gets a short no. An open question would have given you the real story."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Before we go further, do you think the team gave them enough support and coaching when they first started?",
+     "reply": "We did what we could.",
+     "why": "It may be worth knowing eventually, but asked this early it sounds like you're looking for someone to blame.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "The must-have",
+   "sam": "They also need to know logistics. It's right there in the ad.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Good to know. Did your strongest salespeople come from logistics when they joined?",
+     "reply": "Actually, our best one came from HR software. I suppose it isn't really a must.",
+     "why": "Testing a must-have against the people who already succeed often turns it into a nice-to-have, and that widens your search.",
+     "clue": "industry"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "That makes sense for your market. Should I make logistics experience the very first thing I screen candidates for?",
+     "reply": "Yes, let's do that.",
+     "why": "It sounds efficient, but you've locked in a requirement nobody has tested, and it may screen out your best candidates."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So logistics experience is a deal-breaker for you?",
+     "reply": "I suppose it is, yes.",
+     "why": "A yes-or-no question pushed Sam to commit to a must-have that turned out not to matter."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b3",
+   "label": "Success in the role",
+   "sam": "Honestly, I'd love someone from a big-name software company. Those people know how to sell.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would they need to have done before to be successful here, whatever company they come from?",
+     "reply": "Closed deals of $30,000 to $80,000 in a month or two, and found their own customers.",
+     "why": "Asking what someone needs to have done moves the conversation from company names to evidence you can check.",
+     "clue": "mustdo"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "Would someone from a well-known company get up to speed faster, in your experience?",
+     "reply": "Probably, yes.",
+     "why": "A leading question invites the manager to confirm the assumption instead of testing it."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "With respect, aren't big-name software companies a bit overrated when you're hiring for a smaller, growing team like yours?",
+     "reply": "Not in my experience.",
+     "why": "Challenging the assumption head-on starts a debate. Asking what success looks like gets you further.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b4",
+   "label": "The pay",
+   "sam": "Pay is competitive. Let's not get into numbers just yet.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So I only bring you people you can actually hire, what base salary range has been approved?",
+     "reply": "$75,000 to $85,000 base salary. There's a bit more for the right person, but it's hard to get.",
+     "why": "Linking the question to their goal makes the number easy to share, and you'll know straight away who's within reach.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "It's hard to recruit without one, so would you mind sharing a number now?",
+     "reply": "Fine. $75,000 to $85,000.",
+     "why": "You got the range, but the pressure cost some goodwill. Tying the question to their goal gets the same answer more easily.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Is it okay if we come back to pay once we've seen a few people?",
+     "reply": "Sure, that works for me.",
+     "why": "It feels easygoing, but without a range you can't tell which candidates are affordable, and you risk losing good people late."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b5",
+   "label": "Interviews",
+   "sam": "I'll interview people myself whenever I can find a gap in my calendar.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So strong candidates don't drift away, could we hold two interview times each week for this search?",
+     "reply": "That's fair. Tuesday and Thursday afternoons work.",
+     "why": "Good salespeople usually have options. Agreeing on interview times up front keeps the search moving without adding work for the manager."
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "Would it help if I just sent you candidates and you reached out when you're free?",
+     "reply": "Yes, that's easiest for me.",
+     "why": "It's easy for now, but slow scheduling is one of the most common reasons good candidates accept other offers."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't that going to slow everything down, given you want someone by Friday?",
+     "reply": "I'll make it work.",
+     "why": "The point is fair, but pointing out the contradiction makes the manager defensive. Offer a simple fix instead.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "label": "Office days",
+   "sam": "We'd like them in the office two days a week. Is that a problem?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "Two days sounds reasonable. So I can explain it to candidates, what usually happens on those office days?",
+     "reply": "We plan the week's deals together on Tuesdays and practise calls on Thursdays. People really like it.",
+     "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Is there any flexibility on that for the right person?",
+     "reply": "Not really. The team works together on those days.",
+     "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most salespeople I talk to want to be fully remote. Could we drop the office days?",
+     "reply": "No. We've been clear about that.",
+     "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Honestly, a good salesperson can sell anything. They'll figure out the rest.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great salesperson choose this job over the other offers they'll have?",
+     "reply": "They'd build our sales plan from scratch. Nobody has done that here yet.",
+     "why": "Asking what makes the job attractive tells you what's different about it, and that's the story you'll tell the right candidates.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "So should I focus on strong sellers from any industry?",
+     "reply": "Exactly.",
+     "why": "That's partly true, but you'd miss what makes this job unique, which is exactly what attracts the right person."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you really think the job itself doesn't matter to candidates?",
+     "reply": "I didn't say that.",
+     "why": "Questioning the manager's view rarely changes their mind. Asking what makes the role appealing gets you something useful.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "lasthire",
+   "mustdo",
+   "industry",
+   "pay"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "riley",
+   "name": "Riley",
+   "job": "Salesperson at an HR software company",
+   "facts": [
+    "Finds about 40% of their own customers",
+    "Built their team's sales plan from scratch",
+    "Closes deals of about $45,000 in about 6 weeks"
+   ],
+   "ask": "$87,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Finds their own customers, built a sales plan from scratch, and closes the size and speed of deal Sam needs. At $87,000 they're a little over the range, but Sam said there's a bit more for the right person."
+   },
+   "view": {
+    "n1": "Riley is worth stretching the budget for."
+   }
+  },
+  {
+   "id": "morgan",
+   "name": "Morgan",
+   "job": "Salesperson at a payroll software company",
+   "facts": [
+    "Built a new sales plan for their region",
+    "Closes deals of about $40,000 in about 5 weeks",
+    "Supported by a team that books their first meetings"
+   ],
+   "ask": "$82,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Strong, but has always had a team booking first meetings. Sam's last hire struggled for exactly that reason. Here, nobody books meetings for you."
+   },
+   "view": {
+    "n1": "Morgan reminds me of our last hire."
+   },
+   "miss": "lasthire"
+  },
+  {
+   "id": "jordan",
+   "name": "Jordan",
+   "job": "Salesperson at a supply-chain software company",
+   "facts": [
+    "Knows the logistics industry well",
+    "Closes deals of about $70,000",
+    "Works with a technical expert on most deals"
+   ],
+   "ask": "$82,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The logistics knowledge matches the old ad, but Sam confirmed it isn't a must, and Jordan's deals take about four months with expert help."
+   },
+   "view": {
+    "n1": "Jordan knows our world, but sells at a different pace."
+   },
+   "miss": "industry"
+  },
+  {
+   "id": "avery",
+   "name": "Avery",
+   "job": "Account executive at a well-known software company",
+   "facts": [
+    "Top seller in their region two years running",
+    "Closed a $2 million deal last year",
+    "Looks after the company's biggest accounts"
+   ],
+   "ask": "$85,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive record, but built on huge deals that take most of a year. Sam needs quick deals of $30,000 to $80,000."
+   },
+   "view": {
+    "n1": "Avery's deals are a different world from ours."
+   },
+   "miss": "mustdo"
+  }
+ ],
+ "v2": true
+}

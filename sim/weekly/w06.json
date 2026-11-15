@@ -1,0 +1,374 @@
+{
+ "id": "w06",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 6,
+ "version": "n1",
+ "title": "Data analyst",
+ "manager": {
+  "name": "Wei",
+  "title": "Director of Merchandising",
+  "first": "Wei",
+  "persona": "Replacing a star",
+  "persona_note": "Wei lost a great person and wants that again. A good recruiter finds what made them great, not who they were."
+ },
+ "teaser": "Wei leads the buying team at an online store and wants a copy of the analyst who just left.",
+ "context": [
+  "The company sells home goods online and has about 120 people.",
+  "The analyst works with Wei's buying team, who decide what to stock."
+ ],
+ "message": [
+  "Our analyst, Alex, just left. I need another Alex.",
+  "The ad is Alex's old one. Ten minutes to talk?"
+ ],
+ "ad": [
+  "Must know Python and SQL",
+  "Statistics degree required",
+  "Like Alex: focused and independent",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Wei will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to explain the numbers clearly to the buying team, so they stock the right products.",
+  "n2": "Someone to build the data systems behind the website.",
+  "n3": "Someone to run tests on the website."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "Another Alex",
+   "sam": "Our analyst Alex just left, and honestly, I'd love another Alex. Alex was perfect.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That's a big loss. What did Alex do that made the biggest difference to your team?",
+     "reply": "Every Monday, Alex told us which products to reorder, in plain words we could act on.",
+     "why": "Asking what made someone great turns 'find me another Alex' into skills you can actually look for.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Would it help if I looked for people with a background as close to Alex's as possible?",
+     "reply": "Yes, exactly.",
+     "why": "Copying someone's background is tempting, but it may not be what made Alex good at the job."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "You know it's unlikely we'll find an exact copy of Alex, right?",
+     "reply": "I know that.",
+     "why": "Pointing out the obvious makes the manager defensive and doesn't move the search forward.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "What Alex skipped",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Was there any part of the job Alex was less keen on, or that you'd like done differently?",
+     "reply": "Big technical projects. Alex just wanted to help us make decisions.",
+     "why": "A follow-up on the gaps helps you avoid hiring for strengths the job doesn't need.",
+     "clue": "alex"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So Alex was strong at pretty much everything?",
+     "reply": "Mostly, yes.",
+     "why": "A leading question gets a vague yes. An open one would have found the detail you need."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Before we go on, do you know why Alex decided to leave the company in the end?",
+     "reply": "That's a private matter.",
+     "why": "It's natural to wonder, but it felt personal and you lost a little goodwill.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "The degree",
+   "sam": "They must have a statistics degree. Alex did.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Did Alex use advanced statistics day to day, or was it more about explaining the numbers?",
+     "reply": "Explaining, really. And come to think of it, Alex studied history.",
+     "why": "Checking a must-have against the person you're replacing often shows it was never what mattered.",
+     "clue": "must"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "That's helpful to know. Should I make the statistics degree a firm requirement for everyone I put forward?",
+     "reply": "Yes, good.",
+     "why": "Agreeing narrows the search on a guess about what made Alex successful."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So the degree is really what made Alex so good, in your view?",
+     "reply": "Probably, yes.",
+     "why": "A leading question gave the wrong reason a yes, and now it shapes the search."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b3",
+   "label": "Working together",
+   "sam": "They'll mostly work on their own, the way Alex did.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Who will they work with most closely, and how do those people like to get information?",
+     "reply": "The buyers. They want a short, plain summary every Monday, not a big report.",
+     "why": "Asking who the analyst serves tells you which skills matter most, which here is clear, simple communication."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Do you prefer someone who works independently, then?",
+     "reply": "I suppose I do.",
+     "why": "It's a fair question, but it builds a filter around a working style instead of the job."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Should I look for someone who prefers to keep to themselves, like Alex?",
+     "reply": "Yes, that suits us.",
+     "why": "Screening on personality rather than skills shuts out good people and misses what the buyers actually need."
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "label": "The pay",
+   "sam": "Same pay as Alex had, I'd say.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Is Alex's range still current, or has it moved since they joined?",
+     "reply": "$80,000 to $92,000. HR updated it this year.",
+     "why": "Old pay can be out of date. Checking keeps the search realistic and fair.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I use Alex's salary as the target, then?",
+     "reply": "Yes, that's fine.",
+     "why": "You don't actually know what Alex earned, so you still can't tell who's affordable."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think Alex might have been underpaid, and that's why they left?",
+     "reply": "That's not really your call.",
+     "why": "Guessing about a former employee's pay sounds like criticism of the company, and it costs you goodwill for no benefit.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b5",
+   "label": "Office days",
+   "sam": "They'll be in the office two days a week, with the buyers.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "Two days alongside the buyers makes sense. What happens on those days, so I can describe it to candidates?",
+     "reply": "The Monday buying meeting, mostly. The analyst's numbers drive the whole discussion.",
+     "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Could it be one day a week for the right person?",
+     "reply": "Two works better for the team.",
+     "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most analysts I talk to want to be fully remote. Could we drop the office days?",
+     "reply": "This one needs to be with the buyers.",
+     "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "label": "Dashboards",
+   "sam": "They'll mostly build dashboards.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What decisions do those dashboards help the buyers make?",
+     "reply": "What to reorder, and what to stop selling.",
+     "why": "Asking what a task is for shows you the real job, and the real job is what you'll screen for."
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I focus on people with strong dashboard skills and experience with the tools you use?",
+     "reply": "Yes, that's right.",
+     "why": "Agreeing describes a tool, not the job the tool is meant to do."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Aren't dashboards the easy part of an analyst's job?",
+     "reply": "Then this should be easy.",
+     "why": "Downplaying the manager's words starts a debate instead of a conversation, and you learn nothing about the decisions behind the work.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Honestly, it's a pretty standard analyst job.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great analyst want this job over the others they'll see?",
+     "reply": "Their advice goes straight into what we sell, and they see the results within weeks.",
+     "why": "Asking what makes the job attractive gives you the pitch for the right person.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I keep the job description simple and standard, then?",
+     "reply": "Right.",
+     "why": "You'd miss what makes this job different, and that's what attracts strong people."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think a strong analyst would see it as standard?",
+     "reply": "Probably.",
+     "why": "Questioning the manager rarely changes their view. Asking what makes the job appealing gives you something you can actually use.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "alex",
+   "must",
+   "pitch"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "avery",
+   "name": "Avery",
+   "job": "Analyst at a clothing retailer",
+   "facts": [
+    "Wrote a weekly reorder report for buyers",
+    "Buyers changed orders based on it",
+    "Explains numbers in plain words"
+   ],
+   "ask": "$88,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Wrote a weekly report that changed what buyers ordered, in plain words. That's what made Alex great, and it fits the range."
+   },
+   "view": {
+    "n1": "Avery does what Alex did, maybe better."
+   }
+  },
+  {
+   "id": "linden",
+   "name": "Linden",
+   "job": "Senior analyst at a grocery chain",
+   "facts": [
+    "Very strong with data",
+    "Helps buyers with stocking decisions",
+    "Interested in building the company's data systems"
+   ],
+   "ask": "$89,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Works on the right decisions, but is keen to build data systems. Wei said Alex skipped the big technical projects to help the team decide."
+   },
+   "view": {
+    "n1": "Linden would build us something impressive. We need answers on Monday."
+   },
+   "miss": "alex"
+  },
+  {
+   "id": "parker",
+   "name": "Parker",
+   "job": "Data scientist at a research lab",
+   "facts": [
+    "Statistics degree",
+    "Builds complex models",
+    "Publishes detailed research reports"
+   ],
+   "ask": "$91,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The degree matches the old ad, but Wei confirmed the job is about explaining the numbers simply, and Alex didn't need the degree."
+   },
+   "view": {
+    "n1": "Parker is Alex on paper, not in practice."
+   },
+   "miss": "must"
+  },
+  {
+   "id": "drew",
+   "name": "Drew",
+   "job": "Data scientist at a famous tech company",
+   "facts": [
+    "Built models used by millions of people",
+    "PhD in data science",
+    "Works on year-long research projects"
+   ],
+   "ask": "$92,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive resume, but built on long research projects. Here, the advice goes into what gets stocked, and results show within weeks."
+   },
+   "view": {
+    "n1": "Drew would want more time than our buyers have."
+   },
+   "miss": "pitch"
+  }
+ ],
+ "v2": true
+}

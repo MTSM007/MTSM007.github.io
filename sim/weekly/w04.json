@@ -1,0 +1,375 @@
+{
+ "id": "w04",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 4,
+ "version": "n1",
+ "title": "Product manager",
+ "manager": {
+  "name": "Marcus",
+  "title": "Head of Engineering",
+  "first": "Marcus",
+  "persona": "A clear picture already",
+  "persona_note": "Marcus knows the work deeply and already has a picture of the hire. A good recruiter respects that, then tests the one assumption that matters most."
+ },
+ "teaser": "Marcus runs engineering at a restaurant software company and already knows exactly who they want.",
+ "context": [
+  "The company makes ordering software for restaurants and has about 50 people.",
+  "This is the company's first product manager. They'll work with Marcus and six developers."
+ ],
+ "message": [
+  "We need our first product manager. I know exactly what I'm looking for.",
+  "The ad is a draft I wrote quickly. Ten minutes?"
+ ],
+ "ad": [
+  "Computer science degree required",
+  "5 or more years as a product manager",
+  "Must have worked in a restaurant",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Marcus will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to talk to restaurant owners and decide what to build next.",
+  "n2": "Someone to manage the developers' daily work.",
+  "n3": "Someone to write detailed plans for every feature."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "A clear picture",
+   "sam": "I already know exactly who I need. I just need you to find them.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That's a great place to start. What would this person get done in their first six months?",
+     "reply": "Figure out why restaurants stop using half of our features.",
+     "why": "Asking about results respects the manager's picture and tells you what actually matters.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Could you send me the profile you have in mind, and I'll start from there?",
+     "reply": "Sure, I'll send it.",
+     "why": "It's quick, but you'd be searching on a picture without knowing the goal behind it."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think it's worth testing that picture before we start?",
+     "reply": "I don't need to. I know what I need.",
+     "why": "Asking an expert to question their own view, in those words, makes them dig in.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "The real problem",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Why do you think restaurants stop using them?",
+     "reply": "We build what sounds smart to us. Nobody actually asks the owners.",
+     "why": "A follow-up on the 'why' shows you the gap the new hire has to fill.",
+     "clue": "first"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So the features are just too hard to use?",
+     "reply": "Maybe. I'm not completely sure.",
+     "why": "A leading guess gives them an easy yes or no. An open question finds the real cause."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't that something your team should have caught?",
+     "reply": "That's why I'm hiring.",
+     "why": "It sounds like blame, so the manager closes up just when you need them to open up.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "The degree",
+   "sam": "They must have a computer science degree.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Will they be writing code day to day, or deciding what the developers build?",
+     "reply": "Deciding what to build. Our developers do the coding.",
+     "why": "Asking how a requirement is used in the job often shows it isn't needed.",
+     "clue": "code"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I make the degree a firm requirement, then?",
+     "reply": "Yes, exactly.",
+     "why": "It sounds sensible for a technical team, but it narrows the search without a clear reason."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Is a degree really that important for a product manager?",
+     "reply": "It's important to me.",
+     "why": "A challenge phrased as a question still feels like a challenge, and the manager defends the requirement.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b3",
+   "label": "Industry knowledge",
+   "sam": "They should have worked in a restaurant. You can't fake that.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would that experience help them do here?",
+     "reply": "Understand how rushed the owners are. Although spending time with owners would teach them that too.",
+     "why": "Asking what a requirement stands for often turns it into a skill you can test some other way."
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I treat restaurant experience as a must-have?",
+     "reply": "Yes, I think so.",
+     "why": "That turns a nice-to-have into a hard filter, and it shrinks the search."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So would a former server be the ideal candidate?",
+     "reply": "Sure, why not?",
+     "why": "A leading question turned a loose preference into a narrow and unhelpful filter."
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "label": "Interviews",
+   "sam": "I'll run the interviews my way. I've done this a long time.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "That sounds good. Would a one-page scorecard help, so it's easy to compare everyone?",
+     "reply": "Fine. That's actually useful.",
+     "why": "Agreeing with an experienced manager, then offering something genuinely useful, builds trust without a debate."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Would you be open to a shared interview plan with the team?",
+     "reply": "I already have a plan.",
+     "why": "A fair question, but the manager heard it as a challenge. A small, helpful offer works better."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Have you found that unstructured interviews lead to good hires?",
+     "reply": "Mine do.",
+     "why": "Questioning someone's process in their own area of expertise spends goodwill quickly.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "label": "The pay",
+   "sam": "Pay is fine. Don't worry about it.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So I don't waste anyone's time, what range is approved for this role?",
+     "reply": "$120,000 to $140,000 base salary.",
+     "why": "Tying the question to saving time makes the number easy to share.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "I need a number to get started. Could you give me one now?",
+     "reply": "Fine. $120,000 to $140,000.",
+     "why": "It worked, but it cost goodwill. A question about their goal gets the same answer for free.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Is it okay if I trust you on pay and we talk about it later?",
+     "reply": "Sure, that works.",
+     "why": "Without a range, you can't tell who's affordable, and you risk losing people late."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b6",
+   "label": "Owning it all",
+   "sam": "They'll own the whole product, start to finish.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What's the first decision you'd want them to make?",
+     "reply": "Which half of our features to stop building.",
+     "why": "Asking about the first decision turns a big title into a real job you can describe to candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Can I describe it to candidates as owning the whole product?",
+     "reply": "Yes, that's right.",
+     "why": "It's true, but you've learned nothing about what they'll actually do day to day."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't that a lot for someone on day one?",
+     "reply": "This person will manage.",
+     "why": "Questioning the scope makes the manager defend the idea instead of explaining it.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Honestly, product managers mostly write tickets.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Writing tasks is part of it. What decisions would you want them to own?",
+     "reply": "I guess what we build, and in what order.",
+     "why": "Gently widening the picture from tasks to decisions shows the real job, and that's what attracts strong people.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "How many tickets would they write in a typical week?",
+     "reply": "Quite a lot.",
+     "why": "It's a question, but it keeps the job small. Asking about decisions would have gotten you further."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "So should I look for organized people who write clear tickets?",
+     "reply": "Exactly.",
+     "why": "Going along with it hides the real job, and you'd attract the wrong people."
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "first",
+   "code",
+   "pitch"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "lee",
+   "name": "Lee",
+   "job": "Product manager at a booking software company",
+   "facts": [
+    "Talks to 5 customers every week",
+    "Dropped 4 features nobody used",
+    "Usage grew 30% after the changes"
+   ],
+   "ask": "$132,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Talks to customers every week and decides what to build and what to drop. That's what Marcus needs, inside the range."
+   },
+   "view": {
+    "n1": "Lee asks the questions we've never asked."
+   }
+  },
+  {
+   "id": "bailey",
+   "name": "Bailey",
+   "job": "Product manager at a bank",
+   "facts": [
+    "Writes very detailed feature plans",
+    "Runs smooth planning meetings",
+    "Works closely with developers every day"
+   ],
+   "ask": "$130,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Strong and organized, but works mostly with developers rather than customers. Marcus said the real problem is that nobody asks the restaurant owners."
+   },
+   "view": {
+    "n1": "Bailey would keep us tidy. I need someone who brings in the owners' voice."
+   },
+   "miss": "first"
+  },
+  {
+   "id": "robin",
+   "name": "Robin",
+   "job": "Former developer, now product owner",
+   "facts": [
+    "Computer science degree",
+    "Used to work as a server",
+    "Writes code to test ideas"
+   ],
+   "ask": "$128,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The degree and restaurant job match the old ad, but Marcus confirmed the job is deciding what to build, not coding."
+   },
+   "view": {
+    "n1": "Robin looks perfect on paper. That's the trap I set for myself."
+   },
+   "miss": "code"
+  },
+  {
+   "id": "marlow",
+   "name": "Marlow",
+   "job": "Product manager at a famous tech company",
+   "facts": [
+    "Launched features used by millions of people",
+    "Delivers a roadmap set by senior leaders",
+    "Works with a large research team"
+   ],
+   "ask": "$138,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive resume, but has always delivered a roadmap someone else set. Marcus wants them to decide what gets built, and in what order."
+   },
+   "view": {
+    "n1": "Marlow follows a big plan well. I need someone to make the calls."
+   },
+   "miss": "pitch"
+  }
+ ],
+ "v2": true
+}

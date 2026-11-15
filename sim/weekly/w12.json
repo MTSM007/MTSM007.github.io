@@ -1,0 +1,376 @@
+{
+ "id": "w12",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 12,
+ "version": "n1",
+ "title": "DevOps engineer",
+ "manager": {
+  "name": "Tess",
+  "title": "Engineering Manager",
+  "first": "Tess",
+  "persona": "Hiring after a crisis",
+  "persona_note": "Tess is dealing with something that just went wrong. A good recruiter helps separate the urgent fix from the long-term job."
+ },
+ "teaser": "Tess's website crashed during exams last week. Tess needs help now.",
+ "context": [
+  "The company runs online courses and has about 100 people.",
+  "The engineer keeps the website and servers running."
+ ],
+ "message": [
+  "Our site crashed during exam week. I need a DevOps engineer, fast.",
+  "The ad was written in a hurry. Ten minutes?"
+ ],
+ "ad": [
+  "5 or more years",
+  "Must know every major cloud",
+  "On call 24/7",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Tess will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to make the website reliable before the next exam season.",
+  "n2": "Someone to build new features for students.",
+  "n3": "Someone to cut cloud costs."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "The outage",
+   "sam": "We need someone now. Our site went down right in the middle of exam week.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That sounds really stressful. What happened, and is it fixed for now?",
+     "reply": "It's patched. It broke because nobody had planned for that many students at once.",
+     "why": "Asking about the crisis first shows what the new hire really needs to prevent.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Understood. Should I start today and send you whoever is available fastest?",
+     "reply": "Yes, please.",
+     "why": "Speed helps, but you'd be hiring for this week's emergency rather than the job itself."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't rushing a hire after an outage how teams end up with more problems?",
+     "reply": "I don't have time for that.",
+     "why": "There's truth in it, but said this way it sounds like a lecture during a stressful week.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "Next time",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would need to be in place so it doesn't happen next exam season?",
+     "reply": "Testing the site under heavy load, and planning ahead for busy weeks.",
+     "why": "A follow-up on prevention turns a crisis into the real, long-term job.",
+     "clue": "fire"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So is it mainly a question of adding more servers before the next busy season?",
+     "reply": "It's more than that.",
+     "why": "A leading guess missed the real need and got a short answer."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Why wasn't that planning done before exam week?",
+     "reply": "We had nobody to do it.",
+     "why": "It sounds like blame, and the manager closes up just when you need them to open up.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "On call",
+   "sam": "They'll be on call all the time.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Constant on-call can make this hard to fill. Could it be shared across the team?",
+     "reply": "We could rotate it between three people, I suppose.",
+     "why": "Raising the risk gently, as a question, often leads to a more realistic and attractive job.",
+     "clue": "oncall"
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "How often does something actually break outside working hours?",
+     "reply": "Rarely, until last week.",
+     "why": "A good question, but you let 'all the time' stand, and candidates will notice."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Should I tell candidates they'll be on call around the clock?",
+     "reply": "Sure, that works.",
+     "why": "Agreeing builds burnout into the job, which drives good people away."
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "label": "Every cloud",
+   "sam": "They must know every major cloud platform.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Which cloud platforms does your team use today?",
+     "reply": "Just one, honestly.",
+     "why": "Checking a must-have against the real setup often shows it isn't needed.",
+     "clue": "must"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Got it. Should I look for people with experience across all the major platforms?",
+     "reply": "Right.",
+     "why": "It narrows the search for no reason when the team only uses one platform."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So the more platforms someone knows, the better?",
+     "reply": "I guess so.",
+     "why": "A leading question locked in a filter that doesn't fit the job."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b4",
+   "label": "Start date",
+   "sam": "I'd like them to start within two weeks.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "I can work with that urgency. Would you be open to a short process so we can move quickly?",
+     "reply": "Yes, absolutely.",
+     "why": "Agreeing to the urgency, with a practical plan, builds trust and keeps things moving."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Is two weeks a firm date, or is there some flexibility?",
+     "reply": "It's firm.",
+     "why": "It's a fair check, but it can sound like doubt during a stressful week."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most good engineers need to give notice. Isn't two weeks a bit unrealistic?",
+     "reply": "Then find someone who's available.",
+     "why": "There's truth in it, but pushing back makes the manager dig in on the date.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "label": "The pay",
+   "sam": "We'll pay whatever it takes.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "That's great to hear. What range is approved today, so I know where to aim?",
+     "reply": "$130,000 to $150,000.",
+     "why": "Even 'whatever it takes' has a number. Asking kindly gets it.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "That's helpful, but I'll need an actual range. What's been approved?",
+     "reply": "Fine. $130,000 to $150,000.",
+     "why": "It worked, but it cost goodwill. A friendly question gets the same answer.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Wonderful. Shall I tell candidates pay is open?",
+     "reply": "Sure, that works.",
+     "why": "Without a range, you can't tell which candidates the manager can actually afford."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b6",
+   "label": "Remote",
+   "sam": "Remote is completely fine for this role.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "That widens the search a lot. Can I lead with that when I reach out to people?",
+     "reply": "Yes, please.",
+     "why": "A quick yes on a real perk gives you a strong selling point."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Will there be any travel or in-person days at all?",
+     "reply": "No.",
+     "why": "It's fair to ask, but it doesn't change the search much."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Wouldn't having someone in the office help during the next outage?",
+     "reply": "Not for us.",
+     "why": "Pushing back on something that's already fine spends goodwill for nothing.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "The real job",
+   "sam": "Honestly, they'll just keep the servers running.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Once things are stable, what would you want them to work on?",
+     "reply": "Preparing us to grow without crashing again.",
+     "why": "Asking about the long-term job finds the pitch, and it's far more appealing than firefighting.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "So should I describe it as a role keeping things stable?",
+     "reply": "Right.",
+     "why": "That makes the job sound like firefighting forever, which puts off strong engineers."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't there a lot more to the job than that?",
+     "reply": "Is there?",
+     "why": "Questioning the manager's description rarely changes it. Asking about the future does.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "fire",
+   "oncall",
+   "must"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "jordan",
+   "name": "Jordan",
+   "job": "DevOps engineer at a ticket-selling site",
+   "facts": [
+    "Prepared a site for huge sale days",
+    "Runs load tests before busy seasons",
+    "Shares on-call with a small team"
+   ],
+   "ask": "$142,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Prepares busy sites for peak days and shares on-call. That's the long-term job Tess needs, inside the range."
+   },
+   "view": {
+    "n1": "Jordan would keep exam week boring. In a good way."
+   }
+  },
+  {
+   "id": "wren",
+   "name": "Wren",
+   "job": "Platform engineer at a software company",
+   "facts": [
+    "Runs load tests before big launches",
+    "Plans for growth",
+    "Works on a team without on-call duties"
+   ],
+   "ask": "$138,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Strong on preparation, but hasn't done on-call. Even shared across three people, this job needs it."
+   },
+   "view": {
+    "n1": "Wren is great, but someone has to answer when it breaks."
+   },
+   "miss": "oncall"
+  },
+  {
+   "id": "neve",
+   "name": "Neve",
+   "job": "Cloud consultant",
+   "facts": [
+    "Certified in four cloud platforms",
+    "Delivers 3-month projects for many clients",
+    "Strong at setting up new systems"
+   ],
+   "ask": "$148,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "Knowing every cloud matches the old ad, but Tess uses one, and the job is long-term reliability, not short projects."
+   },
+   "view": {
+    "n1": "Neve would be gone before exam season."
+   },
+   "miss": "must"
+  },
+  {
+   "id": "rhys",
+   "name": "Rhys",
+   "job": "Site reliability engineer at a famous streaming company",
+   "facts": [
+    "Led the response to major outages",
+    "Known for fixing problems fast under pressure",
+    "Works with a team of 30 engineers"
+   ],
+   "ask": "$149,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive record, but built on fixing outages, not preventing them. Tess said the job is testing and planning so it doesn't happen again."
+   },
+   "view": {
+    "n1": "Rhys fixes fires. I need someone who prevents them."
+   },
+   "miss": "fire"
+  }
+ ],
+ "v2": true
+}

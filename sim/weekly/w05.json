@@ -1,0 +1,376 @@
+{
+ "id": "w05",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 5,
+ "version": "n1",
+ "title": "Marketing manager",
+ "manager": {
+  "name": "Dana",
+  "title": "Founder",
+  "first": "Dana",
+  "persona": "A long wish list",
+  "persona_note": "Dana hopes one hire can solve a lot at once. A good recruiter helps narrow it to the two things that matter most."
+ },
+ "teaser": "Dana founded an accounting software company and wants one marketer who can do it all.",
+ "context": [
+  "The company sells accounting software to small businesses and has about 40 people.",
+  "This is the only marketing job. They'll report to Dana."
+ ],
+ "message": [
+  "I need a marketing manager who can do everything. We're small, so they have to.",
+  "The ad lists it all. Can we chat for 10 minutes?"
+ ],
+ "ad": [
+  "Expert in ads, social media, email, events, video and design",
+  "7 or more years",
+  "Must be a video expert",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Dana will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to get more businesses asking for a demo, mostly through email and search.",
+  "n2": "Someone to build the brand with videos.",
+  "n3": "Someone to run events and trade shows."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "The wish list",
+   "sam": "I need someone who can do it all. Ads, social media, email, events, video and design.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "If they could only do two of those really well, which two would make the biggest difference?",
+     "reply": "Getting people to book a demo. That's what pays the bills.",
+     "why": "Asking for the top two helps a long wish list turn into a real job.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "That's a big range of skills. Should I look for a true all-rounder who has done a bit of everything?",
+     "reply": "Exactly.",
+     "why": "Agreeing makes the search almost impossible. Very few people are strong at all of it."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't that more than one person can realistically do?",
+     "reply": "Then I'll find someone who can.",
+     "why": "Even if it's true, saying it this way makes the founder defend the list instead of trimming it.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "What works now",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Where do most of your demo requests come from today?",
+     "reply": "Our emails and people searching online. Almost none come from social media.",
+     "why": "A follow-up on what already works shows where the new hire should focus.",
+     "clue": "two"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "Social media must be your biggest channel, right?",
+     "reply": "No, actually.",
+     "why": "A leading guess was wrong. An open question would have found the facts."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Have you been tracking where demos come from?",
+     "reply": "Of course we have.",
+     "why": "It sounds like you're testing them, and the founder gets defensive instead of sharing what they know.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "The must-have",
+   "sam": "They must be a video expert. It's in the ad.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "How much video are you making today?",
+     "reply": "Almost none. It just sounded modern when I wrote the ad.",
+     "why": "Checking a must-have against what happens today often shows it's a wish, not a need.",
+     "clue": "must"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I put video at the top of the list, since it's so popular right now?",
+     "reply": "That's what I thought.",
+     "why": "It sounds current, but you'd be chasing a skill the job doesn't use."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So video is the top priority for this hire?",
+     "reply": "I guess it could be.",
+     "why": "A leading question turned a loose wish into a firm priority, and now it will shape the whole search."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b3",
+   "label": "Industry knowledge",
+   "sam": "They need to understand accounting. Our buyers are accountants.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would they need to explain to buyers, in plain words?",
+     "reply": "How we save them time at tax season. Our team can teach the rest.",
+     "why": "Asking how knowledge gets used narrows a big requirement down to a small one."
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I make an accounting background a requirement?",
+     "reply": "Yes, great.",
+     "why": "That adds another hard filter to an already long list, and makes the search even harder to fill."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Is it really necessary for a marketer to understand accounting when your team can explain the product?",
+     "reply": "Ours does.",
+     "why": "Challenging the requirement directly starts a debate. Asking how the knowledge gets used would have narrowed it down calmly.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "label": "Results",
+   "sam": "I want to see results in the first month.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "A clear plan in the first month makes sense. What result would matter most by month six?",
+     "reply": "Twice as many demo requests.",
+     "why": "Agreeing on a fair early goal, then asking about six months, sets a target the new hire can actually hit.",
+     "clue": "goal"
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "What kind of results are you hoping for?",
+     "reply": "More leads, faster.",
+     "why": "A good question, but you let an unrealistic timeline stand, and the new hire will feel it."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "So I can set expectations, is it okay if I tell candidates you're expecting clear results within their first month?",
+     "reply": "Perfect.",
+     "why": "Going along with it sets the new hire up to struggle, and strong candidates will notice."
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "label": "The pay",
+   "sam": "The budget is tight, so let's keep the pay sensible.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So I only bring people you can afford, what range has been approved?",
+     "reply": "$90,000 to $105,000 base salary.",
+     "why": "Tying the question to their goal makes the number easy to share.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "A tight budget can make an all-rounder hard to find. What number are we actually working with?",
+     "reply": "Fine. $90,000 to $105,000, and that's it.",
+     "why": "It's a fair point, and you got the number, but it cost goodwill.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Should I aim for the lower end of the market, then?",
+     "reply": "Great.",
+     "why": "Without a range, you can't tell who's affordable, and aiming low may lose the right person."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b6",
+   "label": "Office days",
+   "sam": "It's three days a week in the office.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "That's fair for a small team. So I can describe the role well, what usually happens on those days?",
+     "reply": "We plan campaigns together, and I work closely with marketing. Ideas move fast when we're in one room.",
+     "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Is that firm, or is there some flexibility?",
+     "reply": "It's firm.",
+     "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most marketers I talk to want to work from anywhere. Could we drop the office days?",
+     "reply": "Not here.",
+     "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Marketing is mostly just posting things online, really.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great marketer choose this job?",
+     "reply": "They'd build our marketing from scratch and see their work bring in customers.",
+     "why": "Asking what makes the job attractive gives you the story for the right candidates.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "So I should keep the description fairly simple?",
+     "reply": "Right.",
+     "why": "That makes the job sound small, which puts off the strongest people."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't there a lot more to good marketing than posting things online?",
+     "reply": "Is there?",
+     "why": "Questioning the founder's view rarely changes it. A question about the job does.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "two",
+   "must",
+   "goal"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "ellis",
+   "name": "Ellis",
+   "job": "Marketing manager at a payroll software company",
+   "facts": [
+    "Doubled demo requests in a year",
+    "Built the email program from scratch",
+    "Grew search traffic by 60%"
+   ],
+   "ask": "$102,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Doubled demo requests through email and search, which is exactly where Dana's customers come from, and it fits the range."
+   },
+   "view": {
+    "n1": "Ellis is the person who fills our calendar with demos."
+   }
+  },
+  {
+   "id": "corin",
+   "name": "Corin",
+   "job": "Marketing manager at a software company",
+   "facts": [
+    "Strong at email and search",
+    "Tripled website visits in a year",
+    "Reports on traffic growth to leadership"
+   ],
+   "ask": "$98,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Strong in the right channels, but focused on website visits. Dana's goal is twice as many demo requests."
+   },
+   "view": {
+    "n1": "Corin brings visitors. I need demos."
+   },
+   "miss": "goal"
+  },
+  {
+   "id": "shea",
+   "name": "Shea",
+   "job": "Video producer",
+   "facts": [
+    "Award-winning video work",
+    "Grew a video channel to 50,000 followers",
+    "Expert in editing and filming"
+   ],
+   "ask": "$98,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "Video matches the old ad, but Dana confirmed they barely use it."
+   },
+   "view": {
+    "n1": "Shea's amazing, but that's not what brings in our customers."
+   },
+   "miss": "must"
+  },
+  {
+   "id": "juno",
+   "name": "Juno",
+   "job": "Head of brand at a well-known app",
+   "facts": [
+    "Grew social media followers to 500,000",
+    "Won an award for a campaign that went viral",
+    "Led a rebrand for a company of 500 people"
+   ],
+   "ask": "$104,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive resume, but built on social media and brand. Dana said almost no demo requests come from social media."
+   },
+   "view": {
+    "n1": "Juno would make us famous. Our buyers find us through email and search."
+   },
+   "miss": "two"
+  }
+ ],
+ "v2": true
+}

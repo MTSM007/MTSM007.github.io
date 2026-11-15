@@ -1,0 +1,379 @@
+{
+ "id": "w02",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 2,
+ "version": "n1",
+ "title": "Software developer",
+ "manager": {
+  "name": "Noor",
+  "title": "Engineering Manager",
+  "first": "Noor",
+  "persona": "Trust in big names",
+  "persona_note": "Noor wants a safe choice, and big names can feel safe. A good recruiter turns those labels into skills you can actually check."
+ },
+ "teaser": "Noor leads a team of developers and has firm ideas about where the best ones come from.",
+ "context": [
+  "The company handles payments for small businesses and has about 70 people.",
+  "The new developer joins a team of five and reports to Noor."
+ ],
+ "message": [
+  "Hi! I need a senior developer for the team that handles our customers' payments.",
+  "The job ad is a wish list from a while ago, so take it with a grain of salt. Can we talk for 10 minutes?"
+ ],
+ "ad": [
+  "7 or more years of experience",
+  "Must know Go",
+  "Computer science degree from a top university",
+  "Competitive pay"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Noor will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to jump into a meeting. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to keep the payment system running as it grows, and fix it when it breaks.",
+  "n2": "Someone to help the junior developers grow and set standards for the team.",
+  "n3": "Someone to build a new product from scratch and get it to customers quickly."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "The timeline",
+   "sam": "I need a senior developer as soon as possible. Could you send me people from big tech companies by next week?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "I can move quickly. Before I do, what happened with the last person in this role?",
+     "reply": "We had a senior developer. It didn't work out, and they left after seven months.",
+     "why": "Asking about the last hire before agreeing to a timeline is the quickest way to learn what really matters for this search.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I start with big tech and adjust once we see who's out there?",
+     "reply": "Yes, speed matters here.",
+     "why": "It sounds efficient, but you'd be adjusting without a target, and 'big tech' is an assumption you haven't tested yet."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Is next week realistic for a senior developer, though?",
+     "reply": "That's what the last recruiter said.",
+     "why": "Questioning the deadline before you understand the need turns the conversation into a standoff.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "The last hire",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would you want the next person to do differently?",
+     "reply": "They wrote great code, but wouldn't help when the system broke at night. Our junior developers carried it.",
+     "why": "An open follow-up turns 'it didn't work out' into the real lesson, which is what you'll screen for.",
+     "clue": "lasthire"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So they just weren't technical enough?",
+     "reply": "No, they were very technical.",
+     "why": "A leading question guesses the answer, and here it guessed wrong. An open question gets the real story."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think the team supported them properly?",
+     "reply": "I think we did, yes.",
+     "why": "It might be worth knowing later, but right now it sounds like blame and puts the manager on the defensive.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "Education",
+   "sam": "And ideally they studied computer science at a top university.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would strong skills look like in the work itself, wherever someone studied?",
+     "reply": "Fair. Someone who thinks about how things can break, and designs for it.",
+     "why": "Shifting from where someone studied to what they can do gives you a standard you can test, and it keeps strong self-taught developers in the search.",
+     "clue": "skills"
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Would a degree from any good program work, or does it need to be a specific school?",
+     "reply": "Any good program would do, I suppose.",
+     "why": "It loosens the filter a little, but you're still screening on a credential instead of the skills the job needs."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Should I focus my search on the top schools, then?",
+     "reply": "Yes, perfect.",
+     "why": "Going along with it narrows the search to a credential that tells you very little about how someone will do the job."
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "label": "The must-have",
+   "sam": "They must know Go. It says so in the ad.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Did your strongest developers know Go when they joined?",
+     "reply": "Honestly, no. Most of them learned it here in a few weeks.",
+     "why": "Checking a must-have against the people who already do well often shows it's a nice-to-have, which widens your search.",
+     "clue": "go"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I put Go experience at the top of the screening list?",
+     "reply": "Yes, let's do that.",
+     "why": "It sounds reasonable, but you've narrowed the search on an assumption nobody has tested."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So Go is a deal-breaker, then?",
+     "reply": "Yes, definitely.",
+     "why": "A yes-or-no question pushed the manager to dig in, and now an untested must-have is locked in."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b4",
+   "label": "Proof",
+   "sam": "People from big tech companies just know how to build things properly.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What will they need to have done before to be successful here?",
+     "reply": "Kept a busy system running, including fixing it when it breaks, even at night.",
+     "why": "Asking what success requires moves the conversation from company names to proof you can check.",
+     "clue": "mustdo"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So big tech experience is the main thing you're looking for?",
+     "reply": "Pretty much.",
+     "why": "A closed question invites the manager to confirm the assumption, when what you really want is to test it."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Isn't big tech experience a bit overrated for a team your size?",
+     "reply": "Not by our investors.",
+     "why": "A flat challenge starts a debate you won't win in a kickoff meeting.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b5",
+   "label": "The pay",
+   "sam": "Pay is competitive. Let's not get into numbers yet.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "So I only bring you people you can actually hire, what range can you approve today?",
+     "reply": "$140,000 to $160,000 base salary. There's a bit more for the right person, but it's hard.",
+     "why": "Linking the question to finding the right people makes the number easy to share.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "push",
+     "text": "I really can't recruit without a number. Would you mind sharing one?",
+     "reply": "Fine. $140,000 to $160,000.",
+     "why": "It worked, but it cost you some goodwill. A question tied to their goal gets the same answer more smoothly.",
+     "clue": "pay",
+     "mood": -1
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Is it okay if we sort out pay later in the process?",
+     "reply": "Sure.",
+     "why": "Without a range, you can't tell which candidates you can actually afford, and late surprises lose people."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b6",
+   "label": "Office days",
+   "sam": "We'd like them in the office two days a week. Is that a problem?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "That sounds reasonable. So I can explain it to candidates, what usually happens on those two days?",
+     "reply": "Design reviews and planning. It's when our junior developers get the most help.",
+     "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Is that flexible for the right person?",
+     "reply": "Not really. The team works together on those days.",
+     "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Most developers I talk to want to be fully remote. Could we drop the office days?",
+     "reply": "No. We've been clear about that.",
+     "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Honestly, any good developer could do this job.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great developer pick this job over their other options?",
+     "reply": "They'd own the system that moves our customers' money, and decide how it grows.",
+     "why": "Asking what makes the job attractive tells you what's really different about it, and that's your pitch.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I focus on strong developers in general, then?",
+     "reply": "Exactly.",
+     "why": "It sounds sensible, but you'd miss what makes this job different, which is what attracts the right person."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Don't you think the job itself matters to good developers?",
+     "reply": "I didn't say it didn't.",
+     "why": "Questioning the manager rarely changes their mind. Asking what makes the job appealing does.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "lasthire",
+   "mustdo",
+   "go",
+   "pay"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "ari",
+   "name": "Ari",
+   "job": "Senior developer at a payments company",
+   "facts": [
+    "Leads the team that handles problems day or night",
+    "Redesigned the system so one failure can't take it down",
+    "Helped the system handle 10 times more customers"
+   ],
+   "ask": "$163,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Keeps a busy payment system running and steps up when it breaks. At $163,000 they're a little over the range, but Noor said there's a bit more for the right person."
+   },
+   "view": {
+    "n1": "Ari is worth stretching the budget for."
+   }
+  },
+  {
+   "id": "harlow",
+   "name": "Harlow",
+   "job": "Senior developer at an online bank",
+   "facts": [
+    "Rebuilt a payment service to handle 5 times more traffic",
+    "Writes careful, well-tested code",
+    "Works alongside an operations team that covers nights"
+   ],
+   "ask": "$150,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "Strong and careful, but an operations team handles problems at night. Noor's last hire didn't help when things broke at night, and that's what this job needs."
+   },
+   "view": {
+    "n1": "Harlow would leave the night problems to someone else."
+   },
+   "miss": "lasthire"
+  },
+  {
+   "id": "kendall",
+   "name": "Kendall",
+   "job": "Lead developer at a software company",
+   "facts": [
+    "Expert in Go, the language in the ad",
+    "Coached five junior developers",
+    "Set the team's rules for reviewing code"
+   ],
+   "ask": "$158,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The Go expertise matches the old ad, but Noor confirmed most of the team learned Go here in weeks. Kendall's strength is growing a team."
+   },
+   "view": {
+    "n1": "Kendall's great with people. That's not this job."
+   },
+   "miss": "go"
+  },
+  {
+   "id": "briar",
+   "name": "Briar",
+   "job": "Senior engineer at a famous global tech company",
+   "facts": [
+    "Built features used by millions of people",
+    "Computer science degree from a top university",
+    "Works on a team of 40 engineers"
+   ],
+   "ask": "$155,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive resume, but built on new features inside a huge team. Noor needs someone who keeps a busy system running and fixes it when it breaks."
+   },
+   "view": {
+    "n1": "Briar builds the shiny parts. I need someone who keeps the lights on."
+   },
+   "miss": "mustdo"
+  }
+ ],
+ "v2": true
+}

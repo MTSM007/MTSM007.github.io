@@ -122,7 +122,7 @@
     var cq = new URLSearchParams(location.search);
     var ch1 = conf.querySelector('h1'), clede = conf.querySelector('.lede');
     var list = cq.get('l');
-    if (!cq.get('e') || !cq.get('t') || (list !== 'alerts' && list !== 'updates')) {
+    if (!cq.get('e') || !cq.get('t') || (list !== 'alerts' && list !== 'updates' && list !== 'sim')) {
       ch1.textContent = 'Confirmation link incomplete';
       clede.textContent = 'Please use the full link from your email.';
     } else {
@@ -132,6 +132,8 @@
         ch1.textContent = "You're confirmed.";
         clede.textContent = list === 'alerts'
           ? "I'll email you when a role matches what you're looking for. Every email includes a link to unsubscribe."
+          : list === 'sim'
+          ? "I'll send occasional updates, like when the debrief simulation launches and other resources become available. Every email includes a link to unsubscribe."
           : "I'll let you know when new hiring resources are available. Every email includes a link to unsubscribe.";
       }).catch(function () {
         ch1.textContent = 'Something went wrong';

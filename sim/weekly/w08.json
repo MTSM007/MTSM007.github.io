@@ -1,0 +1,376 @@
+{
+ "id": "w08",
+ "mode": "quick",
+ "kind": "dialogue",
+ "week": 8,
+ "version": "n1",
+ "title": "Customer support lead",
+ "manager": {
+  "name": "Leah",
+  "title": "Head of Operations",
+  "first": "Leah",
+  "persona": "A tight budget",
+  "persona_note": "Leah is working within a real budget limit. A good recruiter shows the trade-off kindly, so Leah can choose."
+ },
+ "teaser": "Leah needs someone to lead the support team at a fitness app, on a tight budget.",
+ "context": [
+  "The company runs an app for booking fitness classes and has about 60 people.",
+  "The support team has 8 people. Most joined in the last year."
+ ],
+ "message": [
+  "I need a lead for our support team. Money is tight, so I need a good deal.",
+  "The old ad is attached. Can we talk for 10 minutes?"
+ ],
+ "ad": [
+  "Lead a team of 8",
+  "5 or more years in customer support",
+  "Must speak French",
+  "$55,000"
+ ],
+ "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Leah will share a few first thoughts about the role. Good questions help you both get it right.",
+ "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "needs": {
+  "n1": "Someone to coach a new support team and cut how long customers wait for a reply.",
+  "n2": "Someone to answer the hardest customer emails themselves.",
+  "n3": "Someone to write a library of help articles."
+ },
+ "beats": [
+  {
+   "id": "b1",
+   "label": "The budget",
+   "sam": "I need a lead for our support team, but money is tight. What can I get for $55,000?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Before we get to numbers, what happens if the team keeps going without a lead?",
+     "reply": "Replies keep getting slower. Customers are already complaining.",
+     "why": "Asking about the cost of waiting shows what the hire is worth, which helps the budget conversation later.",
+     "next": "bf"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I see who's out there at $55,000 and report back?",
+     "reply": "Great.",
+     "why": "You might find someone, but you'd skip the real conversation about what the role needs."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Honestly, do you think anyone experienced would lead a team for that?",
+     "reply": "Then what's the point of hiring you?",
+     "why": "It may be true, but saying it bluntly ends the conversation before it starts.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "bf",
+   "label": "The cost",
+   "sam": "",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "How slow are replies now, and what does that cost you?",
+     "reply": "Two days. People cancel their memberships over it.",
+     "why": "A follow-up that puts a cost on the problem gives you something solid for the budget conversation.",
+     "clue": "cost"
+    },
+    {
+     "quality": "ok",
+     "style": "leading",
+     "text": "So it sounds like a fairly small problem for now, or is it starting to affect customers?",
+     "reply": "It's already affecting customers, actually.",
+     "why": "A leading guess played the problem down and got a short answer."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "How did it get this far without someone stepping in?",
+     "reply": "We've been busy.",
+     "why": "It sounds like blame, so the manager closes up just when you need them to open up.",
+     "mood": -1
+    }
+   ],
+   "kit": true,
+   "followup": true
+  },
+  {
+   "id": "b2",
+   "label": "The trade-off",
+   "sam": "$55,000 should be plenty, right?",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Leads usually earn a bit more than that. Would you rather find a little more budget, or consider someone newer to leading?",
+     "reply": "Maybe someone newer to leading. Or I could find $10,000 more.",
+     "why": "Showing the trade-off kindly, as a question, lets the manager choose instead of feeling cornered.",
+     "clue": "pay"
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "What do other leads earn here?",
+     "reply": "About the same.",
+     "why": "A fair question, but it skips the real trade-off the manager needs to think about."
+    },
+    {
+     "quality": "poor",
+     "style": "agree",
+     "text": "Should I tell candidates the role pays $55,000?",
+     "reply": "Great.",
+     "why": "Agreeing sets up a search that's likely to struggle, and you'll be back here in a month."
+    }
+   ],
+   "kit": true,
+   "note": "Since January 2026, many Ontario employers must include the expected pay or a pay range in public job postings."
+  },
+  {
+   "id": "b3",
+   "label": "French",
+   "sam": "They must speak French. It's in the ad.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "How many customers write in French each week?",
+     "reply": "A few. And one of our agents already handles those.",
+     "why": "Checking a must-have against the real work shows French is already covered.",
+     "clue": "must"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "Should I make French a requirement for every candidate?",
+     "reply": "Sure, that works.",
+     "why": "It sounds reasonable, but it shrinks the search on a need that's already met."
+    },
+    {
+     "quality": "poor",
+     "style": "leading",
+     "text": "So French is a deal-breaker for this role?",
+     "reply": "Yes, I suppose so.",
+     "why": "A yes-or-no question pushed the manager to lock in a requirement that isn't actually needed."
+    }
+   ],
+   "kit": true
+  },
+  {
+   "id": "b4",
+   "label": "Doing both",
+   "sam": "They should answer emails and lead the team.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "Roughly how would you like their time split between coaching and answering emails?",
+     "reply": "Mostly coaching. Maybe a quarter of their time on emails.",
+     "why": "Asking about the split shows which half of the job matters most.",
+     "clue": "first"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "That makes sense for a small team. Should I look for someone who has done both jobs at the same time?",
+     "reply": "Exactly.",
+     "why": "True, but you still don't know which half matters more to the manager."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Is a lead who answers emails all day really leading?",
+     "reply": "We're a small team.",
+     "why": "Lecturing a manager about what leadership means costs goodwill and teaches them nothing new.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "label": "Hours",
+   "sam": "It's Monday to Friday, daytime hours.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "Regular hours are a real plus for candidates. Can I mention that early on?",
+     "reply": "Yes, good.",
+     "why": "A simple yes on a helpful detail builds trust and gives you a selling point."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "Is there any evening work at all, even occasionally?",
+     "reply": "No.",
+     "why": "It's fair to check, but it doesn't change the search, and it uses up time you could spend on what matters."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Don't support teams usually need evening cover?",
+     "reply": "Not ours.",
+     "why": "Pushing on a detail that's already settled wastes goodwill you'll want for the bigger questions.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "label": "Training",
+   "sam": "We'll train them on our tools.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "agree",
+     "text": "That's great. Does that mean I can consider people who haven't used your tools before?",
+     "reply": "Yes, absolutely.",
+     "why": "Agreeing to a helpful offer, and checking what it means for the search, opens up more candidates."
+    },
+    {
+     "quality": "ok",
+     "style": "question",
+     "text": "How long is the training, usually?",
+     "reply": "About a week.",
+     "why": "It's fine to ask, but it doesn't change who you'll look for, so it's not the most useful question right now."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Aren't the tools the easy part, though?",
+     "reply": "Okay.",
+     "why": "Brushing off a helpful offer makes it feel unappreciated, and you miss the chance to widen the search.",
+     "mood": -1
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "label": "Selling the role",
+   "sam": "Support is easy. It's just answering emails.",
+   "choices": [
+    {
+     "quality": "best",
+     "style": "question",
+     "text": "What would make a great lead want this job?",
+     "reply": "They'd shape a new team and see results fast.",
+     "why": "Asking what makes the job attractive gives you the pitch for the right person.",
+     "clue": "pitch"
+    },
+    {
+     "quality": "ok",
+     "style": "agree",
+     "text": "So I should keep the description simple?",
+     "reply": "Right.",
+     "why": "That makes the job sound small, which puts off the strongest people."
+    },
+    {
+     "quality": "poor",
+     "style": "push",
+     "text": "Do you think the team would describe it that way?",
+     "reply": "Probably not, no.",
+     "why": "Questioning the manager's view rarely changes it. A question about the job does.",
+     "mood": -1
+    }
+   ],
+   "kit": true
+  }
+ ],
+ "keys": {
+  "n1": [
+   "cost",
+   "first",
+   "must",
+   "pay"
+  ]
+ },
+ "candidates": [
+  {
+   "id": "remi",
+   "name": "Remi",
+   "job": "Support team lead at a delivery app",
+   "facts": [
+    "Coached a team of 7",
+    "Cut reply times from 2 days to 4 hours",
+    "Two agents promoted"
+   ],
+   "ask": "$65,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Coached a new team and cut reply times sharply. At $65,000 it's over the old budget, but Leah said there might be $10,000 more."
+   },
+   "view": {
+    "n1": "Remi is worth stretching for. Slow replies cost us more."
+   }
+  },
+  {
+   "id": "nell",
+   "name": "Nell",
+   "job": "Support team lead at a software company",
+   "facts": [
+    "Coached a team of 6",
+    "Raised customer satisfaction scores",
+    "Focuses on the quality of every reply"
+   ],
+   "ask": "$60,000",
+   "fit": {
+    "n1": "close"
+   },
+   "reason": {
+    "n1": "A good coach, but focused on quality rather than speed. Leah said slow replies are making customers cancel."
+   },
+   "view": {
+    "n1": "Nell would make us friendlier. We need faster."
+   },
+   "miss": "cost"
+  },
+  {
+   "id": "dominique",
+   "name": "Dominique",
+   "job": "Support agent at a bank",
+   "facts": [
+    "Fluent in French and English",
+    "5 years answering customer emails",
+    "Very accurate and thorough"
+   ],
+   "ask": "$55,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "French matches the old ad, but Leah confirmed it's already covered, and the job is coaching a team."
+   },
+   "view": {
+    "n1": "Dominique fits the price, not the job."
+   },
+   "miss": "must"
+  },
+  {
+   "id": "kit",
+   "name": "Kit",
+   "job": "Senior support agent at a well-known software company",
+   "facts": [
+    "Top-rated agent two years running",
+    "Looks after the company's most important customers",
+    "Known for solving the hardest problems personally"
+   ],
+   "ask": "$58,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "The most impressive record, but built on doing the work personally. Leah wants mostly coaching, with only a quarter of the time on emails."
+   },
+   "view": {
+    "n1": "Kit would answer everything personally. I need them to coach."
+   },
+   "miss": "first"
+  }
+ ],
+ "v2": true
+}
