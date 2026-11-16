@@ -114,7 +114,7 @@
       if (!wk) { screen([h('h2', { text: 'Can you pick the right hire?' }), h('p', { text: 'The challenge is on its way. Please check back soon.' })], 'Set up'); return; }
       screen([
         h('div', { 'class': 'sim-hero' }, [
-          h('p', { 'class': 'sim-eyebrow', text: 'Hiring challenge ' + n + ' of ' + NCH }),
+          h('p', { 'class': 'sim-eyebrow', text: 'Free 5-minute challenge' }),
           h('h2', { text: 'Can you pick the right hire?' }),
           h('p', { 'class': 'sim-lede', text: 'Many hires go off track in the first conversation, before anyone has asked the right questions. This is your chance to practice that conversation.' }),
           ]),
@@ -154,7 +154,7 @@
       h('h2', { text: 'What you’ll do' }),
       h('ol', { 'class': 'sim-what' }, [
         step('Read the brief.'), step('Have the conversation.'), step('Pick the hire.'), step('See how you did.')]),
-      h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', NCH + ' different challenges', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
+      h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', 'A new role each time you play', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
       last ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'You’ve played this one before.' }),
         ' Last time: best question at ' + last.good + ' of ' + last.total + ' moments, ' +
         (lastFit === 'best' ? 'and the right hire.' : lastFit === 'close' ? 'and close on the hire.' : 'and a different hire.') + ' See if you can do better.'])
@@ -867,7 +867,7 @@
     var url = 'https://www.morleytalentsolutions.com/resources/kickoff-simulator/';
     var grid = QS.log.map(function (l) { return l.quality === 'best' ? '🟩' : l.quality === 'ok' ? '🟨' : '🟥'; }).join('');
     var outcome = right ? '🎯 Right hire' : fit === 'close' ? '🤏 Close on the hire' : '❌ Missed the hire';
-    var title = 'Hiring Challenge ' + QS.week + ' of ' + NCH;
+    var title = 'Hiring Challenge: ' + Q.title;   // 11-16: no challenge number or total
     var msg = title + '\n' + grid + '\n' + outcome + '\n\nCan you pick the right hire?\n' + url;
     var said = 'Best question at ' + good + ' of ' + total + ' moments. ' + outcome.replace(/^\S+\s/, '') + '.';
     var status = h('p', { 'class': 'sim-share-st', role: 'status' });
