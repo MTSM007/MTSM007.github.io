@@ -900,3 +900,9 @@
 .sim .sim-hm strong { color: #fff; }
 .sim .sim-hm-link { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .sim .sim-hm-link:hover, .sim .sim-hm-link:focus-visible { color: #DDE9DC; }
+
+/* 11-16: hiring manager and role on "What you'll do" */
+.sim .sim-who-role { display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin: 0 0 1.2rem; padding: .9rem 1.2rem; max-width: 46rem;
+  background: #fff; border: 2px solid var(--edge); border-radius: 14px; }
+.sim .sim-who-role dt { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--forest); margin: 0; }
+.sim .sim-who-role dd { margin: .15rem 0 0; font-size: 1.1rem; font-weight: 700; color: #1A1F1A; }

@@ -153,6 +153,9 @@
     function step(a) { return h('li', {}, [h('strong', { text: a })]); }
     screen([
       h('h2', { text: 'What you’ll do' }),
+      h('dl', { 'class': 'sim-who-role' }, [   // 11-16: who you're meeting and the role, up front
+        h('div', {}, [h('dt', { text: 'Hiring manager' }), h('dd', { text: wk.who + ', ' + wk.job })]),
+        h('div', {}, [h('dt', { text: 'Role' }), h('dd', { text: wk.title })])]),
       h('ol', { 'class': 'sim-what' }, [
         step('Read the brief.'), step('Have the conversation.'), step('Pick the hire.'), step('See how you did.')]),
       h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', 'A new role each time you play', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
