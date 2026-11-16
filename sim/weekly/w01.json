@@ -293,26 +293,6 @@
  },
  "candidates": [
   {
-   "id": "riley",
-   "name": "Riley",
-   "job": "Salesperson at an HR software company",
-   "facts": [
-    "Finds about 40% of their own customers",
-    "Built their team's sales plan from scratch",
-    "Closes deals of about $45,000 in about 6 weeks"
-   ],
-   "ask": "$87,000",
-   "fit": {
-    "n1": "best"
-   },
-   "reason": {
-    "n1": "Finds their own customers, built a sales plan from scratch, and closes the size and speed of deal Sam needs. At $87,000 they're a little over the range, but Sam said there's a bit more for the right person."
-   },
-   "view": {
-    "n1": "Riley is worth stretching the budget for."
-   }
-  },
-  {
    "id": "morgan",
    "name": "Morgan",
    "job": "Salesperson at a payroll software company",
@@ -334,6 +314,26 @@
    "miss": "lasthire"
   },
   {
+   "id": "riley",
+   "name": "Riley",
+   "job": "Salesperson at an HR software company",
+   "facts": [
+    "Finds about 40% of their own customers",
+    "Built their team's sales plan from scratch",
+    "Closes deals of about $45,000 in about 6 weeks"
+   ],
+   "ask": "$87,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Finds their own customers, built a sales plan from scratch, and closes the size and speed of deal Sam needs. At $87,000 they're a little over the range, but Sam said there's a bit more for the right person."
+   },
+   "view": {
+    "n1": "Riley is worth stretching the budget for."
+   }
+  },
+  {
    "id": "jordan",
    "name": "Jordan",
    "job": "Salesperson at a supply-chain software company",
@@ -353,27 +353,6 @@
     "n1": "Jordan knows our world, but sells at a different pace."
    },
    "miss": "industry"
-  },
-  {
-   "id": "avery",
-   "name": "Avery",
-   "job": "Account executive at a well-known software company",
-   "facts": [
-    "Top seller in their region two years running",
-    "Closed a $2 million deal last year",
-    "Looks after the company's biggest accounts"
-   ],
-   "ask": "$85,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "The most impressive record, but built on huge deals that take most of a year. Sam needs quick deals of $30,000 to $80,000."
-   },
-   "view": {
-    "n1": "Avery's deals are a different world from ours."
-   },
-   "miss": "mustdo"
   }
  ],
  "v2": true

@@ -290,6 +290,27 @@
  },
  "candidates": [
   {
+   "id": "shea",
+   "name": "Shea",
+   "job": "Video producer",
+   "facts": [
+    "Award-winning video work",
+    "Grew a video channel to 50,000 followers",
+    "Expert in editing and filming"
+   ],
+   "ask": "$98,000",
+   "fit": {
+    "n1": "no"
+   },
+   "reason": {
+    "n1": "Video matches the old ad, but Dana confirmed they barely use it."
+   },
+   "view": {
+    "n1": "Shea's amazing, but that's not what brings in our customers."
+   },
+   "miss": "must"
+  },
+  {
    "id": "ellis",
    "name": "Ellis",
    "job": "Marketing manager at a payroll software company",
@@ -329,48 +350,6 @@
     "n1": "Corin brings visitors. I need demos."
    },
    "miss": "goal"
-  },
-  {
-   "id": "shea",
-   "name": "Shea",
-   "job": "Video producer",
-   "facts": [
-    "Award-winning video work",
-    "Grew a video channel to 50,000 followers",
-    "Expert in editing and filming"
-   ],
-   "ask": "$98,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "Video matches the old ad, but Dana confirmed they barely use it."
-   },
-   "view": {
-    "n1": "Shea's amazing, but that's not what brings in our customers."
-   },
-   "miss": "must"
-  },
-  {
-   "id": "juno",
-   "name": "Juno",
-   "job": "Head of brand at a well-known app",
-   "facts": [
-    "Grew social media followers to 500,000",
-    "Won an award for a campaign that went viral",
-    "Led a rebrand for a company of 500 people"
-   ],
-   "ask": "$104,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "The most impressive resume, but built on social media and brand. Dana said almost no demo requests come from social media."
-   },
-   "view": {
-    "n1": "Juno would make us famous. Our buyers find us through email and search."
-   },
-   "miss": "two"
   }
  ],
  "v2": true

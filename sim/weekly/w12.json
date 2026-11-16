@@ -290,24 +290,25 @@
  },
  "candidates": [
   {
-   "id": "jordan",
-   "name": "Jordan",
-   "job": "DevOps engineer at a ticket-selling site",
+   "id": "neve",
+   "name": "Neve",
+   "job": "Cloud consultant",
    "facts": [
-    "Prepared a site for huge sale days",
-    "Runs load tests before busy seasons",
-    "Shares on-call with a small team"
+    "Certified in four cloud platforms",
+    "Delivers 3-month projects for many clients",
+    "Strong at setting up new systems"
    ],
-   "ask": "$142,000",
+   "ask": "$148,000",
    "fit": {
-    "n1": "best"
+    "n1": "no"
    },
    "reason": {
-    "n1": "Prepares busy sites for peak days and shares on-call. That's the long-term job Tess needs, inside the range."
+    "n1": "Knowing every cloud matches the old ad, but Tess uses one, and the job is long-term reliability, not short projects."
    },
    "view": {
-    "n1": "Jordan would keep exam week boring. In a good way."
-   }
+    "n1": "Neve would be gone before exam season."
+   },
+   "miss": "must"
   },
   {
    "id": "wren",
@@ -331,46 +332,24 @@
    "miss": "oncall"
   },
   {
-   "id": "neve",
-   "name": "Neve",
-   "job": "Cloud consultant",
+   "id": "jordan",
+   "name": "Jordan",
+   "job": "DevOps engineer at a ticket-selling site",
    "facts": [
-    "Certified in four cloud platforms",
-    "Delivers 3-month projects for many clients",
-    "Strong at setting up new systems"
+    "Prepared a site for huge sale days",
+    "Runs load tests before busy seasons",
+    "Shares on-call with a small team"
    ],
-   "ask": "$148,000",
+   "ask": "$142,000",
    "fit": {
-    "n1": "no"
+    "n1": "best"
    },
    "reason": {
-    "n1": "Knowing every cloud matches the old ad, but Tess uses one, and the job is long-term reliability, not short projects."
+    "n1": "Prepares busy sites for peak days and shares on-call. That's the long-term job Tess needs, inside the range."
    },
    "view": {
-    "n1": "Neve would be gone before exam season."
-   },
-   "miss": "must"
-  },
-  {
-   "id": "rhys",
-   "name": "Rhys",
-   "job": "Site reliability engineer at a famous streaming company",
-   "facts": [
-    "Led the response to major outages",
-    "Known for fixing problems fast under pressure",
-    "Works with a team of 30 engineers"
-   ],
-   "ask": "$149,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "The most impressive record, but built on fixing outages, not preventing them. Tess said the job is testing and planning so it doesn't happen again."
-   },
-   "view": {
-    "n1": "Rhys fixes fires. I need someone who prevents them."
-   },
-   "miss": "fire"
+    "n1": "Jordan would keep exam week boring. In a good way."
+   }
   }
  ],
  "v2": true

@@ -311,27 +311,6 @@
    }
   },
   {
-   "id": "reese",
-   "name": "Reese",
-   "job": "Customer success manager at an HR software company",
-   "facts": [
-    "Looks after 22 large customers",
-    "Strong renewal negotiator",
-    "Focuses on customers around renewal time"
-   ],
-   "ask": "$92,000",
-   "fit": {
-    "n1": "close"
-   },
-   "reason": {
-    "n1": "Handles big accounts well, but focuses on them around renewal time. Priya said that's exactly why big customers are leaving."
-   },
-   "view": {
-    "n1": "Reese would call our customers once a year. That's our problem now."
-   },
-   "miss": "why"
-  },
-  {
    "id": "casey",
    "name": "Casey",
    "job": "Account manager at a phone company",
@@ -353,25 +332,25 @@
    "miss": "must"
   },
   {
-   "id": "tobi",
-   "name": "Tobi",
-   "job": "Customer success director at a well-known software company",
+   "id": "reese",
+   "name": "Reese",
+   "job": "Customer success manager at an HR software company",
    "facts": [
-    "Leads a team of 12 customer success managers",
-    "Renewal rate of 98%",
-    "Presents to the company's leadership every quarter"
+    "Looks after 22 large customers",
+    "Strong renewal negotiator",
+    "Focuses on customers around renewal time"
    ],
-   "ask": "$98,000",
+   "ask": "$92,000",
    "fit": {
-    "n1": "no"
+    "n1": "close"
    },
    "reason": {
-    "n1": "The most impressive resume, but the job is hands-on: visiting 25 big customers and spotting trouble early. Tobi has been leading a team, not doing that work."
+    "n1": "Handles big accounts well, but focuses on them around renewal time. Priya said that's exactly why big customers are leaving."
    },
    "view": {
-    "n1": "Tobi would want a team to lead. I need someone in the room with customers."
+    "n1": "Reese would call our customers once a year. That's our problem now."
    },
-   "miss": "first"
+   "miss": "why"
   }
  ],
  "v2": true

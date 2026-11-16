@@ -289,26 +289,6 @@
  },
  "candidates": [
   {
-   "id": "lee",
-   "name": "Lee",
-   "job": "Product manager at a booking software company",
-   "facts": [
-    "Talks to 5 customers every week",
-    "Dropped 4 features nobody used",
-    "Usage grew 30% after the changes"
-   ],
-   "ask": "$132,000",
-   "fit": {
-    "n1": "best"
-   },
-   "reason": {
-    "n1": "Talks to customers every week and decides what to build and what to drop. That's what Marcus needs, inside the range."
-   },
-   "view": {
-    "n1": "Lee asks the questions we've never asked."
-   }
-  },
-  {
    "id": "bailey",
    "name": "Bailey",
    "job": "Product manager at a bank",
@@ -351,25 +331,24 @@
    "miss": "code"
   },
   {
-   "id": "marlow",
-   "name": "Marlow",
-   "job": "Product manager at a famous tech company",
+   "id": "lee",
+   "name": "Lee",
+   "job": "Product manager at a booking software company",
    "facts": [
-    "Launched features used by millions of people",
-    "Delivers a roadmap set by senior leaders",
-    "Works with a large research team"
+    "Talks to 5 customers every week",
+    "Dropped 4 features nobody used",
+    "Usage grew 30% after the changes"
    ],
-   "ask": "$138,000",
+   "ask": "$132,000",
    "fit": {
-    "n1": "no"
+    "n1": "best"
    },
    "reason": {
-    "n1": "The most impressive resume, but has always delivered a roadmap someone else set. Marcus wants them to decide what gets built, and in what order."
+    "n1": "Talks to customers every week and decides what to build and what to drop. That's what Marcus needs, inside the range."
    },
    "view": {
-    "n1": "Marlow follows a big plan well. I need someone to make the calls."
-   },
-   "miss": "pitch"
+    "n1": "Lee asks the questions we've never asked."
+   }
   }
  ],
  "v2": true

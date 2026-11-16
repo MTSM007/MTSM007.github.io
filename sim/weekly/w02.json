@@ -293,24 +293,25 @@
  },
  "candidates": [
   {
-   "id": "ari",
-   "name": "Ari",
-   "job": "Senior developer at a payments company",
+   "id": "kendall",
+   "name": "Kendall",
+   "job": "Lead developer at a software company",
    "facts": [
-    "Leads the team that handles problems day or night",
-    "Redesigned the system so one failure can't take it down",
-    "Helped the system handle 10 times more customers"
+    "Expert in Go, the language in the ad",
+    "Coached five junior developers",
+    "Set the team's rules for reviewing code"
    ],
-   "ask": "$163,000",
+   "ask": "$158,000",
    "fit": {
-    "n1": "best"
+    "n1": "no"
    },
    "reason": {
-    "n1": "Keeps a busy payment system running and steps up when it breaks. At $163,000 they're a little over the range, but Noor said there's a bit more for the right person."
+    "n1": "The Go expertise matches the old ad, but Noor confirmed most of the team learned Go here in weeks. Kendall's strength is growing a team."
    },
    "view": {
-    "n1": "Ari is worth stretching the budget for."
-   }
+    "n1": "Kendall's great with people. That's not this job."
+   },
+   "miss": "go"
   },
   {
    "id": "harlow",
@@ -334,46 +335,24 @@
    "miss": "lasthire"
   },
   {
-   "id": "kendall",
-   "name": "Kendall",
-   "job": "Lead developer at a software company",
+   "id": "ari",
+   "name": "Ari",
+   "job": "Senior developer at a payments company",
    "facts": [
-    "Expert in Go, the language in the ad",
-    "Coached five junior developers",
-    "Set the team's rules for reviewing code"
+    "Leads the team that handles problems day or night",
+    "Redesigned the system so one failure can't take it down",
+    "Helped the system handle 10 times more customers"
    ],
-   "ask": "$158,000",
+   "ask": "$163,000",
    "fit": {
-    "n1": "no"
+    "n1": "best"
    },
    "reason": {
-    "n1": "The Go expertise matches the old ad, but Noor confirmed most of the team learned Go here in weeks. Kendall's strength is growing a team."
+    "n1": "Keeps a busy payment system running and steps up when it breaks. At $163,000 they're a little over the range, but Noor said there's a bit more for the right person."
    },
    "view": {
-    "n1": "Kendall's great with people. That's not this job."
-   },
-   "miss": "go"
-  },
-  {
-   "id": "briar",
-   "name": "Briar",
-   "job": "Senior engineer at a famous global tech company",
-   "facts": [
-    "Built features used by millions of people",
-    "Computer science degree from a top university",
-    "Works on a team of 40 engineers"
-   ],
-   "ask": "$155,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "The most impressive resume, but built on new features inside a huge team. Noor needs someone who keeps a busy system running and fixes it when it breaks."
-   },
-   "view": {
-    "n1": "Briar builds the shiny parts. I need someone who keeps the lights on."
-   },
-   "miss": "mustdo"
+    "n1": "Ari is worth stretching the budget for."
+   }
   }
  ],
  "v2": true

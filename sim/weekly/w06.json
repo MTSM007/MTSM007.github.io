@@ -348,27 +348,6 @@
     "n1": "Parker is Alex on paper, not in practice."
    },
    "miss": "must"
-  },
-  {
-   "id": "drew",
-   "name": "Drew",
-   "job": "Data scientist at a famous tech company",
-   "facts": [
-    "Built models used by millions of people",
-    "PhD in data science",
-    "Works on year-long research projects"
-   ],
-   "ask": "$92,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "The most impressive resume, but built on long research projects. Here, the advice goes into what gets stocked, and results show within weeks."
-   },
-   "view": {
-    "n1": "Drew would want more time than our buyers have."
-   },
-   "miss": "pitch"
   }
  ],
  "v2": true

@@ -861,7 +861,7 @@
       h('h2', { text: 'Who is the best fit?' }),
       h('p', { 'class': 'sim-yourline' }, [h('strong', { text: 'You said ' + Q.manager.first + ' needs: ' }), Q.needs[QS.need] + ' ',
         h('button', { type: 'button', 'class': 'sim-linkbtn', on: { click: qNeed }, text: 'Change' })]),
-      h('div', { 'class': 'sim-grid' }, [
+      h('div', { 'class': 'sim-grid sim-grid-pick' }, [
         h('div', { 'class': 'sim-qcards' }, Q.candidates.map(function (c) {
           return qCard(c, h('button', { type: 'button', 'class': 'btn btn-primary sim-choosebtn', 'data-k': 'pick-' + c.id,
             on: { click: function () { QS.pick = c.id; qResult(); } }, text: 'Choose ' + c.name }));

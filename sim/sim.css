@@ -885,3 +885,8 @@
 @media (max-width: 640px) { .sim .sim-bfacts { grid-template-columns: 1fr; gap: 1.1rem; } }
 .sim .sim-bhow { background: #F1F6F0; border: 2px solid #BCD3BA; }
 .sim .sim-bhow ol li::marker { font-weight: 700; color: var(--forest); }
+
+/* 11-16: three candidates sit side by side across the full width; your notes go underneath */
+.sim .sim-grid.sim-grid-pick { grid-template-columns: 1fr; }
+.sim .sim-grid-pick .sim-qcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 880px) { .sim .sim-grid-pick .sim-qcards { grid-template-columns: 1fr; } }

@@ -290,26 +290,6 @@
  },
  "candidates": [
   {
-   "id": "kim",
-   "name": "Kim",
-   "job": "Recruiter at a hospital",
-   "facts": [
-    "Hired 40 nurses last year",
-    "Calls nurses directly",
-    "Cut time to fill from 4 months to 6 weeks"
-   ],
-   "ask": "$76,000",
-   "fit": {
-    "n1": "best"
-   },
-   "reason": {
-    "n1": "Hires nurses fast by reaching out directly, which is the clinics' biggest pain."
-   },
-   "view": {
-    "n1": "Kim would empty our open jobs list."
-   }
-  },
-  {
    "id": "darcy",
    "name": "Darcy",
    "job": "Recruiter at a staffing agency",
@@ -331,27 +311,6 @@
    "miss": "direct"
   },
   {
-   "id": "lane",
-   "name": "Lane",
-   "job": "Recruiter at a tech company",
-   "facts": [
-    "Expert in the hiring software",
-    "Hired 50 office staff last year",
-    "Fast at screening applicants"
-   ],
-   "ask": "$74,000",
-   "fit": {
-    "n1": "no"
-   },
-   "reason": {
-    "n1": "Knowing the software matches the old ad, but it's new to everyone, and Lane hasn't hired nurses."
-   },
-   "view": {
-    "n1": "Lane knows the system, not the people we need."
-   },
-   "miss": "must"
-  },
-  {
    "id": "jesse",
    "name": "Jesse",
    "job": "HR coordinator",
@@ -371,6 +330,26 @@
     "n1": "Jesse could grow into it. Not yet."
    },
    "miss": "hard"
+  },
+  {
+   "id": "kim",
+   "name": "Kim",
+   "job": "Recruiter at a hospital",
+   "facts": [
+    "Hired 40 nurses last year",
+    "Calls nurses directly",
+    "Cut time to fill from 4 months to 6 weeks"
+   ],
+   "ask": "$76,000",
+   "fit": {
+    "n1": "best"
+   },
+   "reason": {
+    "n1": "Hires nurses fast by reaching out directly, which is the clinics' biggest pain."
+   },
+   "view": {
+    "n1": "Kim would empty our open jobs list."
+   }
   }
  ],
  "v2": true

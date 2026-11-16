@@ -311,27 +311,6 @@
    }
   },
   {
-   "id": "tegan",
-   "name": "Tegan",
-   "job": "Store manager at a bookshop",
-   "facts": [
-    "Low staff turnover",
-    "Strong sales",
-    "Hires experienced staff who need little training"
-   ],
-   "ask": "$61,000",
-   "fit": {
-    "n1": "close"
-   },
-   "reason": {
-    "n1": "Keeps a steady team, but hires experienced people. Hana said the store needs someone who can train brand-new staff."
-   },
-   "view": {
-    "n1": "Tegan's team comes ready-made. Ours won't."
-   },
-   "miss": "train"
-  },
-  {
    "id": "alex",
    "name": "Alex",
    "job": "Store supervisor",
@@ -353,25 +332,25 @@
    "miss": "good"
   },
   {
-   "id": "jules",
-   "name": "Jules",
-   "job": "Assistant manager at a sports store",
+   "id": "tegan",
+   "name": "Tegan",
+   "job": "Store manager at a bookshop",
    "facts": [
-    "Top sales in the region",
-    "Won the company's sales award twice",
-    "Hired 12 new staff this year"
+    "Low staff turnover",
+    "Strong sales",
+    "Hires experienced staff who need little training"
    ],
-   "ask": "$63,000",
+   "ask": "$61,000",
    "fit": {
-    "n1": "no"
+    "n1": "close"
    },
    "reason": {
-    "n1": "The most impressive sales record, but hiring 12 people in a year points to a team that keeps leaving. Hana said keeping staff is the real problem."
+    "n1": "Keeps a steady team, but hires experienced people. Hana said the store needs someone who can train brand-new staff."
    },
    "view": {
-    "n1": "Jules sells. I need someone who keeps people."
+    "n1": "Tegan's team comes ready-made. Ours won't."
    },
-   "miss": "staff"
+   "miss": "train"
   }
  ],
  "v2": true
