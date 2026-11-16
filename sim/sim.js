@@ -112,7 +112,6 @@
       var n = weekNo(), wk = weekEntry(n), rec = loadRec(), done = rec.done || 0, last = rec.results && rec.results[n];
       var lastFit = last ? (last.fit || (last.right ? 'best' : 'no')) : null;
       if (!wk) { screen([h('h2', { text: 'Can you pick the right hire?' }), h('p', { text: 'The challenge is on its way. Please check back soon.' })], 'Set up'); return; }
-      function step(a, b) { return h('li', {}, [h('strong', { text: a }), ' ' + b]); }
       screen([
         h('div', { 'class': 'sim-hero' }, [
           h('p', { 'class': 'sim-eyebrow', text: 'Hiring challenge ' + n + ' of ' + NCH }),
@@ -123,20 +122,8 @@
               h('p', { 'class': 'sim-tw-name' }, [h('strong', { text: wk.who }), ', ' + wk.job]),
               h('p', { text: wk.teaser }),
               h('p', { 'class': 'sim-tw-role' }, [h('strong', { text: 'The role: ' }), wk.title])])])]),
-        h('h3', { text: 'What you’ll do' }),
-        h('ol', { 'class': 'sim-what' }, [
-          step('Read the brief.', 'A short note from ' + wk.who + ' and the old job ad.'),
-          step('Have the conversation.', wk.who + ' shares their first thoughts about the role, one at a time. Each time, choose the question you’d ask next. ' + wk.who + ' reacts to how you ask it.'),
-          step('Pick the hire.', 'Decide what ' + wk.who + ' really needs, then choose from 4 candidates.'),
-          step('See how you did.', 'Find out which questions work best and why. Then try the next challenge, with a new role and a new hiring manager.')]),
-        h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', NCH + ' different challenges', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
-        last ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'You’ve played this one before.' }),
-          ' Last time: best question at ' + last.good + ' of ' + last.total + ' moments, ' +
-          (lastFit === 'best' ? 'and the right hire.' : lastFit === 'close' ? 'and close on the hire.' : 'and a different hire.') + ' See if you can do better.'])
-          : done ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'Challenges completed: ' + done + '.' }), ' This one is new for you.']) : null,
         FULL ? h('h3', { text: 'Choose a version' }) : null, FULL ? modes : null,
-        h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: loadQuick }, text: (last ? 'Play challenge ' : 'Start challenge ') + n + (last ? ' again' : '') })]),
-        h('p', { 'class': 'sim-hint sim-fict', text: 'Everyone in the challenge is made up.' })
+        h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: function () { renderPlan(n, wk, done, last, lastFit); } }, text: 'Continue' })])
       ], 'Set up');
       return;
     }
@@ -162,6 +149,28 @@
       ]),
       h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: load }, text: 'Continue' })])
     ], 'Set up');
+  }
+
+  // 11-16: second start page, "What you'll do"
+  function renderPlan(n, wk, done, last, lastFit) {
+    function step(a, b) { return h('li', {}, [h('strong', { text: a }), ' ' + b]); }
+    screen([
+      h('h2', { text: 'What you’ll do' }),
+      h('ol', { 'class': 'sim-what' }, [
+        step('Read the brief.', 'A short note from ' + wk.who + ' and the old job ad.'),
+        step('Have the conversation.', wk.who + ' shares their first thoughts about the role, one at a time. Each time, choose the question you’d ask next. ' + wk.who + ' reacts to how you ask it.'),
+        step('Pick the hire.', 'Decide what ' + wk.who + ' really needs, then choose from 4 candidates.'),
+        step('See how you did.', 'Find out which questions work best and why. Then try the next challenge, with a new role and a new hiring manager.')]),
+      h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', NCH + ' different challenges', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
+      last ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'You’ve played this one before.' }),
+        ' Last time: best question at ' + last.good + ' of ' + last.total + ' moments, ' +
+        (lastFit === 'best' ? 'and the right hire.' : lastFit === 'close' ? 'and close on the hire.' : 'and a different hire.') + ' See if you can do better.'])
+        : done ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'Challenges completed: ' + done + '.' }), ' This one is new for you.']) : null,
+      h('div', { 'class': 'sim-actions' }, [
+        h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: loadQuick }, text: last ? 'Play it again' : 'Start the challenge' }),
+        h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' })]),
+      h('p', { 'class': 'sim-hint sim-fict', text: 'Everyone in the challenge is made up.' })
+    ], 'Plan');
   }
 
   function load() {
@@ -870,27 +879,16 @@
     var msg = title + '\n' + grid + '\n' + outcome + '\n\nCan you pick the right hire?\n' + url;
     var said = 'Best question at ' + good + ' of ' + total + ' moments. ' + outcome.replace(/^\S+\s/, '') + '.';
     var status = h('p', { 'class': 'sim-share-st', role: 'status' });
-    var card = h('div', { 'class': 'sim-share-card' }, [
-      h('p', { 'class': 'sim-share-title', text: title }),
-      h('p', { 'class': 'sim-share-grid', role: 'img', 'aria-label': said, text: grid }),
-      h('p', { 'class': 'sim-share-out', text: outcome }),
-      h('p', { 'class': 'sim-share-ask', text: 'Can you pick the right hire?' }),
-      h('p', { 'class': 'sim-share-url', text: url.replace('https://www.', '') })]);
-    var btn = h('button', { type: 'button', 'class': 'btn btn-primary sim-share-btn', text: 'Copy to share' });
+    var fallback = h('textarea', { 'class': 'sim-share-fb', rows: '6', readonly: true, 'aria-label': 'Your result, ready to copy', hidden: true });
+    fallback.value = msg;
+    var btn = h('button', { type: 'button', 'class': 'btn btn-secondary sim-share-btn', text: 'Challenge a colleague' });
     btn.addEventListener('click', function () {
-      function selectText() { var r = document.createRange(); r.selectNodeContents(card); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+      function manual() { fallback.hidden = false; fallback.focus(); fallback.select(); status.textContent = 'Press Ctrl+C (or Cmd+C) to copy your result.'; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(msg).then(function () { status.textContent = 'Copied. Paste it into a post or a message.'; },
-          function () { selectText(); status.textContent = 'Press Ctrl+C (or Cmd+C) to copy.'; });
-      } else { selectText(); status.textContent = 'Press Ctrl+C (or Cmd+C) to copy.'; }
+        navigator.clipboard.writeText(msg).then(function () { status.textContent = 'Your result is copied, without any answers. Paste it into a post or a message.'; }, manual);
+      } else manual();
     });
-    return h('section', { 'class': 'sim-share', 'aria-labelledby': 'sim-share-h' }, [
-      h('h3', { 'class': 'sim-share-h', id: 'sim-share-h', text: 'Challenge a colleague' }),
-      h('p', { 'class': 'sim-share-intro', text: 'Share your result. It shows how you did without giving away any answers.' }),
-      card,
-      h('p', { 'class': 'sim-share-key', 'aria-hidden': 'true' }, [
-        h('span', { text: '🟩 Best question' }), h('span', { text: '🟨 Okay' }), h('span', { text: '🟥 Missed chance' })]),
-      h('div', { 'class': 'sim-share-a' }, [btn, status])]);
+    return h('div', { 'class': 'sim-share-one' }, [btn, status, fallback]);
   }
   function qResult() {
     var picked = Q.candidates.filter(function (c) { return c.id === QS.pick; })[0];
@@ -953,15 +951,13 @@
         tile('Clues found', nFound, clues.length, 'more-clues', nFound < clues.length ? 'See what you missed →' : 'See the clues →'),
         tile('Best questions', QS.log.length - toImprove, QS.log.length, 'more-moments', toImprove ? 'See better questions →' : 'See why they worked →')])]);
     var handled = h('div', { 'class': 'sim-handled' }, [
-      h('h3', { text: 'Your kickoff with ' + Q.manager.first }),
-      h('p', { 'class': 'sim-lede', text: 'You asked the best question at ' + good + ' of ' + QS.log.length + ' moments.' +
-        (QS.ended ? ' Pushing too hard ended the call early.' : '') }),
+      QS.ended ? h('p', { 'class': 'sim-ended', text: 'Pushing too hard ended the call early, so some moments never came up.' }) : null,
       doneN > 1 ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'Challenges completed: ' + doneN + '.' })]) : null,
       Q.manager.persona ? h('div', { 'class': 'sim-reveal' }, [
-        h('div', {}, [h('p', { 'class': 'sim-label', text: 'The kickoff challenge' }),
+        h('div', {}, [h('p', { 'class': 'sim-label', text: 'Type of challenge' }),
           h('p', { 'class': 'sim-reveal-h' }, [h('strong', { text: Q.manager.persona })]),
           Q.manager.persona_note ? h('p', { text: Q.manager.persona_note }) : null])]) : null]);
-    var moments = fold('Your questions, moment by moment', toImprove ? toImprove + ' to improve' : 'All best questions', [
+    var moments = fold('Your questions', toImprove ? toImprove + ' to improve' : 'All best questions', [
       h('div', { 'class': 'sim-hmcall' }, [h('p', { 'class': 'sim-hmcall-h', text: 'Hiring manager?' }),
         h('p', { text: 'These are the questions a good recruiter will ask you, and why they help you hire well.' })]),
       h('ol', { 'class': 'sim-moments' }, QS.log.map(function (l) {
@@ -984,10 +980,7 @@
     var others = Q.candidates.filter(function (c) { return c.id !== best.id && c.id !== picked.id; });
     screen([
       qSteps(3),
-      h('div', { 'class': 'sim-banner ' + fit }, [
-        h('span', { 'class': 'sim-banner-i', 'aria-hidden': 'true', text: fit === 'best' ? '✓' : fit === 'close' ? '≈' : '✕' }),
-        h('h2', { text: head }),
-        h('button', { type: 'button', 'class': 'sim-linkbtn sim-banner-next', on: { click: renderStart }, text: 'Skip to the next challenge →' })]),
+      h('h2', { text: 'Your results' }),
       h('div', { 'class': 'sim-compare' }, [
         h('div', { 'class': 'sim-need' }, [h('p', { 'class': 'sim-label', text: 'What ' + Q.manager.first + ' really needed' }), h('p', { text: Q.needs[QS.v] })]),
         h('div', { 'class': 'sim-yours' }, [h('p', { 'class': 'sim-label', text: gotNeed ? 'You got this right' : 'You thought' }),
@@ -1014,11 +1007,11 @@
             : h('p', { 'class': 'sim-clue-st miss' }, ['✕ You didn’t uncover the clue that rules ' + c.name + ' out. ', h('b', { text: 'Ask: ' }), probeFor(c.miss).ask])) : null]);
       }), 'more-others'),
       moments,
-      shareBox(good, QS.log.length, fit),
       h('p', { 'class': 'sim-hint sim-again', text: 'The next challenge has a new role and a new hiring manager.' }),
       notifyBox(),
       h('div', { 'class': 'sim-actions' }, [
         h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
+        shareBox(good, QS.log.length, fit),
         h('a', { 'class': 'btn btn-secondary', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })])
     ], 'Result');
   }

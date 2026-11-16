@@ -836,3 +836,17 @@
 .sim .sim-more.improve summary::after { color: #A86A12; }
 .sim .sim-more.improve .sim-more-x { background: #8A5309; }   /* 5.6:1 with white text */
 .sim .sim-more summary .sim-more-x { margin-left: auto; }
+
+/* 11-16: share is a single button among the result actions */
+.sim-share-one { display: contents; }
+.sim-share-one .sim-share-st { flex-basis: 100%; order: 10; margin: .2rem 0 0; font-size: .95rem; color: var(--forest); font-weight: 700; }
+.sim-share-fb { flex-basis: 100%; order: 11; width: 100%; max-width: 34rem; font: inherit; font-size: .95rem; padding: .6rem .8rem; border: 2px solid #7D8B99; border-radius: 10px; }
+/* 11-16: results clean-up */
+.sim .sim-scorecard { margin: 1.4rem 0 0; }
+.sim .sim-scorecard h3 { margin: 0 0 .7rem; }
+.sim .sim-handled { border-top: 0; padding-top: 0; margin-top: 1rem; }
+.sim .sim-handled .sim-reveal { margin: 0 0 .4rem; }
+.sim-ended { margin: 0 0 .8rem !important; font-weight: 700; color: #7A2414 !important; }
+.sim .sim-share-btn { background: #fff; color: var(--forest); border: 2px solid var(--forest); }
+.sim .sim-share-btn:hover { background: var(--forest); color: #fff; }
+.sim section.sim-scorecard, .sim section.sim-notify { padding: 0; }   /* the site gives every <section> large padding; not wanted inside the game (11-16) */
