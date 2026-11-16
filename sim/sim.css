@@ -856,3 +856,13 @@
 .sim-dig p { margin: 0 0 .8rem; }
 .sim .sim-scorecard { margin-top: .4rem; }
 .sim .sim-paper-msg { font-style: normal; }   /* 11-16: the note reads as one regular paragraph */
+
+/* 11-16: no A/B/C letters. Options read as things you could say: speech bubbles, not quiz answers */
+.sim .sim-dlg-opts { gap: .7rem; }
+.sim .sim-dlg-opt { padding: .85rem 1.1rem; border-radius: 20px 20px 20px 6px; background: #fff; border: 2px solid var(--edge);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04); transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease; }
+.sim .sim-dlg-opt::before { content: none; }
+.sim .sim-dlg-opt:hover, .sim .sim-dlg-opt:focus-visible { transform: translateY(-2px); border-color: var(--forest); background: #F1F6F0;
+  box-shadow: 0 4px 12px rgba(30,60,30,.12); }
+.sim .sim-dlg-cur { color: var(--forest); }
+@media (prefers-reduced-motion: reduce) { .sim .sim-dlg-opt { transition: none; } .sim .sim-dlg-opt:hover, .sim .sim-dlg-opt:focus-visible { transform: none; } }
