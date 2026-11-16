@@ -117,11 +117,7 @@
           h('p', { 'class': 'sim-eyebrow', text: 'Hiring challenge ' + n + ' of ' + NCH }),
           h('h2', { text: 'Can you pick the right hire?' }),
           h('p', { 'class': 'sim-lede', text: 'Many hires go off track in the first conversation, before anyone has asked the right questions. This is your chance to practice that conversation.' }),
-          h('div', { 'class': 'sim-thisweek' }, [
-            h('div', {}, [h('p', { 'class': 'sim-label', text: 'Your hiring manager' }),
-              h('p', { 'class': 'sim-tw-name' }, [h('strong', { text: wk.who }), ', ' + wk.job]),
-              h('p', { text: wk.teaser }),
-              h('p', { 'class': 'sim-tw-role' }, [h('strong', { text: 'The role: ' }), wk.title])])])]),
+          ]),
         FULL ? h('h3', { text: 'Choose a version' }) : null, FULL ? modes : null,
         h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: function () { renderPlan(n, wk, done, last, lastFit); } }, text: 'Continue' })])
       ], 'Set up');
@@ -153,14 +149,11 @@
 
   // 11-16: second start page, "What you'll do"
   function renderPlan(n, wk, done, last, lastFit) {
-    function step(a, b) { return h('li', {}, [h('strong', { text: a }), ' ' + b]); }
+    function step(a) { return h('li', {}, [h('strong', { text: a })]); }
     screen([
       h('h2', { text: 'What you’ll do' }),
       h('ol', { 'class': 'sim-what' }, [
-        step('Read the brief.', 'A short note from ' + wk.who + ' and the old job ad.'),
-        step('Have the conversation.', wk.who + ' shares their first thoughts about the role, one at a time. Each time, choose the question you’d ask next. ' + wk.who + ' reacts to how you ask it.'),
-        step('Pick the hire.', 'Decide what ' + wk.who + ' really needs, then choose from 4 candidates.'),
-        step('See how you did.', 'Find out which questions work best and why. Then try the next challenge, with a new role and a new hiring manager.')]),
+        step('Read the brief.'), step('Have the conversation.'), step('Pick the hire.'), step('See how you did.')]),
       h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', NCH + ' different challenges', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
       last ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'You’ve played this one before.' }),
         ' Last time: best question at ' + last.good + ' of ' + last.total + ' moments, ' +
