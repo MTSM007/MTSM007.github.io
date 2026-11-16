@@ -737,16 +737,22 @@
     screen([
       qSteps(0),
       h('h2', { text: 'Your brief' }),
-      h('div', { 'class': 'sim-paper' }, [
-        h('p', { 'class': 'sim-paper-meta' }, [h('strong', { text: 'From: ' }), Q.manager.first + ', ' + Q.manager.title]),
-        h('p', { 'class': 'sim-paper-meta' }, [h('strong', { text: 'About: ' }), 'Hiring a ' + (/^[A-Z][a-z]*(\s|$)/.test(Q.title) ? Q.title.charAt(0).toLowerCase() + Q.title.slice(1) : Q.title)]),
-        h('div', { 'class': 'sim-paper-msg' }, [h('p', { text: Q.message.join(' ') })]),
-        Q.context ? h('h3', { text: 'What you know' }) : null,
-        Q.context ? h('ul', {}, Q.context.map(function (m) { return h('li', { text: m }); })) : null,
-        h('h3', { text: 'The old job ad says' }),
-        h('ul', {}, Q.ad.map(function (m) { return h('li', { text: m }); })),
-        h('h3', { text: 'How it works' }),
-        h('ul', { 'class': 'sim-qhow' }, [
+      // 11-16: three separate cards instead of one long page
+      h('section', { 'class': 'sim-bcard sim-bmail', 'aria-label': 'Message from ' + Q.manager.first }, [
+        h('div', { 'class': 'sim-bmail-head' }, [
+          h('span', { 'class': 'sim-bmail-av', 'aria-hidden': 'true', text: Q.manager.first.charAt(0) }),
+          h('div', {}, [
+            h('p', { 'class': 'sim-bmail-from' }, [h('strong', { text: Q.manager.first }), ', ' + Q.manager.title]),
+            h('p', { 'class': 'sim-bmail-about', text: 'Hiring a ' + (/^[A-Z][a-z]*(\s|$)/.test(Q.title) ? Q.title.charAt(0).toLowerCase() + Q.title.slice(1) : Q.title) })])]),
+        h('div', { 'class': 'sim-bmail-body' }, Q.message.map(function (m) { return h('p', { text: m }); }))]),
+      h('section', { 'class': 'sim-bcard sim-bfacts', 'aria-label': 'Background' }, [
+        Q.context ? h('div', {}, [h('h3', { text: 'What you know' }),
+          h('ul', {}, Q.context.map(function (m) { return h('li', { text: m }); }))]) : null,
+        h('div', {}, [h('h3', { text: 'The old job ad says' }),
+          h('ul', {}, Q.ad.map(function (m) { return h('li', { text: m }); }))])]),
+      h('section', { 'class': 'sim-bcard sim-bhow', 'aria-labelledby': 'sim-bhow-h' }, [
+        h('h3', { id: 'sim-bhow-h', text: 'How it works' }),
+        h('ol', { 'class': 'sim-qhow' }, [
           h('li', { text: 'Each time, choose the question you’d ask next. Some questions open the conversation up. Others close it down or put ' + Q.manager.first + ' on the defensive, and too many of those may end the call.' }),
           h('li', { text: 'Then decide what ' + Q.manager.first + ' really needs, and pick the best of ' + Q.candidates.length + ' candidates.' })])]),
       h('div', { 'class': 'sim-actions' }, [
