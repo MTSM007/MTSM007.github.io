@@ -542,3 +542,7 @@ a.resource-card:hover { border-color: var(--green); }
 /* 11-15: tester banner on the unlisted test page */
 .test-banner { background: #22364B; color: #fff; padding: .7rem 0; }
 .test-banner p { margin: 0; color: #fff; font-size: 1rem; }
+
+/* Candidates form: "Other" role area text box (11-16) */
+.checks .area-other { grid-column: 1 / -1; flex-basis: 100%; margin-top: .3rem; }
+.area-other[hidden] { display: none; }

@@ -58,6 +58,21 @@
       group.forEach(function (c) { c.addEventListener('change', checkGroup); });
       checkGroup();
     }
+    // "Other" role area: show a text box, require it, and send "Other: <text>" as the areas value
+    var other = form.querySelector('#c-area-other');
+    var otherText = form.querySelector('#c-area-other-text');
+    if (other && otherText) {
+      var otherBox = otherText.closest('.area-other');
+      var syncOther = function () {
+        otherBox.hidden = !other.checked;
+        otherText.required = other.checked;
+        var t = otherText.value.trim().replace(/\s*,\s*/g, ' / ');
+        other.value = t ? 'Other: ' + t : 'Other';
+      };
+      other.addEventListener('change', function () { syncOther(); if (other.checked) otherText.focus(); });
+      otherText.addEventListener('input', syncOther);
+      syncOther();
+    }
     // Resource kits: choose at least one document
     var items = form.querySelectorAll('input[type="checkbox"][name="items"]');
     if (items.length) {
