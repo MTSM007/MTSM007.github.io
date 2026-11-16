@@ -855,3 +855,4 @@
 .sim-dig { margin: 1.2rem 0 .4rem; padding: 1rem 1.2rem; border: 2px solid var(--forest); border-radius: 14px; background: #F1F6F0; max-width: 46rem; }
 .sim-dig p { margin: 0 0 .8rem; }
 .sim .sim-scorecard { margin-top: .4rem; }
+.sim .sim-paper-msg { font-style: normal; }   /* 11-16: the note reads as one regular paragraph */

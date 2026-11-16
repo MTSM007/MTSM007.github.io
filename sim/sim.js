@@ -739,8 +739,8 @@
       h('h2', { text: 'Your brief' }),
       h('div', { 'class': 'sim-paper' }, [
         h('p', { 'class': 'sim-paper-meta' }, [h('strong', { text: 'From: ' }), Q.manager.first + ', ' + Q.manager.title]),
-        h('p', { 'class': 'sim-paper-meta' }, [h('strong', { text: 'About: ' }), 'Hiring a ' + Q.title.toLowerCase()]),
-        h('div', { 'class': 'sim-paper-msg' }, Q.message.map(function (m) { return h('p', { text: m }); })),
+        h('p', { 'class': 'sim-paper-meta' }, [h('strong', { text: 'About: ' }), 'Hiring a ' + (/^[A-Z][a-z]*(\s|$)/.test(Q.title) ? Q.title.charAt(0).toLowerCase() + Q.title.slice(1) : Q.title)]),
+        h('div', { 'class': 'sim-paper-msg' }, [h('p', { text: Q.message.join(' ') })]),
         Q.context ? h('h3', { text: 'What you know' }) : null,
         Q.context ? h('ul', {}, Q.context.map(function (m) { return h('li', { text: m }); })) : null,
         h('h3', { text: 'The old job ad says' }),
@@ -941,7 +941,6 @@
         tile('Best questions', QS.log.length - toImprove, QS.log.length, 'more-moments', toImprove ? 'See better questions →' : 'See why they worked →')])]);
     var handled = h('div', { 'class': 'sim-handled' }, [
       QS.ended ? h('p', { 'class': 'sim-ended', text: 'Pushing too hard ended the call early, so some moments never came up.' }) : null,
-      doneN > 1 ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'Challenges completed: ' + doneN + '.' })]) : null,
       Q.manager.persona ? h('div', { 'class': 'sim-reveal' }, [
         h('div', {}, [h('p', { 'class': 'sim-label', text: 'Type of challenge' }),
           h('p', { 'class': 'sim-reveal-h' }, [h('strong', { text: Q.manager.persona })]),
