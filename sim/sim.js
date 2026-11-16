@@ -112,6 +112,7 @@
       var n = weekNo(), wk = weekEntry(n), rec = loadRec(), done = rec.done || 0, last = rec.results && rec.results[n];
       var lastFit = last ? (last.fit || (last.right ? 'best' : 'no')) : null;
       if (!wk) { screen([h('h2', { text: 'Can you pick the right hire?' }), h('p', { text: 'The challenge is on its way. Please check back soon.' })], 'Set up'); return; }
+      if (!FULL) { renderPlan(n, wk, done, last, lastFit); return; }   // 11-16: skip the intro page, open on "What you'll do"
       screen([
         h('div', { 'class': 'sim-hero' }, [
           h('p', { 'class': 'sim-eyebrow', text: 'Free 5-minute challenge' }),
@@ -161,7 +162,7 @@
         : done ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'Challenges completed: ' + done + '.' }), ' This one is new for you.']) : null,
       h('div', { 'class': 'sim-actions' }, [
         h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: loadQuick }, text: last ? 'Play it again' : 'Start the challenge' }),
-        h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' })]),
+        FULL ? h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' }) : null]),
       h('p', { 'class': 'sim-hint sim-fict', text: 'Everyone in the challenge is made up.' })
     ], 'Plan');
   }
