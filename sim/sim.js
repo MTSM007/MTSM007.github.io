@@ -899,7 +899,12 @@
       h('div', { 'class': 'sim-vhead' }, [h('strong', { text: picked.name }), h('span', { 'class': 'sim-tag you', text: 'Your pick' }),
         h('span', { 'class': 'sim-tag ' + (fit === 'close' ? 'k-ok' : 'k-poor'), text: fit === 'close' ? 'Close fit' : 'Not a fit' })]),
       h('p', { 'class': 'sim-reason', text: picked.reason[QS.v] }),
-      h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + picked.view[QS.v] + '”'])]);
+      h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + picked.view[QS.v] + '”']),
+      // 11-16: the core lesson stays on page 1. What you missed asking is why this pick looked right
+      picked.miss ? (QS.clues[picked.miss]
+        ? h('p', { 'class': 'sim-lesson got' }, ['You did hear the clue that rules ' + picked.name + ' out. Look back at what you learned and see how it changes the picture.'])
+        : h('p', { 'class': 'sim-lesson miss' }, [h('strong', { text: picked.name + ' looked strong because one question went unasked. ' }),
+            'You never heard the clue that rules ' + picked.name + ' out. This question would have uncovered it: ', probeFor(picked.miss).ask])) : null]);
     var gotNeed = QS.need === QS.v;
     function probeFor(clue) {   // the thoughtful question that reveals a clue (and the one before it, for follow-ups)
       var b = Q.beats.filter(function (x) { return x.choices.some(function (c) { return c.clue === clue && c.quality === 'best'; }); })[0];
@@ -1008,6 +1013,9 @@
           h('p', {}, [h('strong', { text: perfect ? 'A clean sweep.' : 'Want to see what you could do differently?' }),
             ' ' + (perfect ? 'See the clues you found and why each question worked.' : 'See the clues you found and missed, why the others weren’t the best fit, and a better question for each moment.')]),
           h('button', { type: 'button', 'class': 'btn btn-secondary', 'data-k': 'dig', on: { click: showDetails }, text: perfect ? 'See your scorecard' : 'See where you can improve' })]),
+        h('div', { 'class': 'sim-hm' }, [
+          h('p', {}, [h('strong', { text: 'Hiring for a role? ' }), 'These are the kinds of questions I ask before every search, so the right person is clear before the first candidate.']),
+          h('a', { 'class': 'sim-hm-link', href: '/start-hiring/', text: 'Talk to me about your search →' })]),
         h('p', { 'class': 'sim-hint sim-again', text: 'The next challenge has a new role and a new hiring manager.' }),
         notifyBox(),
         h('div', { 'class': 'sim-actions' }, [

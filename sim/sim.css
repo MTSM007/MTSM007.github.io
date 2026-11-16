@@ -890,3 +890,13 @@
 .sim .sim-grid.sim-grid-pick { grid-template-columns: 1fr; }
 .sim .sim-grid-pick .sim-qcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 880px) { .sim .sim-grid-pick .sim-qcards { grid-template-columns: 1fr; } }
+
+/* 11-16: the key lesson on the results page, and a short note for hiring managers */
+.sim .sim-lesson { margin: .9rem 0 0; padding: .8rem 1rem; border-radius: 10px; line-height: 1.55; }
+.sim .sim-lesson.miss { background: #FDF3E4; border-left: 4px solid #8A5309; color: #1A1F1A; }
+.sim .sim-lesson.got { background: #F1F6F0; border-left: 4px solid var(--forest); color: #1A1F1A; }
+.sim .sim-hm { max-width: 46rem; margin: 1.4rem 0 .4rem; padding: 1rem 1.2rem; border-radius: 14px; background: #22364B; }
+.sim .sim-hm p { margin: 0 0 .5rem; color: #fff; line-height: 1.55; }
+.sim .sim-hm strong { color: #fff; }
+.sim .sim-hm-link { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.sim .sim-hm-link:hover, .sim .sim-hm-link:focus-visible { color: #DDE9DC; }
