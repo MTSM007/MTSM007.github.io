@@ -150,15 +150,18 @@
 
   // 11-16: second start page, "What you'll do"
   function renderPlan(n, wk, done, last, lastFit) {
-    function step(a) { return h('li', {}, [h('strong', { text: a })]); }
+    // 11-16 redesign: a "meeting invite" card, four icon tiles, one quiet line of facts
+    var steps = [['1', 'Read the brief'], ['2', 'Have the conversation'], ['3', 'Pick the hire'], ['4', 'See how you did']];   // 11-16: numbers, no emojis on the landing page
     screen([
-      h('h2', { text: 'What you’ll do' }),
-      h('dl', { 'class': 'sim-who-role' }, [   // 11-16: who you're meeting and the role, up front
-        h('div', {}, [h('dt', { text: 'Hiring manager' }), h('dd', { text: wk.who + ', ' + wk.job })]),
-        h('div', {}, [h('dt', { text: 'Role' }), h('dd', { text: wk.title })])]),
-      h('ol', { 'class': 'sim-what' }, [
-        step('Read the brief.'), step('Have the conversation.'), step('Pick the hire.'), step('See how you did.')]),
-      h('ul', { 'class': 'sim-chips', 'aria-label': 'About this challenge' }, ['About 5 minutes', 'A new role each time you play', 'No sign-up, nothing tracked'].map(function (t) { return h('li', { text: t }); })),
+      h('div', { 'class': 'sim-invite' }, [
+        h('span', { 'class': 'sim-invite-av', 'aria-hidden': 'true', text: wk.who.charAt(0) }),
+        h('div', {}, [
+          h('p', { 'class': 'sim-invite-l', text: 'Your kickoff call' }),
+          h('h2', { 'class': 'sim-invite-h', text: 'With ' + wk.who + ', ' + wk.job }),
+          h('p', { 'class': 'sim-invite-role' }, [h('span', { text: 'Role: ' }), h('strong', { text: wk.title })])])]),
+      h('ol', { 'class': 'sim-steps4', 'aria-label': 'What you’ll do' }, steps.map(function (x) {
+        return h('li', {}, [h('span', { 'class': 'sim-steps4-i', 'aria-hidden': 'true', text: x[0] }), h('span', { 'class': 'sim-steps4-t', text: x[1] })]);
+      })),
       last ? h('p', { 'class': 'sim-streak' }, [h('strong', { text: 'You’ve played this one before.' }),
         ' Last time: best question at ' + last.good + ' of ' + last.total + ' moments, ' +
         (lastFit === 'best' ? 'and the right hire.' : lastFit === 'close' ? 'and close on the hire.' : 'and a different hire.') + ' See if you can do better.'])
@@ -166,7 +169,7 @@
       h('div', { 'class': 'sim-actions' }, [
         h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: loadQuick }, text: last ? 'Play it again' : 'Start the challenge' }),
         FULL ? h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' }) : null]),
-      h('p', { 'class': 'sim-hint sim-fict', text: 'Everyone in the challenge is made up.' })
+      h('p', { 'class': 'sim-quiet', text: 'About 5 minutes · No sign-up, nothing tracked' })
     ], 'Plan');
   }
 
@@ -734,14 +737,13 @@
   function qBeat(id) { return Q.beats.filter(function (b) { return b.id === id; })[0]; }
   function qMain() { return Q.beats.filter(function (b) { return !b.followup; }); }
   function qStart() {
-    QS.cur = qMain()[0].id; QS.mainIx = 0; QS.log = []; QS.clues = {}; QS.mood = 0; QS.ended = false; QS.last = null;
+    QS.cur = qMain()[0].id; QS.mainIx = 0; QS.log = []; QS.clues = {}; QS.mood = 0; QS.ended = false; QS.last = null; QS.newClue = false; QS.nb = {};
     qTalk();
   }
-  function qBrief() {
+  function qBrief() {   // 11-16 redesign, screen 1 of 2: just the manager's message
     screen([
       qSteps(0),
-      h('h2', { text: 'Your brief' }),
-      // 11-16: three separate cards instead of one long page
+      h('h2', { text: 'A message from ' + Q.manager.first }),
       h('section', { 'class': 'sim-bcard sim-bmail', 'aria-label': 'Message from ' + Q.manager.first }, [
         h('div', { 'class': 'sim-bmail-head' }, [
           h('span', { 'class': 'sim-bmail-av', 'aria-hidden': 'true', text: Q.manager.first.charAt(0) }),
@@ -749,20 +751,25 @@
             h('p', { 'class': 'sim-bmail-from' }, [h('strong', { text: Q.manager.first }), ', ' + Q.manager.title]),
             h('p', { 'class': 'sim-bmail-about', text: 'Hiring a ' + (/^[A-Z][a-z]*(\s|$)/.test(Q.title) ? Q.title.charAt(0).toLowerCase() + Q.title.slice(1) : Q.title) })])]),
         h('div', { 'class': 'sim-bmail-body' }, Q.message.map(function (m) { return h('p', { text: m }); }))]),
+      h('div', { 'class': 'sim-actions' }, [
+        h('button', { type: 'button', 'class': 'btn btn-primary', 'data-k': 'brief-next', on: { click: qBrief2 }, text: 'Next' }),
+        h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' })]),
+      h('p', { 'class': 'sim-quiet', text: 'Everyone in the challenge is made up.' })
+    ], 'Brief');
+  }
+  function qBrief2() {   // screen 2 of 2: what you know before the call
+    screen([
+      qSteps(0),
+      h('h2', { text: 'Before the call' }),
       h('section', { 'class': 'sim-bcard sim-bfacts', 'aria-label': 'Background' }, [
         Q.context ? h('div', {}, [h('h3', { text: 'What you know' }),
           h('ul', {}, Q.context.map(function (m) { return h('li', { text: m }); }))]) : null,
         h('div', {}, [h('h3', { text: 'The old job ad says' }),
           h('ul', {}, Q.ad.map(function (m) { return h('li', { text: m }); }))])]),
-      h('section', { 'class': 'sim-bcard sim-bhow', 'aria-labelledby': 'sim-bhow-h' }, [
-        h('h3', { id: 'sim-bhow-h', text: 'How it works' }),
-        h('ol', { 'class': 'sim-qhow' }, [
-          h('li', { text: 'Each time, choose the question you’d ask next. Some questions open the conversation up. Others close it down or put ' + Q.manager.first + ' on the defensive, and too many of those may end the call.' }),
-          h('li', { text: 'Then decide what ' + Q.manager.first + ' really needs, and pick the best of ' + Q.candidates.length + ' candidates.' })])]),
       h('div', { 'class': 'sim-actions' }, [
         h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: qStart }, text: 'Start the conversation' }),
-        h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Back' })])
-    ], 'Brief');
+        h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: qBrief }, text: 'Back' })])
+    ], 'Before the call');
   }
   function qChoose(beat, c) {
     var reply = qval(c.reply);
@@ -770,6 +777,7 @@
     QS.log.push({ beat: beat.id, label: beat.label, kit: !!beat.kit, note: beat.note || null, quality: c.quality, cost: (c.mood || 0) < 0, text: c.text, why: c.why,
       better: c.quality === 'best' ? null : bestC.text, betterWhy: c.quality === 'best' ? null : bestC.why });
     QS.mood += c.mood || 0;
+    QS.newClue = !!(c.clue && !QS.clues[c.clue]);
     if (c.clue) QS.clues[c.clue] = reply.replace(/^(Fine|Okay|Sure)[.,] /, '');   // notes keep the facts, not the tone
     QS.last = { you: c.text, reply: reply }; QS.lastStyle = c.style;
     if (QS.mood <= -2) { QS.ended = true; QS.cur = null; }
@@ -790,57 +798,72 @@
     var t = QS.ended ? Q.manager.first + ' ended the call' : QS.mood === 0 ? Q.manager.first + ' is open' : Q.manager.first + ' is getting guarded';
     return h('p', { 'class': 'sim-mood m' + (QS.ended ? 'x' : QS.mood), role: 'status' }, [h('span', { 'class': 'sim-mood-dot', 'aria-hidden': 'true' }), t]);
   }
-  function qNotes() {
+  function qNotes(page, openByDefault) {   // 11-16 redesign: notes are a small button that opens a panel
     var keys = Object.keys(QS.clues || {});
-    if (QS.notesOpen == null) QS.notesOpen = !(window.matchMedia && window.matchMedia('(max-width: 720px)').matches);
-    var box = h('details', { 'class': 'sim-notes', open: QS.notesOpen }, [
-      h('summary', {}, [h('span', { 'class': 'sim-notes-h', text: 'What you’ve learned' }), h('span', { 'class': 'sim-notes-n', text: String(keys.length) })]),
+    QS.nb = QS.nb || {};
+    var open = QS.nb[page] == null ? !!openByDefault : QS.nb[page];
+    var panel = h('div', { 'class': 'sim-nb-panel', id: 'sim-nb-panel', hidden: !open }, [
       keys.length ? h('ul', { 'class': 'sim-qnotes' }, keys.map(function (k) { return h('li', { text: QS.clues[k] }); }))
-        : h('p', { 'class': 'sim-hint', text: 'The real story shows up here when you ask good questions.' })]);
-    box.addEventListener('toggle', function () { QS.notesOpen = box.open; });
-    return box;
+        : h('p', { 'class': 'sim-hint', text: 'Nothing yet. The real story shows up here when you ask good questions.' })]);
+    var btn = h('button', { type: 'button', 'class': 'sim-nb-btn' + (QS.newClue && page === 'talk' ? ' pulse' : ''), 'data-k': 'nb-' + page,
+      'aria-expanded': open ? 'true' : 'false', 'aria-controls': 'sim-nb-panel' }, [
+      h('span', { 'aria-hidden': 'true', text: '📝 ' }), 'Notes ', h('span', { 'class': 'sim-nb-n', text: '(' + keys.length + ')' })]);
+    btn.addEventListener('click', function () {
+      var now = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', now ? 'true' : 'false'); panel.hidden = !now; QS.nb[page] = now;
+    });
+    return { btn: btn, panel: panel };
+  }
+  function qDots(at, of) {   // one progress cue for the conversation
+    var a = [];
+    for (var i = 0; i < of; i++) a.push(h('span', { 'class': 'sim-pdot' + (i < at - 1 ? ' done' : i === at - 1 ? ' now' : '') }));
+    return h('div', { 'class': 'sim-pdots' }, [h('span', { 'class': 'sim-vh', text: 'Moment ' + at + ' of ' + of }), h('span', { 'aria-hidden': 'true', 'class': 'sim-pdots-row' }, a)]);
   }
   function qTalk() {
     var beat = QS.cur ? qBeat(QS.cur) : null;
     var done = !beat;
     var main = qMain(), mi = Math.min(QS.mainIx + 1, main.length);
-    var lines = [];
     var who = Q.manager.first;
-    function turn(cls, label, text) { return h('div', { 'class': 'sim-turn ' + cls }, [h('p', { 'class': 'sim-turn-l', text: label }), h('p', { 'class': 'sim-turn-t', text: text })]); }
-    if (QS.last) { lines.push(turn('you', 'You asked', QS.last.you)); lines.push(turn('reply', who + ' replied', QS.last.reply)); }
-    if (QS.ended) lines.push(turn('now', who + ' says', Q.end_early));
-    else if (done) lines.push(turn('now', who + ' says', 'That’s everything from me. Thanks!'));
-    else if (beat.sam) lines.push(turn('now', QS.last ? who + '’s next point' : who + ' says', beat.sam));
-    var box = h('div', { 'class': 'sim-dlg', tabindex: '-1', 'data-k': 'qbox', role: 'region', 'aria-label': Q.manager.first + ' says' }, [
-      h('div', { 'class': 'sim-dlg-head' }, [qFace(),
-        h('span', { 'class': 'sim-dlg-name', text: Q.manager.first + ', ' + Q.manager.title })]),
-      h('div', { 'class': 'sim-dlg-body' }, lines)]);
+    // chat: your last question on the right, the manager's reply and next point in one bubble on the left
+    var samLines = [];
+    if (QS.last) samLines.push(h('p', { 'class': 'sim-chat-reply', text: QS.last.reply }));
+    if (QS.ended) samLines.push(h('p', { 'class': 'sim-chat-next', text: Q.end_early }));
+    else if (done) samLines.push(h('p', { 'class': 'sim-chat-next', text: 'That’s everything from me. Thanks!' }));
+    else if (beat.sam) samLines.push(h('p', { 'class': 'sim-chat-next', text: beat.sam }));
+    var moodTxt = QS.ended ? who + ' ended the call' : QS.mood === 0 ? who + ' is open' : who + ' is getting guarded';
+    var chat = h('div', { 'class': 'sim-chat', tabindex: '-1', 'data-k': 'qbox', role: 'region', 'aria-label': 'Conversation with ' + who }, [
+      QS.last ? h('div', { 'class': 'sim-chat-you' }, [h('span', { 'class': 'sim-vh', text: 'You asked: ' }), h('p', { text: QS.last.you })]) : null,
+      h('div', { 'class': 'sim-chat-sam' }, [
+        h('div', { 'class': 'sim-chat-who' }, [qFace(), h('span', { 'class': 'sim-chat-name', text: who + ', ' + Q.manager.title }),
+          h('span', { 'class': 'sim-vh', role: 'status', text: moodTxt })]),
+        h('div', { 'class': 'sim-chat-bubble' }, samLines)])]);
     var opts = null;
     if (!done) {
       var n = Q.beats.indexOf(beat), cs = beat.choices.slice(n % 3).concat(beat.choices.slice(0, n % 3));   // vary the order
-      opts = h('div', { 'class': 'sim-dlg-opts', role: 'group', 'aria-label': 'Choose your question' }, cs.map(function (c, k) {
+      opts = h('div', { 'class': 'sim-dlg-opts', role: 'group', 'aria-labelledby': 'sim-dlg-l' }, cs.map(function (c, k) {
         return h('button', { type: 'button', 'class': 'sim-dlg-opt', 'data-k': 'opt-' + k, on: { click: function () { qChoose(beat, c); } } },
           [h('span', { 'class': 'sim-dlg-cur', 'aria-hidden': 'true', text: '▶' }), c.text]);
       }));
-      opts.addEventListener('keydown', function (e) {   // arrow keys move between responses, like a game menu
+      opts.addEventListener('keydown', function (e) {   // arrow keys still move between responses
         if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
         var bs = Array.prototype.slice.call(opts.querySelectorAll('button')), at = bs.indexOf(document.activeElement);
         if (at < 0) return;
         e.preventDefault(); bs[(at + (e.key === 'ArrowDown' ? 1 : bs.length - 1)) % bs.length].focus();
       });
     }
+    var nb = qNotes('talk', false);
+    var first = !QS.last && !done;
     screen([
-      qSteps(1),
       h('h2', { 'class': 'sim-vh', text: 'Conversation with ' + Q.manager.name }),
-      h('div', { 'class': 'sim-bar' }, [
-        h('p', { 'class': 'sim-moment', text: done ? 'Conversation over' : 'Moment ' + mi + ' of ' + main.length + (beat.followup ? ' (follow-up)' : '') }),
-        qMood()]),
-      h('div', { 'class': 'sim-grid' }, [
-        h('div', {}, [box,
-          done ? h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', 'data-k': 'decide', on: { click: qNeed }, text: 'Decide' })])
-            : h('div', {}, [h('p', { 'class': 'sim-label', id: 'sim-dlg-l', text: 'What do you ask?' }), opts,
-                h('p', { 'class': 'sim-hint sim-dlg-keys', text: 'Tip: use the arrow keys to move between responses.' })])]),
-        qNotes()])
+      h('div', { 'class': 'sim-talkbar' }, [
+        done ? h('p', { 'class': 'sim-moment', text: 'Conversation over' }) : qDots(mi, main.length),
+        QS.newClue ? h('p', { 'class': 'sim-toast', role: 'status', text: '✓ New clue added to your notes' }) : null,
+        nb.btn]),
+      nb.panel,
+      first ? h('p', { 'class': 'sim-firsttip', text: 'Pick the question you’d ask. ' + who + ' reacts to how you ask it.' }) : null,
+      chat,
+      done ? h('div', { 'class': 'sim-actions' }, [h('button', { type: 'button', 'class': 'btn btn-primary', 'data-k': 'decide', on: { click: qNeed }, text: 'Decide' })])
+        : h('div', { 'class': 'sim-askwrap' }, [h('p', { 'class': 'sim-label', id: 'sim-dlg-l', text: 'What do you ask?' }), opts])
     ], 'Conversation');
     if (done) { var d = root.querySelector('[data-k="decide"]'); if (d) d.focus({ preventScroll: true }); }
   }
@@ -850,12 +873,12 @@
       qSteps(2),
       h('h2', { text: 'What does ' + Q.manager.first + ' really need?' }),
       h('p', { 'class': 'sim-lede', text: 'Pick the one that matches what you heard.' }),
-      h('div', { 'class': 'sim-grid' }, [
+      (function () { var nb = qNotes('need', true); return h('div', { 'class': 'sim-nbwrap' }, [nb.btn, nb.panel]); })(),
+      h('div', { 'class': 'sim-needwrap' }, [
         h('div', { 'class': 'sim-needs', role: 'group', 'aria-label': 'What the manager needs' }, opts.map(function (k) {
           return h('button', { type: 'button', 'class': 'sim-needopt' + (QS.need === k ? ' on' : ''), 'data-k': 'need-' + k, 'aria-pressed': QS.need === k ? 'true' : 'false',
             on: { click: function () { QS.need = k; qPick(); } }, text: Q.needs[k] });
-        })),
-        qNotes()])
+        }))])
     ], 'What ' + Q.manager.first + ' needs');
   }
   function qPick() {
@@ -864,15 +887,15 @@
       h('h2', { text: 'Who is the best fit?' }),
       h('p', { 'class': 'sim-yourline' }, [h('strong', { text: 'You said ' + Q.manager.first + ' needs: ' }), Q.needs[QS.need] + ' ',
         h('button', { type: 'button', 'class': 'sim-linkbtn', on: { click: qNeed }, text: 'Change' })]),
+      (function () { var nb = qNotes('pick', false); return h('div', { 'class': 'sim-nbwrap' }, [nb.btn, nb.panel]); })(),
       h('div', { 'class': 'sim-grid sim-grid-pick' }, [
         h('div', { 'class': 'sim-qcards' }, Q.candidates.map(function (c) {
           return qCard(c, h('button', { type: 'button', 'class': 'btn btn-primary sim-choosebtn', 'data-k': 'pick-' + c.id,
             on: { click: function () { QS.pick = c.id; qResult(); } }, text: 'Choose ' + c.name }));
-        })),
-        qNotes()])
+        }))])
     ], 'Choose a candidate');
   }
-  function shareBox(good, total, fit) {   // 11-14: a clean preview card; what you see is exactly what gets copied
+  function shareBox(good, total, fit, quiet) {   // 11-14: a clean preview card; what you see is exactly what gets copied
     var right = fit === 'best';
     var url = 'https://www.morleytalentsolutions.com/resources/kickoff-simulator/';
     var grid = QS.log.map(function (l) { return l.quality === 'best' ? '🟩' : l.quality === 'ok' ? '🟨' : '🟥'; }).join('');
@@ -883,7 +906,7 @@
     var status = h('p', { 'class': 'sim-share-st', role: 'status' });
     var fallback = h('textarea', { 'class': 'sim-share-fb', rows: '6', readonly: true, 'aria-label': 'Your result, ready to copy', hidden: true });
     fallback.value = msg;
-    var btn = h('button', { type: 'button', 'class': 'btn btn-secondary sim-share-btn', text: 'Challenge a colleague' });
+    var btn = h('button', { type: 'button', 'class': quiet ? 'sim-sublink' : 'btn btn-secondary sim-share-btn', text: 'Challenge a colleague' });
     btn.addEventListener('click', function () {
       function manual() { fallback.hidden = false; fallback.focus(); fallback.select(); status.textContent = 'Press Ctrl+C (or Cmd+C) to copy your result.'; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -955,7 +978,6 @@
         tile('Clues found', nFound, clues.length, 'more-clues', nFound < clues.length ? 'See what you missed →' : 'See the clues →'),
         tile('Best questions', QS.log.length - toImprove, QS.log.length, 'more-moments', toImprove ? 'See better questions →' : 'See why they worked →')])]);
     var handled = h('div', { 'class': 'sim-handled' }, [
-      QS.ended ? h('p', { 'class': 'sim-ended', text: 'Pushing too hard ended the call early, so some moments never came up.' }) : null,
       Q.manager.persona ? h('div', { 'class': 'sim-reveal' }, [
         h('div', {}, [h('p', { 'class': 'sim-label', text: 'Type of challenge' }),
           h('p', { 'class': 'sim-reveal-h' }, [h('strong', { text: Q.manager.persona })]),
@@ -988,6 +1010,7 @@
             c.id === picked.id ? h('span', { 'class': 'sim-tag you', text: 'Your pick' }) : null,
             h('span', { 'class': 'sim-tag ' + (f === 'close' ? 'k-ok' : 'k-poor'), text: f === 'close' ? 'Close fit' : 'Not a fit' })]),
           h('p', { 'class': 'sim-reason', text: c.reason[QS.v] }),
+          c.view ? h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + c.view[QS.v] + '”']) : null,
           c.miss ? (QS.clues[c.miss]
             ? h('p', { 'class': 'sim-clue-st got' }, ['✓ You uncovered the clue that rules ' + c.name + ' out.'])
             : h('p', { 'class': 'sim-clue-st miss' }, ['✕ You didn’t uncover the clue that rules ' + c.name + ' out. ', h('b', { text: 'Ask: ' }), probeFor(c.miss).ask])) : null]);
@@ -997,34 +1020,36 @@
         nFound < clues.length ? 'See which ones you missed, and the question that uncovers each.' : 'See the facts that pointed to the right hire.', nFound < clues.length);
     var perfect = !toImprove && nFound === clues.length;
     // 11-16: page 1 = the outcome only. Page 2 (optional) = where you can improve.
-    function showResults() {
+    function showResults() {   // 11-16 redesign: one outcome card, then one main action
+      var needLine = gotNeed
+        ? h('p', { 'class': 'sim-oc-need' }, [h('span', { 'class': 'sim-oc-l', text: 'What ' + Q.manager.first + ' really needed ✓ ' }), Q.needs[QS.v]])
+        : h('div', { 'class': 'sim-oc-need two' }, [
+            h('p', {}, [h('span', { 'class': 'sim-oc-l', text: 'What ' + Q.manager.first + ' really needed ' }), Q.needs[QS.v]]),
+            h('p', {}, [h('span', { 'class': 'sim-oc-l', text: 'You thought ' }), Q.needs[QS.need]])]);
+      var lesson = fit !== 'best' && picked.miss ? (QS.clues[picked.miss]
+        ? h('p', { 'class': 'sim-lesson got' }, ['You did hear the clue that rules ' + picked.name + ' out. Look back at your notes and see how it changes the picture.'])
+        : h('p', { 'class': 'sim-lesson miss' }, [h('strong', { text: picked.name + ' looked strong because one question went unasked. ' }),
+            'This question would have uncovered the clue that rules ' + picked.name + ' out: ', probeFor(picked.miss).ask])) : null;
       screen([
         qSteps(3),
         h('h2', { text: 'Your results' }),
-        h('div', { 'class': 'sim-compare' }, [
-          h('div', { 'class': 'sim-need' }, [h('p', { 'class': 'sim-label', text: 'What ' + Q.manager.first + ' really needed' }), h('p', { text: Q.needs[QS.v] })]),
-          h('div', { 'class': 'sim-yours' }, [h('p', { 'class': 'sim-label', text: gotNeed ? 'You got this right' : 'You thought' }),
-            h('p', { text: (gotNeed ? '✓ ' : '') + Q.needs[QS.need] })])]),
-        yourCard,
-        h('div', { 'class': 'sim-verdictcard best' }, [
-          h('div', { 'class': 'sim-vhead' }, [h('strong', { text: best.name }), h('span', { 'class': 'sim-tag best', text: 'Best fit' }),
-            picked.id === best.id ? h('span', { 'class': 'sim-tag you', text: 'Your pick' }) : null]),
-          h('p', { 'class': 'sim-reason', text: best.reason[QS.v] }),
-          h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + best.view[QS.v] + '”'])]),
-        handled,
-        h('div', { 'class': 'sim-dig' }, [
-          h('p', {}, [h('strong', { text: perfect ? 'A clean sweep.' : 'Want to see what you could do differently?' }),
-            ' ' + (perfect ? 'See the clues you found and why each question worked.' : 'See the clues you found and missed, why the others weren’t the best fit, and a better question for each moment.')]),
-          h('button', { type: 'button', 'class': 'btn btn-secondary', 'data-k': 'dig', on: { click: showDetails }, text: perfect ? 'See your scorecard' : 'See where you can improve' })]),
-        h('div', { 'class': 'sim-hm' }, [
-          h('p', {}, [h('strong', { text: 'Hiring for a role? ' }), 'These are the kinds of questions I ask before every search, so the right person is clear before the first candidate.']),
-          h('a', { 'class': 'sim-hm-link', href: '/start-hiring/', text: 'Talk to me about your search →' })]),
-        h('p', { 'class': 'sim-hint sim-again', text: 'The next challenge has a new role and a new hiring manager.' }),
-        notifyBox(),
-        h('div', { 'class': 'sim-actions' }, [
+        h('section', { 'class': 'sim-outcome ' + fit, 'aria-label': 'Your outcome' }, [
+          h('p', { 'class': 'sim-oc-h' }, fit === 'best'
+            ? [h('span', { 'class': 'sim-oc-i', 'aria-hidden': 'true', text: '🎯' }), 'You picked ' + best.name + '. That’s the best fit.']
+            : [h('span', { 'class': 'sim-oc-i', 'aria-hidden': 'true', text: fit === 'close' ? '🤏' : '✕' }), 'You picked ' + picked.name + '. The best fit was ' + best.name + '.']),
+          lesson,
+          h('p', { 'class': 'sim-oc-why' }, [h('strong', { text: 'Why ' + best.name + ': ' }), best.reason[QS.v]]),
+          needLine,
+          QS.ended ? h('p', { 'class': 'sim-ended', text: 'Pushing too hard ended the call early, so some moments never came up.' }) : null]),
+        h('div', { 'class': 'sim-actions sim-actions-main' }, [
           h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
-          shareBox(good, QS.log.length, fit),
-          h('a', { 'class': 'btn btn-secondary', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })])
+          h('button', { type: 'button', 'class': 'btn btn-secondary', 'data-k': 'dig', on: { click: showDetails }, text: perfect ? 'See your scorecard' : 'See where you can improve' })]),
+        h('div', { 'class': 'sim-sublinks' }, [
+          shareBox(good, QS.log.length, fit, true),
+          h('a', { 'class': 'sim-sublink', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })]),
+        notifyBox(),
+        h('p', { 'class': 'sim-hmline' }, [h('strong', { text: 'Hiring for a role? ' }), 'These are the questions I ask before every search. ',
+          h('a', { href: '/start-hiring/', text: 'Talk to me about your search →' })])
       ], 'Result');
     }
     function showDetails() {
@@ -1032,6 +1057,7 @@
         qSteps(3),
         h('h2', { text: perfect ? 'Your scorecard' : 'Where you can improve' }),
         scorecard,
+        handled,
         clueFold,
         whyNot,
         moments,

@@ -906,3 +906,81 @@
   background: #fff; border: 2px solid var(--edge); border-radius: 14px; }
 .sim .sim-who-role dt { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--forest); margin: 0; }
 .sim .sim-who-role dd { margin: .15rem 0 0; font-size: 1.1rem; font-weight: 700; color: #1A1F1A; }
+
+/* ===== 11-16 REDESIGN: one focus per screen ===== */
+.sim .sim-quiet { margin: .8rem 0 0; font-size: .95rem; color: var(--muted); }
+
+/* 1. "What you'll do": meeting invite + icon tiles */
+.sim .sim-invite { display: flex; align-items: center; gap: 1.1rem; max-width: 46rem; padding: 1.3rem 1.5rem; margin: 0 0 1.4rem;
+  background: #fff; border: 2px solid var(--edge); border-radius: 18px; box-shadow: 0 4px 14px rgba(30,40,30,.06); }
+.sim .sim-invite-av { flex: none; width: 3.6rem; height: 3.6rem; border-radius: 50%; background: #22364B; color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 1.5rem; }
+.sim .sim-invite-l { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--forest); }
+.sim .sim-invite-h { margin: .15rem 0 .2rem; font-size: clamp(1.35rem, 2.6vw, 1.7rem); line-height: 1.25; }
+.sim .sim-invite-role { margin: 0; color: #1A1F1A; font-size: 1.05rem; }
+.sim .sim-invite-role span { color: var(--muted); }
+.sim .sim-steps4 { list-style: none; padding: 0; margin: 0 0 1.4rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; max-width: 46rem; }
+.sim .sim-steps4 li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .4rem; padding: .9rem .6rem; background: #FBF7EE; border: 2px solid #E4D9C3; border-radius: 14px; }
+.sim .sim-steps4-i { font-size: 1.6rem; line-height: 1; }
+.sim .sim-steps4-t { font-weight: 700; font-size: .95rem; line-height: 1.3; color: #1A1F1A; }
+@media (max-width: 560px) { .sim .sim-steps4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sim .sim-invite { padding: 1.1rem; } }
+
+/* 3. Conversation: progress dots, notes button, chat bubbles */
+.sim .sim-talkbar { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; max-width: 46rem; margin: 0 0 1rem; }
+.sim .sim-talkbar .sim-nb-btn { margin-left: auto; }
+.sim .sim-pdots-row { display: flex; gap: .45rem; }
+.sim .sim-pdot { width: .8rem; height: .8rem; border-radius: 50%; border: 2px solid #8A9A88; background: #fff; }
+.sim .sim-pdot.done { background: var(--forest); border-color: var(--forest); }
+.sim .sim-pdot.now { border-color: var(--forest); box-shadow: 0 0 0 3px #DDE9DC; }
+.sim .sim-nb-btn { font: inherit; font-size: .95rem; font-weight: 700; color: var(--forest); background: #FFF8DC; border: 2px solid #D8C27A; border-radius: 999px;
+  padding: .45rem .95rem; min-height: 44px; cursor: pointer; }
+.sim .sim-nb-btn:hover, .sim .sim-nb-btn:focus-visible { background: #FFF1B8; border-color: #B89B3E; }
+.sim .sim-nb-btn[aria-expanded="true"] { background: #FFF1B8; }
+.sim .sim-nb-btn.pulse { animation: simPulse 1.2s ease 2; }
+@keyframes simPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(184,155,62,.0); } 50% { box-shadow: 0 0 0 6px rgba(184,155,62,.35); } }
+.sim .sim-nb-panel { max-width: 46rem; margin: 0 0 1rem; padding: .9rem 1.2rem; background: #FFFBEA; border: 2px solid #E8D58E; border-radius: 14px; }
+.sim .sim-nb-panel .sim-qnotes { margin: 0; padding-left: 1.2rem; }
+.sim .sim-nb-panel .sim-qnotes li { margin: 0 0 .35rem; line-height: 1.5; }
+.sim .sim-nb-panel .sim-hint { margin: 0; }
+.sim .sim-toast { margin: 0; padding: .3rem .8rem; border-radius: 999px; background: #E6F1E4; color: #24502A; font-weight: 700; font-size: .9rem; animation: simFade 4s ease forwards; }
+@keyframes simFade { 0%, 75% { opacity: 1; } 100% { opacity: 0; } }
+.sim .sim-firsttip { max-width: 46rem; margin: 0 0 1rem; padding: .7rem 1rem; border-radius: 10px; background: #F1F6F0; color: #1A1F1A; }
+.sim .sim-chat { max-width: 46rem; margin: 0 0 1.3rem; display: flex; flex-direction: column; gap: .8rem; outline: none; }
+.sim .sim-chat-you { align-self: flex-end; max-width: 80%; background: #E3EBF3; color: #1A1F1A; padding: .65rem 1rem; border-radius: 18px 18px 6px 18px; }
+.sim .sim-chat-you p { margin: 0; line-height: 1.5; }
+.sim .sim-chat-sam { align-self: flex-start; max-width: 92%; }
+.sim .sim-chat-who { display: flex; align-items: center; gap: .55rem; margin: 0 0 .4rem; }
+.sim .sim-chat-name { font-weight: 700; color: #22364B; }
+.sim .sim-chat-bubble { background: #fff; border: 2px solid var(--edge); border-radius: 6px 18px 18px 18px; padding: .9rem 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.sim .sim-chat-bubble p { margin: 0; line-height: 1.55; color: #1A1F1A; }
+.sim .sim-chat-reply { color: #3D3A33 !important; margin-bottom: .55rem !important; }
+.sim .sim-chat-reply:last-child { margin-bottom: 0 !important; }
+.sim .sim-chat-next { font-weight: 700; font-size: 1.1rem; }
+.sim .sim-askwrap { max-width: 46rem; }
+
+/* need + pick pages: notes button above the content */
+.sim .sim-nbwrap { max-width: 46rem; margin: 0 0 1rem; }
+.sim .sim-nbwrap .sim-nb-panel { margin: .7rem 0 0; }
+.sim .sim-needwrap { max-width: 46rem; }
+
+/* 4. Results: one outcome card */
+.sim .sim-outcome { max-width: 46rem; padding: 1.3rem 1.5rem; margin: 0 0 1.2rem; border-radius: 18px; background: #fff; border: 2px solid var(--edge); box-shadow: 0 4px 14px rgba(30,40,30,.06); }
+.sim .sim-outcome.best { border-color: var(--forest); background: #F6FAF5; }
+.sim .sim-oc-h { display: flex; align-items: center; gap: .6rem; margin: 0 0 .9rem; font-size: clamp(1.2rem, 2.4vw, 1.45rem); font-weight: 800; line-height: 1.3; color: #1A1F1A; }
+.sim .sim-oc-i { font-size: 1.5rem; }
+.sim .sim-outcome .sim-lesson { margin: 0 0 .9rem; }
+.sim .sim-oc-why { margin: 0 0 .7rem; line-height: 1.55; }
+.sim .sim-oc-need { margin: 0; padding-top: .7rem; border-top: 1px solid var(--line); line-height: 1.55; }
+.sim .sim-oc-need.two p { margin: 0 0 .3rem; }
+.sim .sim-oc-l { font-weight: 700; color: var(--forest); }
+.sim .sim-outcome .sim-ended { margin: .8rem 0 0; }
+.sim .sim-actions-main { margin-top: 0; }
+.sim .sim-sublinks { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; align-items: center; margin: .9rem 0 0; }
+.sim .sim-sublink { font: inherit; font-weight: 700; color: var(--forest); background: none; border: 0; padding: .3rem 0; min-height: 44px; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px; }
+.sim .sim-sublink:hover, .sim .sim-sublink:focus-visible { color: #1E3B1E; }
+.sim .sim-sublinks .sim-share-st { flex-basis: 100%; order: 10; margin: 0; }
+.sim .sim-hmline { max-width: 46rem; margin: 1.4rem 0 0; padding: .9rem 1.1rem; border-radius: 12px; background: #EEF2F6; color: #1A1F1A; line-height: 1.55; }
+.sim .sim-hmline a { color: #22364B; font-weight: 700; }
+
+/* 11-16: no emojis on the landing page. Step tiles use numbered circles */
+.sim .sim-steps4-i { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--forest); color: #fff; font-size: 1rem; font-weight: 800; }
