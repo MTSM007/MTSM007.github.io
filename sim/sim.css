@@ -850,3 +850,8 @@
 .sim .sim-share-btn { background: #fff; color: var(--forest); border: 2px solid var(--forest); }
 .sim .sim-share-btn:hover { background: var(--forest); color: #fff; }
 .sim section.sim-scorecard, .sim section.sim-notify { padding: 0; }   /* the site gives every <section> large padding; not wanted inside the game (11-16) */
+
+/* 11-16: optional "where you can improve" invitation on the results page */
+.sim-dig { margin: 1.2rem 0 .4rem; padding: 1rem 1.2rem; border: 2px solid var(--forest); border-radius: 14px; background: #F1F6F0; max-width: 46rem; }
+.sim-dig p { margin: 0 0 .8rem; }
+.sim .sim-scorecard { margin-top: .4rem; }

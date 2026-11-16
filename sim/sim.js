@@ -754,7 +754,6 @@
         h('ul', {}, Q.ad.map(function (m) { return h('li', { text: m }); })),
         h('h3', { text: 'How it works' }),
         h('ul', { 'class': 'sim-qhow' }, [
-          h('li', { text: Q.framing || (Q.manager.first + ' will share a few first thoughts about the role.') }),
           h('li', { text: 'Each time, choose the question you’d ask next. Some questions open the conversation up. Others close it down or put ' + Q.manager.first + ' on the defensive, and too many of those may end the call.' }),
           h('li', { text: 'Then decide what ' + Q.manager.first + ' really needs, and pick the best of ' + Q.candidates.length + ' candidates.' })])]),
       h('div', { 'class': 'sim-actions' }, [
@@ -900,10 +899,7 @@
       h('div', { 'class': 'sim-vhead' }, [h('strong', { text: picked.name }), h('span', { 'class': 'sim-tag you', text: 'Your pick' }),
         h('span', { 'class': 'sim-tag ' + (fit === 'close' ? 'k-ok' : 'k-poor'), text: fit === 'close' ? 'Close fit' : 'Not a fit' })]),
       h('p', { 'class': 'sim-reason', text: picked.reason[QS.v] }),
-      h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + picked.view[QS.v] + '”']),
-      picked.miss ? (QS.clues[picked.miss]
-        ? h('p', { 'class': 'sim-clue-st got' }, ['✓ You uncovered the clue that rules ' + picked.name + ' out, so it was there to use.'])
-        : h('p', { 'class': 'sim-clue-st miss' }, ['✕ You didn’t uncover the clue that rules ' + picked.name + ' out. ', h('b', { text: 'Ask: ' }), probeFor(picked.miss).ask])) : null]);
+      h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + picked.view[QS.v] + '”'])]);
     var gotNeed = QS.need === QS.v;
     function probeFor(clue) {   // the thoughtful question that reveals a clue (and the one before it, for follow-ups)
       var b = Q.beats.filter(function (x) { return x.choices.some(function (c) { return c.clue === clue && c.quality === 'best'; }); })[0];
@@ -946,7 +942,7 @@
         h('span', { 'class': 'sim-tile-cta', text: cta })]);
     }
     var scorecard = h('section', { 'class': 'sim-scorecard', 'aria-labelledby': 'sim-sc-h' }, [
-      h('h3', { id: 'sim-sc-h', text: toImprove || nFound < clues.length ? 'Where you can improve' : 'Your scorecard' }),
+      h('h3', { 'class': 'sim-vh', id: 'sim-sc-h', text: 'Your scorecard' }),
       h('div', { 'class': 'sim-tiles' }, [
         tile('Clues found', nFound, clues.length, 'more-clues', nFound < clues.length ? 'See what you missed →' : 'See the clues →'),
         tile('Best questions', QS.log.length - toImprove, QS.log.length, 'more-moments', toImprove ? 'See better questions →' : 'See why they worked →')])]);
@@ -977,43 +973,64 @@
       QS.log.some(function (l) { return l.note && l.quality === 'best'; })
         ? h('p', { 'class': 'sim-hint sim-notelegal', text: '“Good to know” notes are general information about Ontario rules, not legal advice.' }) : null], 'more-moments',
       toImprove ? 'See the better question for each one, and why it works.' : 'See why each of your questions worked.', toImprove > 0);
-    var others = Q.candidates.filter(function (c) { return c.id !== best.id && c.id !== picked.id; });
-    screen([
-      qSteps(3),
-      h('h2', { text: 'Your results' }),
-      h('div', { 'class': 'sim-compare' }, [
-        h('div', { 'class': 'sim-need' }, [h('p', { 'class': 'sim-label', text: 'What ' + Q.manager.first + ' really needed' }), h('p', { text: Q.needs[QS.v] })]),
-        h('div', { 'class': 'sim-yours' }, [h('p', { 'class': 'sim-label', text: gotNeed ? 'You got this right' : 'You thought' }),
-          h('p', { text: (gotNeed ? '✓ ' : '') + Q.needs[QS.need] })])]),
-      yourCard,
-      h('div', { 'class': 'sim-verdictcard best' }, [
-        h('div', { 'class': 'sim-vhead' }, [h('strong', { text: best.name }), h('span', { 'class': 'sim-tag best', text: 'Best fit' }),
-          picked.id === best.id ? h('span', { 'class': 'sim-tag you', text: 'Your pick' }) : null]),
-        h('p', { 'class': 'sim-reason', text: best.reason[QS.v] }),
-        h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + best.view[QS.v] + '”'])]),
-      scorecard,
-      handled,
-      fold('The clues that mattered', nFound + ' of ' + clues.length + ' found',
-        [h('ul', { 'class': 'sim-keys' }, clues)], 'more-clues',
-        nFound < clues.length ? 'See which ones you missed, and the question that uncovers each.' : 'See the facts that pointed to the right hire.', nFound < clues.length),
-      fold(others.length > 1 ? 'Why not the others?' : 'Why not ' + others[0].name + '?', null, others.map(function (c) {
+    var others = Q.candidates.filter(function (c) { return c.id !== best.id; });   // includes your pick, so its clue shows on the optional page
+    var whyNot = fold(others.length > 1 ? 'Why not the others?' : 'Why not ' + others[0].name + '?', null, others.map(function (c) {
         var f = c.fit[QS.v];
         return h('div', { 'class': 'sim-other-in ' + f }, [
           h('div', { 'class': 'sim-vhead' }, [h('strong', { text: c.name }),
+            c.id === picked.id ? h('span', { 'class': 'sim-tag you', text: 'Your pick' }) : null,
             h('span', { 'class': 'sim-tag ' + (f === 'close' ? 'k-ok' : 'k-poor'), text: f === 'close' ? 'Close fit' : 'Not a fit' })]),
           h('p', { 'class': 'sim-reason', text: c.reason[QS.v] }),
           c.miss ? (QS.clues[c.miss]
             ? h('p', { 'class': 'sim-clue-st got' }, ['✓ You uncovered the clue that rules ' + c.name + ' out.'])
             : h('p', { 'class': 'sim-clue-st miss' }, ['✕ You didn’t uncover the clue that rules ' + c.name + ' out. ', h('b', { text: 'Ask: ' }), probeFor(c.miss).ask])) : null]);
-      }), 'more-others'),
-      moments,
-      h('p', { 'class': 'sim-hint sim-again', text: 'The next challenge has a new role and a new hiring manager.' }),
-      notifyBox(),
-      h('div', { 'class': 'sim-actions' }, [
-        h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
-        shareBox(good, QS.log.length, fit),
-        h('a', { 'class': 'btn btn-secondary', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })])
-    ], 'Result');
+      }), 'more-others');
+    var clueFold = fold('The clues that mattered', nFound + ' of ' + clues.length + ' found',
+        [h('ul', { 'class': 'sim-keys' }, clues)], 'more-clues',
+        nFound < clues.length ? 'See which ones you missed, and the question that uncovers each.' : 'See the facts that pointed to the right hire.', nFound < clues.length);
+    var perfect = !toImprove && nFound === clues.length;
+    // 11-16: page 1 = the outcome only. Page 2 (optional) = where you can improve.
+    function showResults() {
+      screen([
+        qSteps(3),
+        h('h2', { text: 'Your results' }),
+        h('div', { 'class': 'sim-compare' }, [
+          h('div', { 'class': 'sim-need' }, [h('p', { 'class': 'sim-label', text: 'What ' + Q.manager.first + ' really needed' }), h('p', { text: Q.needs[QS.v] })]),
+          h('div', { 'class': 'sim-yours' }, [h('p', { 'class': 'sim-label', text: gotNeed ? 'You got this right' : 'You thought' }),
+            h('p', { text: (gotNeed ? '✓ ' : '') + Q.needs[QS.need] })])]),
+        yourCard,
+        h('div', { 'class': 'sim-verdictcard best' }, [
+          h('div', { 'class': 'sim-vhead' }, [h('strong', { text: best.name }), h('span', { 'class': 'sim-tag best', text: 'Best fit' }),
+            picked.id === best.id ? h('span', { 'class': 'sim-tag you', text: 'Your pick' }) : null]),
+          h('p', { 'class': 'sim-reason', text: best.reason[QS.v] }),
+          h('p', { 'class': 'sim-samsays' }, [h('span', { 'class': 'sim-who', text: Q.manager.first + '’s view' }), '“' + best.view[QS.v] + '”'])]),
+        handled,
+        h('div', { 'class': 'sim-dig' }, [
+          h('p', {}, [h('strong', { text: perfect ? 'A clean sweep.' : 'Want to see what you could do differently?' }),
+            ' ' + (perfect ? 'See the clues you found and why each question worked.' : 'See the clues you found and missed, why the others weren’t the best fit, and a better question for each moment.')]),
+          h('button', { type: 'button', 'class': 'btn btn-secondary', 'data-k': 'dig', on: { click: showDetails }, text: perfect ? 'See your scorecard' : 'See where you can improve' })]),
+        h('p', { 'class': 'sim-hint sim-again', text: 'The next challenge has a new role and a new hiring manager.' }),
+        notifyBox(),
+        h('div', { 'class': 'sim-actions' }, [
+          h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
+          shareBox(good, QS.log.length, fit),
+          h('a', { 'class': 'btn btn-secondary', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })])
+      ], 'Result');
+    }
+    function showDetails() {
+      screen([
+        qSteps(3),
+        h('h2', { text: perfect ? 'Your scorecard' : 'Where you can improve' }),
+        scorecard,
+        clueFold,
+        whyNot,
+        moments,
+        h('div', { 'class': 'sim-actions' }, [
+          h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
+          h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: showResults }, text: 'Back to your results' })])
+      ], 'Improve');
+    }
+    showResults();
   }
 
   renderStart();
