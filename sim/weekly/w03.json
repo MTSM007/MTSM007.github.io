@@ -29,7 +29,7 @@
   "Competitive pay"
  ],
  "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Priya will share a few first thoughts about the role. Good questions help you both get it right.",
- "end_early": "Sorry, I've got to run. Send me what you've got.",
+ "end_early": "Sorry, I have to run to another meeting. Send me what you have, and we'll go from there.",
  "needs": {
   "n1": "Someone to keep big customers from leaving, with fewer but larger accounts.",
   "n2": "Someone to welcome lots of small new customers quickly.",
@@ -39,13 +39,13 @@
   {
    "id": "b1",
    "label": "Past searches",
-   "sam": "I'll be honest. The last two recruiters I worked with sent me people who were all wrong for this.",
+   "sam": "I'll be honest with you. The last two recruiters I worked with sent me people who weren't right for this role.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "I'm sorry to hear that. What was it about those candidates that made them the wrong fit?",
-     "reply": "They'd all handled hundreds of tiny accounts. That's not what we do here.",
+     "reply": "They'd all managed hundreds of small accounts. That's a very different job from the one we need done here.",
      "why": "Asking what went wrong shows you're listening, and it tells you exactly what to avoid this time.",
      "next": "bf"
     },
@@ -53,14 +53,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "Would it help if I walked you through how my process is different from the recruiters you worked with before?",
-     "reply": "Maybe. I've heard that before.",
+     "reply": "Maybe. To be fair, I've heard that a few times before.",
      "why": "Explaining your process is easy, but a manager who's been let down needs to see that you understand the problem first."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Do you think the brief they were given was clear enough?",
-     "reply": "The brief was fine.",
+     "reply": "I think the brief was clear enough. I explained the role the same way to both of them.",
      "why": "Questioning their brief puts the manager on the defensive, which is the opposite of what you want early on.",
      "mood": -1
     }
@@ -76,7 +76,7 @@
      "quality": "best",
      "style": "question",
      "text": "What would a great person get done in their first three months?",
-     "reply": "Visit our 25 biggest customers and spot who's unhappy before they decide to leave.",
+     "reply": "Get to know our 25 biggest customers in person, and spot who's unhappy before they decide to leave.",
      "why": "An open follow-up turns a frustration into a clear picture of success.",
      "clue": "first"
     },
@@ -84,14 +84,14 @@
      "quality": "ok",
      "style": "leading",
      "text": "So you're looking for someone more senior than the people you saw?",
-     "reply": "Not more senior. Different.",
+     "reply": "Not more senior, just different. They had the right experience for a different kind of team.",
      "why": "A leading guess narrows the answer. An open question would have given you the full picture."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Were the people you met really that far off?",
-     "reply": "Yes, they were.",
+     "reply": "Unfortunately, yes. Most of them weren't close.",
      "why": "Questioning the manager's judgment costs trust, and you don't learn anything new about what they need.",
      "mood": -1
     }
@@ -102,13 +102,13 @@
   {
    "id": "b2",
    "label": "Why it's open",
-   "sam": "I don't think I need to explain the job much. It's pretty straightforward.",
+   "sam": "I don't think I need to explain the job in much detail. It's a fairly standard customer success role.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "That makes sense. What's prompting the hire right now? Is something happening with customers?",
-     "reply": "Big customers are leaving after their first year, because nobody checks in until renewal time.",
+     "reply": "Yes, actually. Some of our biggest customers are leaving after their first year, because nobody checks in with them until renewal time.",
      "why": "Even a straightforward job is open for a reason. Asking why now usually uncovers what the hire really has to solve.",
      "clue": "why"
     },
@@ -116,14 +116,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "Should I work from the standard customer success profile, then?",
-     "reply": "Yes, that's fine.",
+     "reply": "Yes, that should be fine. It's a fairly typical role.",
      "why": "Going with a standard profile saves time now, but you'd be guessing at what matters most for this team."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "In my experience, most searches go wrong because the job isn't explained properly. Couldn't that be what happened before?",
-     "reply": "Not this one.",
+     "reply": "Not in this case, I don't think. I was clear about what we needed.",
      "why": "Even if it's often true, saying it to a manager who is already frustrated only confirms their doubts about recruiters.",
      "mood": -1
     }
@@ -132,13 +132,13 @@
   {
    "id": "b3",
    "label": "The must-have",
-   "sam": "They must have managed 100 accounts. It says so in the ad.",
+   "sam": "They'll need experience managing 100 accounts or more. It says so in the ad.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "How many accounts will this person actually look after?",
-     "reply": "About 25, but they're our biggest ones.",
+     "reply": "About 25, but they're our biggest and most important customers.",
      "why": "Checking a must-have against the real job shows that 100 small accounts is the wrong kind of experience here.",
      "clue": "must"
     },
@@ -146,14 +146,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "Should I screen for 100 or more accounts, then?",
-     "reply": "Yes, that's right.",
+     "reply": "Yes, that's right. It shows they can handle a busy list of customers.",
      "why": "It sounds reasonable, but you'd be screening for the wrong kind of experience."
     },
     {
      "quality": "poor",
      "style": "leading",
      "text": "So more accounts means more experience, right?",
-     "reply": "I suppose so.",
+     "reply": "I suppose so, yes. More accounts usually means more experience.",
      "why": "A leading question locked in a requirement that doesn't fit the job."
     }
    ],
@@ -162,27 +162,27 @@
   {
    "id": "b4",
    "label": "Shortlist",
-   "sam": "Just send me ten resumes and I'll sort it out myself.",
+   "sam": "To keep things simple, just send me ten resumes and I'll sort through them myself.",
    "choices": [
     {
      "quality": "best",
      "style": "agree",
      "text": "Happy to. Would it help if I added a short note on each one, so you can sort them faster?",
-     "reply": "That would actually help a lot.",
+     "reply": "That would actually help a lot. I don't always have time to read every resume closely.",
      "why": "Agreeing to a fair request, and making it easier, is how you rebuild trust after past letdowns."
     },
     {
      "quality": "ok",
      "style": "question",
      "text": "Would you rather see a smaller number of stronger candidates?",
-     "reply": "No, I'd like to see ten.",
+     "reply": "No, I'd still like to see ten. I prefer to have a few options to compare.",
      "why": "A fair question, but it argued with a reasonable request. Sometimes going along with it is the better move."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Ten is quite a lot to review on top of everything else. Could I just send you my top three instead?",
-     "reply": "That's what the last recruiter said.",
+     "reply": "That's what the last recruiter suggested too. I'd still prefer to see ten.",
      "why": "Pushing back on a small request spends trust you'll need later in the search.",
      "mood": -1
     }
@@ -191,13 +191,13 @@
   {
    "id": "b5",
    "label": "The pay",
-   "sam": "Pay is whatever's normal for this kind of job.",
+   "sam": "The pay will be whatever's normal for this kind of role.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "So I only bring you people you can afford, what range has been approved?",
-     "reply": "$85,000 to $100,000 base salary, and it's approved.",
+     "reply": "The approved base salary is $85,000 to $100,000, and it's already signed off.",
      "why": "Linking the question to their goal makes the range easy to share.",
      "clue": "pay"
     },
@@ -205,7 +205,7 @@
      "quality": "ok",
      "style": "push",
      "text": "It's hard to start without a number. Could we pin one down first?",
-     "reply": "Fine. $85,000 to $100,000.",
+     "reply": "Fair enough. We're looking at $85,000 to $100,000 base.",
      "why": "You got the range, but the pressure cost some goodwill. Tying it to their goal works better.",
      "clue": "pay",
      "mood": -1
@@ -214,7 +214,7 @@
      "quality": "poor",
      "style": "agree",
      "text": "Is it okay if we figure out pay once we see who's interested?",
-     "reply": "Sure.",
+     "reply": "Sure. Let's see who's interested first.",
      "why": "Without a range, you can't tell which people the manager can actually afford."
     }
    ],
@@ -224,27 +224,27 @@
   {
    "id": "b6",
    "label": "Office days",
-   "sam": "They'll be in the office on Tuesdays. That's about it.",
+   "sam": "They'll need to be in the office on Tuesdays, but that's about it.",
    "choices": [
     {
      "quality": "best",
      "style": "agree",
      "text": "One day a week is easy to explain. What happens on Tuesdays, so I can describe it to candidates?",
-     "reply": "It's our team day. We go through every big customer together.",
+     "reply": "Tuesday is our team day. We go through every one of our big customers together.",
      "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
     },
     {
      "quality": "ok",
      "style": "question",
      "text": "Could that day be flexible for the right person?",
-     "reply": "No, Tuesday is our team day.",
+     "reply": "No, I'm afraid not. Tuesday is our team day.",
      "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Most people I talk to want to be fully remote. Could we drop the office day?",
-     "reply": "Then they can apply somewhere else.",
+     "reply": "I'm afraid not. Tuesdays are an important part of how the team works.",
      "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
      "mood": -1
     }
@@ -253,13 +253,13 @@
   {
    "id": "b7",
    "label": "Selling the role",
-   "sam": "Honestly, anyone friendly could do this job.",
+   "sam": "Honestly, I think anyone friendly and organized could do this job.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "What would make a great customer success manager choose this job over others?",
-     "reply": "They'd own our biggest customers and have a real say in the product.",
+     "reply": "They'd own the relationships with our biggest customers, and they'd have a real say in how the product develops.",
      "why": "Asking what makes the job attractive gives you the story to tell the right people.",
      "clue": "pitch"
     },
@@ -267,14 +267,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "So I should look for people who are great with customers?",
-     "reply": "Exactly.",
+     "reply": "Exactly. Someone warm and organized would do very well here.",
      "why": "Being good with people matters, but it won't stop a big customer from leaving. You'd miss what makes this job different."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Isn't it a bit more complex than being friendly?",
-     "reply": "Now you sound like the last recruiter.",
+     "reply": "I know it's more than being friendly. That's not what I meant.",
      "why": "Correcting the manager rarely changes their mind. A question about the job does.",
      "mood": -1
     }

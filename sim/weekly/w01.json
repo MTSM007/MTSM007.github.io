@@ -29,7 +29,7 @@
   "Competitive pay"
  ],
  "framing": "Kickoff calls are often short, and hiring managers have a lot on their plate. Sam will share a few first thoughts about the role. Good questions help you both get it right.",
- "end_early": "Sorry, I've got to jump on another call. Send me what you've got.",
+ "end_early": "Sorry, I have to jump on another call. Send me what you have, and we'll go from there.",
  "needs": {
   "n1": "Someone to create the sales plan from scratch and find their own customers.",
   "n2": "Someone to follow the existing sales plan and grow into leading the team.",
@@ -39,13 +39,13 @@
   {
    "id": "b1",
    "label": "The timeline",
-   "sam": "I need a new salesperson, ideally someone like the last one but better. Could you get me a few candidates by Friday?",
+   "sam": "Thanks for making the time. I need a new salesperson, ideally someone like the last person in the role, only stronger. Is there any chance you could have a few candidates for me by Friday?",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "I can move quickly on this. Before I start, can you tell me what happened with the last person in the role?",
-     "reply": "Sure. They were a strong closer, but they'd always had a team booking meetings for them. Here, nobody does that.",
+     "reply": "Of course. They were a very good closer, but at their last company a team booked all their meetings for them. We don't have that here, so their calendar stayed fairly empty.",
      "why": "Learning why the last hire didn't work out is the fastest way to avoid making the same hire twice, and it costs you one minute.",
      "next": "bf"
     },
@@ -53,14 +53,14 @@
      "quality": "ok",
      "style": "leading",
      "text": "Friday works for me. Should I look for people with a background very similar to your last salesperson, since you liked their style?",
-     "reply": "Yes, someone like them, just a bit better.",
+     "reply": "Yes, I think that's a sensible place to start. They were great with customers, so someone along those lines, just a bit more consistent.",
      "why": "It sounds helpful, but you'd be copying a hire that didn't work out without knowing why it didn't."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Isn't Friday a little unrealistic for a role like this?",
-     "reply": "That's exactly what the last recruiter told me.",
+     "reply": "To be honest, I've heard that before. We really do need someone soon, so I'd rather we find a way to make it work.",
      "why": "Questioning the deadline before you understand the need turns the call into a negotiation. Ask about the last hire first, then talk about timing.",
      "mood": -1
     }
@@ -76,7 +76,7 @@
      "quality": "best",
      "style": "question",
      "text": "That's really helpful. What would the right person need to do differently in their first few months?",
-     "reply": "Find their own customers and book their own meetings. Nobody is going to hand them leads here.",
+     "reply": "They'd need to find their own customers. That means picking the right companies, reaching out, and booking their own first meetings. Nobody will be handing them leads.",
      "why": "A follow-up that turns 'it didn't work out' into what success looks like gives you something concrete to screen for.",
      "clue": "lasthire"
     },
@@ -84,14 +84,14 @@
      "quality": "ok",
      "style": "leading",
      "text": "So was the problem mostly their closing skills?",
-     "reply": "No, they closed well when they got the meeting.",
-     "why": "A leading guess gets a short no. An open question would have given you the real story."
+     "reply": "No, closing was their strength. Once they were in front of a customer, they usually won the deal.",
+     "why": "A leading guess gets a quick no. An open question would have given you the real story."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Before we go further, do you think the team gave them enough support and coaching when they first started?",
-     "reply": "We did what we could.",
+     "reply": "I think we did everything we reasonably could. I'd rather focus on who we need next.",
      "why": "It may be worth knowing eventually, but asked this early it sounds like you're looking for someone to blame.",
      "mood": -1
     }
@@ -102,13 +102,13 @@
   {
    "id": "b2",
    "label": "The must-have",
-   "sam": "They also need to know logistics. It's right there in the ad.",
+   "sam": "They'll also need logistics experience. Our customers are all in that space, and it's in the ad for a reason.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "Good to know. Did your strongest salespeople come from logistics when they joined?",
-     "reply": "Actually, our best one came from HR software. I suppose it isn't really a must.",
+     "reply": "Now that you mention it, our best seller came from HR software and picked up logistics quickly. So I'd call it a bonus rather than a must.",
      "why": "Testing a must-have against the people who already succeed often turns it into a nice-to-have, and that widens your search.",
      "clue": "industry"
     },
@@ -116,14 +116,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "That makes sense for your market. Should I make logistics experience the very first thing I screen candidates for?",
-     "reply": "Yes, let's do that.",
+     "reply": "Yes, I think that makes sense. It would save us time teaching them the industry.",
      "why": "It sounds efficient, but you've locked in a requirement nobody has tested, and it may screen out your best candidates."
     },
     {
      "quality": "poor",
      "style": "leading",
      "text": "So logistics experience is a deal-breaker for you?",
-     "reply": "I suppose it is, yes.",
+     "reply": "If you're asking me to choose, then I suppose it is, yes.",
      "why": "A yes-or-no question pushed Sam to commit to a must-have that turned out not to matter."
     }
    ],
@@ -132,13 +132,13 @@
   {
    "id": "b3",
    "label": "Success in the role",
-   "sam": "Honestly, I'd love someone from a big-name software company. Those people know how to sell.",
+   "sam": "Honestly, I'd love someone from a big-name software company. They tend to come with strong training and good habits.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "What would they need to have done before to be successful here, whatever company they come from?",
-     "reply": "Closed deals of $30,000 to $80,000 in a month or two, and found their own customers.",
+     "reply": "They should have closed deals between $30,000 and $80,000, usually within a month or two. And they should have found most of those customers themselves.",
      "why": "Asking what someone needs to have done moves the conversation from company names to evidence you can check.",
      "clue": "mustdo"
     },
@@ -146,14 +146,14 @@
      "quality": "ok",
      "style": "leading",
      "text": "Would someone from a well-known company get up to speed faster, in your experience?",
-     "reply": "Probably, yes.",
+     "reply": "Probably, yes. They're used to a structured sales process, so I'd expect them to settle in quickly.",
      "why": "A leading question invites the manager to confirm the assumption instead of testing it."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "With respect, aren't big-name software companies a bit overrated when you're hiring for a smaller, growing team like yours?",
-     "reply": "Not in my experience.",
+     "reply": "Not in my experience. Some of the best salespeople I've worked with came from those companies.",
      "why": "Challenging the assumption head-on starts a debate. Asking what success looks like gets you further.",
      "mood": -1
     }
@@ -163,13 +163,13 @@
   {
    "id": "b4",
    "label": "The pay",
-   "sam": "Pay is competitive. Let's not get into numbers just yet.",
+   "sam": "The pay is competitive. I'd rather not get into specific numbers just yet.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "So I only bring you people you can actually hire, what base salary range has been approved?",
-     "reply": "$75,000 to $85,000 base salary. There's a bit more for the right person, but it's hard to get.",
+     "reply": "The approved base salary is $75,000 to $85,000. There's a little room above that for the right person, but it would take some convincing.",
      "why": "Linking the question to their goal makes the number easy to share, and you'll know straight away who's within reach.",
      "clue": "pay"
     },
@@ -177,7 +177,7 @@
      "quality": "ok",
      "style": "push",
      "text": "It's hard to recruit without one, so would you mind sharing a number now?",
-     "reply": "Fine. $75,000 to $85,000.",
+     "reply": "Fair enough. We're looking at $75,000 to $85,000 base.",
      "why": "You got the range, but the pressure cost some goodwill. Tying the question to their goal gets the same answer more easily.",
      "clue": "pay",
      "mood": -1
@@ -186,7 +186,7 @@
      "quality": "poor",
      "style": "agree",
      "text": "Is it okay if we come back to pay once we've seen a few people?",
-     "reply": "Sure, that works for me.",
+     "reply": "Sure, that works for me. Let's see who's out there first.",
      "why": "It feels easygoing, but without a range you can't tell which candidates are affordable, and you risk losing good people late."
     }
    ],
@@ -196,27 +196,27 @@
   {
    "id": "b5",
    "label": "Interviews",
-   "sam": "I'll interview people myself whenever I can find a gap in my calendar.",
+   "sam": "I'll interview people myself, whenever I can find a gap in my calendar.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "So strong candidates don't drift away, could we hold two interview times each week for this search?",
-     "reply": "That's fair. Tuesday and Thursday afternoons work.",
+     "reply": "That's fair. Let's hold Tuesday and Thursday afternoons, and I'll protect that time.",
      "why": "Good salespeople usually have options. Agreeing on interview times up front keeps the search moving without adding work for the manager."
     },
     {
      "quality": "ok",
      "style": "leading",
      "text": "Would it help if I just sent you candidates and you reached out when you're free?",
-     "reply": "Yes, that's easiest for me.",
+     "reply": "Yes, that's probably easiest for me. I'll get back to you as soon as I can.",
      "why": "It's easy for now, but slow scheduling is one of the most common reasons good candidates accept other offers."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Isn't that going to slow everything down, given you want someone by Friday?",
-     "reply": "I'll make it work.",
+     "reply": "I'll make it work. I'm well aware of the timeline.",
      "why": "The point is fair, but pointing out the contradiction makes the manager defensive. Offer a simple fix instead.",
      "mood": -1
     }
@@ -225,27 +225,27 @@
   {
    "id": "b6",
    "label": "Office days",
-   "sam": "We'd like them in the office two days a week. Is that a problem?",
+   "sam": "We'd like them in the office two days a week. Do you see that being a problem?",
    "choices": [
     {
      "quality": "best",
      "style": "agree",
      "text": "Two days sounds reasonable. So I can explain it to candidates, what usually happens on those office days?",
-     "reply": "We plan the week's deals together on Tuesdays and practise calls on Thursdays. People really like it.",
+     "reply": "We plan the week's deals together on Tuesdays, and we practice calls as a team on Thursdays. People tell us those are their most useful days.",
      "why": "Accepting a reasonable request, then asking what happens on those days, shows curiosity and gives you a real selling point for candidates."
     },
     {
      "quality": "ok",
      "style": "question",
      "text": "Is there any flexibility on that for the right person?",
-     "reply": "Not really. The team works together on those days.",
+     "reply": "Not really, I'm afraid. The whole team is in on those days, and that's when we work together.",
      "why": "It's a fair question, but asked before you understand why those days matter, it can sound like you're already negotiating against the manager."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Most salespeople I talk to want to be fully remote. Could we drop the office days?",
-     "reply": "No. We've been clear about that.",
+     "reply": "No, I'm afraid not. We've been clear about that from the start.",
      "why": "Pushing to change a settled decision, with nothing to back it up, spends goodwill you'll need for the questions that actually change the search.",
      "mood": -1
     }
@@ -254,13 +254,13 @@
   {
    "id": "b7",
    "label": "Selling the role",
-   "sam": "Honestly, a good salesperson can sell anything. They'll figure out the rest.",
+   "sam": "To be honest, a good salesperson can sell anything. I'm confident they'll figure out the rest.",
    "choices": [
     {
      "quality": "best",
      "style": "question",
      "text": "What would make a great salesperson choose this job over the other offers they'll have?",
-     "reply": "They'd build our sales plan from scratch. Nobody has done that here yet.",
+     "reply": "They'd build our sales plan from scratch and shape how we sell as we grow. Nobody has done that here yet.",
      "why": "Asking what makes the job attractive tells you what's different about it, and that's the story you'll tell the right candidates.",
      "clue": "pitch"
     },
@@ -268,14 +268,14 @@
      "quality": "ok",
      "style": "agree",
      "text": "So should I focus on strong sellers from any industry?",
-     "reply": "Exactly.",
+     "reply": "Exactly. If they can sell, the industry details will come with time.",
      "why": "That's partly true, but you'd miss what makes this job unique, which is exactly what attracts the right person."
     },
     {
      "quality": "poor",
      "style": "push",
      "text": "Do you really think the job itself doesn't matter to candidates?",
-     "reply": "I didn't say that.",
+     "reply": "That's not quite what I said. Of course the role matters to people.",
      "why": "Questioning the manager's view rarely changes their mind. Asking what makes the role appealing gets you something useful.",
      "mood": -1
     }
