@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=bf6743983f">
+<link rel="stylesheet" href="/styles.css?v=8c62e161ac">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Morley Talent Solutions">
 <meta property="og:title" content="Job Alerts for Candidates | Morley Talent Solutions">
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<script src="/site.js?v=bf6743983f" defer></script>
+<script src="/site.js?v=8c62e161ac" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -57,8 +57,10 @@
         <div class="field"><label for="c-last">Last name <span aria-hidden="true">*</span></label><input id="c-last" name="last-name" autocomplete="family-name" required></div>
       </div>
       <div class="field"><label for="c-email">Email <span aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-loc">Where are you based? <span aria-hidden="true">*</span></label><input id="c-loc" name="location" autocomplete="address-level2" placeholder="City, province or country" required></div>
-      <div class="field"><label for="c-li">LinkedIn profile <span aria-hidden="true">*</span></label><input id="c-li" name="linkedin" inputmode="url" placeholder="linkedin.com/in/yourname" required minlength="8"></div>
+      <div class="field-row">
+        <div class="field"><label for="c-loc">Where are you based? <span aria-hidden="true">*</span></label><input id="c-loc" name="location" autocomplete="address-level2" placeholder="City, province or country" required></div>
+        <div class="field"><label for="c-li">LinkedIn profile <span aria-hidden="true">*</span></label><input id="c-li" name="linkedin" inputmode="url" placeholder="linkedin.com/in/yourname" required minlength="8"></div>
+      </div>
       <fieldset class="field">
         <legend>Roles you’re interested in <span aria-hidden="true">*</span> <span class="optional">(choose at least one)</span></legend>
         <div class="checks"><label class="check"><input type="checkbox" name="areas" value="Sales"> Sales</label><label class="check"><input type="checkbox" name="areas" value="Marketing"> Marketing</label><label class="check"><input type="checkbox" name="areas" value="Customer success"> Customer success</label><label class="check"><input type="checkbox" name="areas" value="Product &amp; design"> Product &amp; design</label><label class="check"><input type="checkbox" name="areas" value="Engineering"> Engineering</label><label class="check"><input type="checkbox" name="areas" value="Finance"> Finance</label><label class="check"><input type="checkbox" name="areas" value="Other" id="c-area-other"> Other</label><div class="field area-other" hidden><label for="c-area-other-text">Which kind of role?</label><input id="c-area-other-text" maxlength="80" placeholder="For example, operations or supply chain"></div></div>
