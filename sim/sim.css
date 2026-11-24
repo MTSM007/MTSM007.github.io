@@ -984,3 +984,9 @@
 
 /* 11-16: no emojis on the landing page. Step tiles use numbered circles */
 .sim .sim-steps4-i { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--forest); color: #fff; font-size: 1rem; font-weight: 800; }
+
+/* 11-24 audit: steps were boxed tiles that looked clickable. Now a plain numbered row: circle beside label, no box */
+.sim .sim-steps4 { gap: .9rem 1.4rem; max-width: 46rem; margin: 1.6rem 0 1.8rem; }
+.sim .sim-steps4 li { flex-direction: row; align-items: center; text-align: left; gap: .65rem; padding: 0; background: none; border: 0; border-radius: 0; }
+.sim .sim-steps4-i { flex: none; width: 1.9rem; height: 1.9rem; font-size: .9rem; }
+.sim .sim-steps4-t { font-weight: 600; }
