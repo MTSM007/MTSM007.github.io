@@ -985,8 +985,42 @@
 /* 11-16: no emojis on the landing page. Step tiles use numbered circles */
 .sim .sim-steps4-i { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--forest); color: #fff; font-size: 1rem; font-weight: 800; }
 
+/* 11-25 critique: hiring-manager call to action at the end, in site colours (replaces the pale blue-grey .sim-hmline) */
+.sim .sim-hmcta { max-width: 46rem; margin: 1.8rem 0 0; padding: clamp(1.1rem, 3vw, 1.6rem); border-radius: 14px; background: var(--cream); border: 1px solid var(--cream-deep); }
+.sim .sim-hmcta h3 { margin: 0 0 .35rem; color: var(--forest); font-size: 1.2rem; }
+.sim .sim-hmcta p { margin: 0 0 1rem; color: #2E352E; }
+.sim .sim-ended-q { display: block; margin-top: .3rem; font-weight: 600; }
+
 /* 11-24 audit: steps were boxed tiles that looked clickable. Now a plain numbered row: circle beside label, no box */
 .sim .sim-steps4 { gap: .9rem 1.4rem; max-width: 46rem; margin: 1.6rem 0 1.8rem; }
 .sim .sim-steps4 li { flex-direction: row; align-items: center; text-align: left; gap: .65rem; padding: 0; background: none; border: 0; border-radius: 0; }
 .sim .sim-steps4-i { flex: none; width: 1.9rem; height: 1.9rem; font-size: .9rem; }
 .sim .sim-steps4-t { font-weight: 600; }
+
+/* ===== 11-25 critique: no coloured side-stripes. Tinted boxes keep their tint; bordered cards get an even border,
+   and where the stripe colour carried meaning (fit level, answer quality) it moves to the whole border. ===== */
+.sim-posting, .sim-deeper, .sim-budgetline, .sim-samsays, .sim-yourline, .sim-qtip,
+.sim .sim-lesson.miss, .sim .sim-lesson.got, .sim-turn.you, .sim-turn.reply { border-left: 0; border-radius: 10px; }
+.sim-msg.hm { border-left: 1px solid #B7C6D6; }
+.sim-how { border-left: 1.5px solid var(--green); }
+.sim-need { border-left: 1px solid #D9C77A; }
+.sim-sumbox { border-left: 1.5px solid #D9C77A; }
+.sim-yours, .sim-mini li, .sim-notify { border-left: 1.5px solid var(--line); }
+.sim-qmsg { border-left: 1.5px solid #B7C6D6; }
+.sim-qcard { border-left: 1.5px solid #C9C1B3; }
+.sim-share-card { border-left: 1px solid #D5DEE8; }
+.sim .sim-more, .sim .sim-more.improve { border-left-width: 2px; }
+.sim-pc, .sim-verdictcard, .sim-cand { border-left: 1.5px solid var(--line); }
+.sim-pc:hover, .sim-pc.on { border-left-color: var(--forest); }
+.sim-verdictcard.best, .sim-cand.good { border-color: var(--forest); }
+.sim-verdictcard.good { border-color: var(--sage); }
+.sim-verdictcard.okay, .sim-yourpick { border-color: #C08A2E; }
+.sim-verdictcard.no { border-color: #A89E8E; }
+.sim-cand.warn { border-color: #C9A35A; }
+.sim-yourpick.no { border-color: #A3352A; }
+.sim-moments li { border-left: 1.5px solid var(--line); }
+.sim-moments li.k-best, .sim-moments li.k-probe { border-color: var(--forest); }
+.sim-moments li.k-ok, .sim-moments li.k-accept { border-color: #C08A2E; }
+.sim-moments li.k-poor, .sim-moments li.k-push { border-color: #A3352A; }
+.sim .sim-pdots-l { font-size: .9rem; font-weight: 700; color: var(--forest); margin-right: .6rem; }
+.sim .sim-pdots { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem 0; }

@@ -13,6 +13,16 @@
     });
   }
 
+  // Logo strip pause button (11-25 critique, WCAG 2.2.2)
+  var mq = document.querySelector('.marquee'), mqBtn = document.querySelector('.marquee-toggle');
+  if (mq && mqBtn) {
+    mqBtn.addEventListener('click', function () {
+      var paused = mq.classList.toggle('paused');
+      mqBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      mqBtn.textContent = paused ? 'Play logos' : 'Pause logos';
+    });
+  }
+
   // Header border once scrolled
   var header = document.querySelector('.site-header');
   var onScroll = function () { header && header.classList.toggle('scrolled', window.scrollY > 8); };

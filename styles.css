@@ -562,6 +562,36 @@ a.resource-card:hover { border-color: var(--green); }
 .form-wrap .checks .check { padding: .35rem .8rem; }
 .form-wrap .check.consent { padding: .7rem .9rem; }
 
+/* Home hero with Michael's photo (11-25 critique) */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.hero-me { margin: 0; display: flex; flex-direction: column; align-items: center; gap: .9rem; text-align: center; }
+.hero-me img { width: clamp(220px, 22vw, 280px); aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.hero-me figcaption strong { display: block; color: var(--forest); font-size: 1.05rem; }
+.hero-me figcaption span { display: inline-flex; align-items: center; gap: .4rem; color: var(--muted); font-size: .95rem; }
+.hero-me figcaption svg { color: var(--green); flex: none; }
+@media (max-width: 760px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .hero-me { order: -1; flex-direction: row; align-items: center; text-align: left; gap: .9rem; justify-self: start; }
+  .hero-me img { width: 72px; border-radius: 50%; }
+}
+
+/* Logo strip pause button (11-25 critique) */
+.marquee.paused .track { animation-play-state: paused; }
+.marquee-toggle { font: inherit; font-size: .88rem; font-weight: 650; color: var(--forest); background: none; border: 0; padding: .6rem .4rem; min-height: 44px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; margin-top: .4rem; }
+.marquee-toggle:hover { color: var(--green); }
+@media (prefers-reduced-motion: reduce) { .marquee-toggle { display: none; } }
+html:not(.js) .marquee-toggle { display: none; }
+
+/* Start hiring "What happens next" + thanks page byline (11-25 critique) */
+.form-next { margin: 1.4rem 0 0; }
+.form-next li::before { width: 2.1rem; height: 2.1rem; font-size: .95rem; }
+.form-next li { grid-template-columns: 2.1rem 1fr; }
+.steps3 li { align-content: start; }   /* keep each step's text together when a neighbour is taller */
+.form-next strong { font-size: 1rem; }
+.form-next span { font-size: .95rem; }
+.thanks-me { flex-direction: row; text-align: left; justify-content: flex-start; margin: 0 0 1.4rem; }
+.thanks-me img { width: 72px; border-radius: 50%; }
+
 /* Hiring Challenge page headline (11-24 audit): same width as .sim so the left edges line up */
 .wrap.sim-head { max-width: 1040px; margin-bottom: clamp(28px, 4vw, 40px); }
 .page-head .sim-head h1 { font-size: clamp(2rem, 4.4vw, 3rem); max-width: 20ch; }

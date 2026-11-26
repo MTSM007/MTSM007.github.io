@@ -780,7 +780,7 @@
     QS.newClue = !!(c.clue && !QS.clues[c.clue]);
     if (c.clue) QS.clues[c.clue] = reply.replace(/^(Fine|Okay|Sure)[.,] /, '');   // notes keep the facts, not the tone
     QS.last = { you: c.text, reply: reply }; QS.lastStyle = c.style;
-    if (QS.mood <= -2) { QS.ended = true; QS.cur = null; }
+    if (QS.mood <= -2) { QS.ended = true; QS.endedBy = c.text; QS.cur = null; }   // 11-25: remember which question ended the call
     else if (c.next) QS.cur = c.next;
     else { QS.mainIx += 1; var m = qMain(); QS.cur = QS.mainIx < m.length ? m[QS.mainIx].id : null; }
     nextFocus = 'qbox';
@@ -817,7 +817,8 @@
   function qDots(at, of) {   // one progress cue for the conversation
     var a = [];
     for (var i = 0; i < of; i++) a.push(h('span', { 'class': 'sim-pdot' + (i < at - 1 ? ' done' : i === at - 1 ? ' now' : '') }));
-    return h('div', { 'class': 'sim-pdots' }, [h('span', { 'class': 'sim-vh', text: 'Moment ' + at + ' of ' + of }), h('span', { 'aria-hidden': 'true', 'class': 'sim-pdots-row' }, a)]);
+    // 11-25 critique: the step label was screen-reader only, so sighted players lost "where am I"; now visible
+    return h('div', { 'class': 'sim-pdots' }, [h('span', { 'class': 'sim-pdots-l', text: 'Conversation · Moment ' + at + ' of ' + of }), h('span', { 'aria-hidden': 'true', 'class': 'sim-pdots-row' }, a)]);
   }
   function qTalk() {
     var beat = QS.cur ? qBeat(QS.cur) : null;
@@ -938,6 +939,9 @@
       if (!b.followup) return { ask: '“' + c.text + '”', reply: qval(c.reply) };
       var parent = Q.beats.filter(function (x) { return x.choices.some(function (y) { return y.next === b.id; }); })[0];
       var pc = parent.choices.filter(function (y) { return y.next === b.id; })[0];
+      // 11-25 critique: if the player already asked the opener, only the follow-up was missed, so say so
+      var askedOpener = QS.log.some(function (l) { return l.beat === parent.id && l.text === pc.text; });
+      if (askedOpener) return { ask: 'Follow up with: “' + c.text + '”', reply: qval(c.reply), askedOpener: true };
       return { ask: '“' + pc.text + '” Then: “' + c.text + '”', reply: qval(c.reply) };
     }
     var clues = Q.keys[QS.v].map(function (k) {
@@ -1028,8 +1032,14 @@
             h('p', {}, [h('span', { 'class': 'sim-oc-l', text: 'You thought ' }), Q.needs[QS.need]])]);
       var lesson = fit !== 'best' && picked.miss ? (QS.clues[picked.miss]
         ? h('p', { 'class': 'sim-lesson got' }, ['You did hear the clue that rules ' + picked.name + ' out. Look back at your notes and see how it changes the picture.'])
-        : h('p', { 'class': 'sim-lesson miss' }, [h('strong', { text: picked.name + ' looked strong because one question went unasked. ' }),
-            'This question would have uncovered the clue that rules ' + picked.name + ' out: ', probeFor(picked.miss).ask])) : null;
+        : (function () {
+            var pf = probeFor(picked.miss);
+            return pf.askedOpener   // 11-25 critique: credit the opener they did ask
+              ? h('p', { 'class': 'sim-lesson miss' }, [h('strong', { text: 'You asked the right opener. ' }),
+                  'The follow-up would have uncovered the clue that rules ' + picked.name + ' out. ', pf.ask])
+              : h('p', { 'class': 'sim-lesson miss' }, [h('strong', { text: picked.name + ' looked strong because one question went unasked. ' }),
+                  'This question would have uncovered the clue that rules ' + picked.name + ' out: ', pf.ask]);
+          })()) : null;
       screen([
         qSteps(3),
         h('h2', { text: 'Your results' }),
@@ -1040,16 +1050,20 @@
           lesson,
           h('p', { 'class': 'sim-oc-why' }, [h('strong', { text: 'Why ' + best.name + ': ' }), best.reason[QS.v]]),
           needLine,
-          QS.ended ? h('p', { 'class': 'sim-ended', text: 'Pushing too hard ended the call early, so some moments never came up.' }) : null]),
+          QS.ended ? h('p', { 'class': 'sim-ended' }, ['Pushing too hard ended the call early, so some moments never came up. ',
+            h('span', { 'class': 'sim-ended-q', text: 'The question that ended it: “' + QS.endedBy + '”' })]) : null]),
+        // 11-25 critique: game actions are secondary; the one filled button is the hiring-manager call to action
         h('div', { 'class': 'sim-actions sim-actions-main' }, [
-          h('button', { type: 'button', 'class': 'btn btn-primary', on: { click: renderStart }, text: 'Next challenge' }),
+          h('button', { type: 'button', 'class': 'btn btn-secondary', on: { click: renderStart }, text: 'Next challenge' }),
           h('button', { type: 'button', 'class': 'btn btn-secondary', 'data-k': 'dig', on: { click: showDetails }, text: perfect ? 'See your scorecard' : 'See where you can improve' })]),
         h('div', { 'class': 'sim-sublinks' }, [
           shareBox(good, QS.log.length, fit, true),
           h('a', { 'class': 'sim-sublink', href: '/resources/recruitment-kickoff-kit/', text: 'Get the free intake question template' })]),
         notifyBox(),
-        h('p', { 'class': 'sim-hmline' }, [h('strong', { text: 'Hiring for a role? ' }), 'These are the questions I ask before every search. ',
-          h('a', { href: '/start-hiring/', text: 'Talk to me about your search →' })])
+        h('section', { 'class': 'sim-hmcta', 'aria-label': 'Hiring for a real role' }, [
+          h('h3', { text: 'Hiring for a real role?' }),
+          h('p', { text: 'These are the questions I ask before every search. I can run this kickoff with you for your role.' }),
+          h('a', { 'class': 'btn btn-primary', href: '/start-hiring/', text: 'Start hiring' })])
       ], 'Result');
     }
     function showDetails() {
