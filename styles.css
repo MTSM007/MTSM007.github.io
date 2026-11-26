@@ -596,3 +596,39 @@ html:not(.js) .marquee-toggle { display: none; }
 .wrap.sim-head { max-width: 1040px; margin-bottom: clamp(28px, 4vw, 40px); }
 .page-head .sim-head h1 { font-size: clamp(2rem, 4.4vw, 3rem); max-width: 20ch; }
 .sim-head .lede { margin: 0; max-width: 36rem; }
+
+/* ---------- 11-25 round 4 ---------- */
+/* 1: keyboard focus outline in forest green (sage was ~3:1) */
+:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+.cta-band :focus-visible, .cta-band .btn-primary:focus-visible { outline-color: #fff; }
+/* 2: How it works testimonial at a readable line length */
+.proof-under-cards { max-width: 640px; }
+/* 4: plan anchors land below the sticky header */
+#contingency, #embedded { scroll-margin-top: 96px; }
+/* 5: plain-language line under each plan name */
+.price-card .plain { color: var(--muted); margin: .5rem 0 0; font-size: 1rem; line-height: 1.5; }
+/* 6: Home leads with contingency, retainer is a line under it */
+.offer-lead { max-width: 640px; margin: 0 auto; }
+.offer-lead .offer-mini p:not(.price) { margin-bottom: 1.2rem; }
+.offer-alt { text-align: center; margin: 1.3rem 0 0; color: var(--muted); }
+.offer-alt a { font-weight: 650; color: var(--green); white-space: nowrap; }
+/* 7: Hiring Challenge on Home */
+.home-sim { padding-top: 0; }
+.home-sim-card { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; background: var(--cream); border: 1px solid var(--cream-deep); border-radius: var(--radius-lg); padding: clamp(24px, 4vw, 44px); }
+.home-sim-card h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 .6rem; }
+.home-sim-card p { color: var(--muted); max-width: 34rem; margin: 0 0 1.3rem; }
+.home-sim-demo { display: flex; flex-direction: column; gap: .7rem; }
+.home-sim-demo p { margin: 0; max-width: none; }
+.home-sim-demo .hs-them, .home-sim-demo .hs-you { font-size: .97rem; line-height: 1.45; padding: .8rem 1rem; border-radius: 14px; color: var(--ink); }
+.home-sim-demo .hs-them { background: #fff; border: 1px solid var(--line); margin-right: 2rem; border-bottom-left-radius: 4px; }
+.home-sim-demo .hs-you { background: var(--sage-soft); margin-left: 2rem; border-bottom-right-radius: 4px; }
+.hs-them span, .hs-you span { display: block; font-size: .8rem; font-weight: 700; color: var(--forest); margin-bottom: .2rem; }
+.home-sim-demo .hs-meta { font-size: .88rem; text-align: right; }
+@media (max-width: 760px) { .home-sim-card { grid-template-columns: 1fr; } }
+/* 8: a case card whose headline is the placed candidate's words */
+.case-big.case-said strong { font-size: clamp(1.25rem, 2.4vw, 1.5rem); line-height: 1.3; letter-spacing: -0.01em; }
+/* 3: inline form errors (replace the browser pop-ups) */
+.field-error { color: #A12A1F; font-size: .92rem; font-weight: 600; margin: .4rem 0 0; }
+.field-error::before { content: "! "; font-weight: 800; }
+[aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]) { border-color: #A12A1F !important; }
+.case-kind { flex-direction: column; align-items: flex-start; gap: .55rem; }   /* 11-25: tag on top, then company type and size */

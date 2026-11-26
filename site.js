@@ -94,8 +94,73 @@
       checkItems();
     }
 
+    // Inline error messages in plain words, instead of the browser's pop-ups (11-25 round 4)
+    form.noValidate = true;
+    var messageFor = function (el) {
+      var v = el.validity, id = el.id || '';
+      if (v.customError) return el.validationMessage;
+      if (v.valueMissing) {
+        if (el.type === 'radio') return 'Please choose the option that interests you.';
+        if (el.name === 'consent') return 'Please tick the box so I can email you about new roles.';
+        if (el.tagName === 'SELECT') return 'Please choose an answer.';
+        if (el.type === 'email') return id === 'f-email' ? 'Please add your work email.' : 'Please add your email.';
+        if (el.type === 'tel') return 'Please add a phone number so I can reach you.';
+        if (el.name === 'first-name') return 'Please add your first name.';
+        if (el.name === 'last-name') return 'Please add your last name.';
+        if (el.name === 'location') return 'Please tell me where you’re based.';
+        if (el.name === 'linkedin') return 'Please add your LinkedIn profile link.';
+        if (el.name === 'website') return 'Please add your company website.';
+        if (id === 'f-roles') return 'Please tell me which roles you’re hiring for.';
+        if (id === 'c-area-other-text') return 'Please tell me which kind of role.';
+        return 'Please fill this in.';
+      }
+      if (v.typeMismatch && el.type === 'email') return 'Please check your email address. It should look like name@company.com.';
+      if (v.tooShort) {
+        if (el.type === 'tel') return 'Please add your full phone number.';
+        if (el.name === 'linkedin') return 'Please add your full LinkedIn profile link.';
+        if (id === 'f-roles') return 'Please add a few more words about the roles.';
+      }
+      return el.validationMessage || 'Please check this answer.';
+    };
+    var clearError = function (el) {
+      var box = el.closest('fieldset') || el.closest('.field') || el.closest('label');
+      var err = box && box.parentNode.querySelector('[data-err-for="' + (el.name || el.id) + '"]');
+      if (err) err.remove();
+      var same = el.name ? form.querySelectorAll('[name="' + el.name + '"]') : [el];
+      Array.prototype.forEach.call(same, function (x) { x.removeAttribute('aria-invalid'); x.removeAttribute('aria-describedby'); });
+    };
+    var showError = function (el, text) {
+      var key = el.name || el.id, errId = 'err-' + form.name + '-' + key;
+      var box = el.closest('fieldset') || el.closest('.field') || el.closest('label');
+      var p = document.createElement('p');
+      p.className = 'field-error'; p.id = errId; p.setAttribute('data-err-for', key); p.textContent = text;
+      if (box.tagName === 'LABEL') box.insertAdjacentElement('afterend', p); else box.appendChild(p);
+      form.querySelectorAll('[name="' + el.name + '"]').forEach(function (x) { x.setAttribute('aria-invalid', 'true'); x.setAttribute('aria-describedby', errId); });
+      if (el.id && !el.name) { el.setAttribute('aria-invalid', 'true'); el.setAttribute('aria-describedby', errId); }
+    };
+    form.querySelectorAll('input, select, textarea').forEach(function (el) {
+      var again = function () { if (el.getAttribute('aria-invalid') && el.checkValidity()) clearError(el); };
+      el.addEventListener('input', again); el.addEventListener('change', again);
+    });
+    var formIsValid = function () {
+      form.querySelectorAll('.field-error').forEach(function (e) { e.remove(); });
+      form.querySelectorAll('[aria-invalid]').forEach(function (x) { x.removeAttribute('aria-invalid'); x.removeAttribute('aria-describedby'); });
+      var first = null, seen = {};
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        if (el.type === 'hidden' || el.closest('.hp') || el.closest('[hidden]') || el.checkValidity()) return;
+        var key = el.name || el.id;
+        if (seen[key]) return;
+        seen[key] = true;
+        showError(el, messageFor(el));
+        if (!first) first = el;
+      });
+      if (first) first.focus();
+      return !first;
+    };
+
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
+      if (!formIsValid()) return;
       var button = form.querySelector('button[type="submit"]');
       var label = button.textContent;
       button.disabled = true;

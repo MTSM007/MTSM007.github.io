@@ -1024,3 +1024,19 @@
 .sim-moments li.k-poor, .sim-moments li.k-push { border-color: #A3352A; }
 .sim .sim-pdots-l { font-size: .9rem; font-weight: 700; color: var(--forest); margin-right: .6rem; }
 .sim .sim-pdots { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem 0; }
+
+/* ---------- 11-25 round 4 ---------- */
+/* Notes: a short label above each note */
+.sim .sim-qnotes li .sim-qnote-l { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2F4A2D; margin-bottom: .1rem; }
+/* Phones: candidates at a glance, above the full cards */
+.sim .sim-glance { display: none; }
+@media (max-width: 640px) {
+  .sim .sim-glance { display: block; margin: 0 0 1rem; }
+  .sim .sim-glance table { width: 100%; border-collapse: collapse; font-size: .92rem; background: #fff; border: 1.5px solid var(--edge); border-radius: 12px; overflow: hidden; }
+  .sim .sim-glance caption { text-align: left; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #2F4A2D; padding: 0 0 .4rem; }
+  .sim .sim-glance th, .sim .sim-glance td { text-align: left; vertical-align: top; padding: .55rem .6rem; border-top: 1px solid var(--edge-soft); line-height: 1.35; }
+  .sim .sim-glance thead th { border-top: 0; font-size: .8rem; color: var(--text-2); font-weight: 650; }
+  .sim .sim-glance tbody th a { font-weight: 700; }
+  .sim .sim-glance td:last-child { white-space: nowrap; }
+  .sim .sim-qcard { scroll-margin-top: 80px; }
+}

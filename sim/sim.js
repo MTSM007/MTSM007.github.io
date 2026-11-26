@@ -724,7 +724,7 @@
       }))]);
   }
   function qCard(c, chooseBtn) {
-    return h('article', { 'class': 'sim-qcard', 'aria-label': c.name }, [
+    return h('article', { 'class': 'sim-qcard', 'aria-label': c.name, id: 'sim-c-' + c.id }, [
       h('div', { 'class': 'sim-qcard-h' }, [ava(c), h('div', {}, [h('p', { 'class': 'sim-pname', text: c.name }), h('p', { 'class': 'sim-pheadline', text: c.job })])]),
       h('p', { 'class': 'sim-qcard-l', text: 'Track record' }),
       h('ul', {}, c.facts.map(function (f) { return h('li', { text: f }); })),
@@ -798,12 +798,31 @@
     var t = QS.ended ? Q.manager.first + ' ended the call' : QS.mood === 0 ? Q.manager.first + ' is open' : Q.manager.first + ' is getting guarded';
     return h('p', { 'class': 'sim-mood m' + (QS.ended ? 'x' : QS.mood), role: 'status' }, [h('span', { 'class': 'sim-mood-dot', 'aria-hidden': 'true' }), t]);
   }
+  // 11-25 round 4: a short label on each note so they scan at a glance (keyed by challenge week, then clue)
+  var NOTE_LABELS = {
+    1: { lasthire: 'Finds own customers', industry: 'Industry', mustdo: 'Deal size and speed', pay: 'Budget', pitch: 'Why they’d join' },
+    2: { lasthire: 'Why the last hire struggled', skills: 'What strong skills look like', go: 'Knowing Go', mustdo: 'Must have done', pay: 'Budget', pitch: 'Why they’d join' },
+    3: { first: 'First priority', why: 'Why customers leave', must: 'Number of accounts', pay: 'Budget', pitch: 'Why they’d join' },
+    4: { first: 'The real problem', code: 'Coding', pay: 'Budget', pitch: 'What they’d own' },
+    5: { two: 'Where leads come from', must: 'Video', goal: 'Goal', pay: 'Budget', pitch: 'Why they’d join' },
+    6: { alex: 'What the last analyst wanted', must: 'Statistics or explaining', pay: 'Budget', pitch: 'Why they’d join' },
+    7: { best: 'What good looks like', must: 'Time to learn the system', pay: 'Budget', slip: 'When things slip' },
+    8: { cost: 'Cost of slow replies', pay: 'Budget', must: 'French-speaking customers', first: 'Coaching or emails', pitch: 'Why they’d join' },
+    9: { best: 'Handling a no', must: 'Realistic target', pay: 'Pay and bonus', pitch: 'Why they’d join' },
+    10: { hurt: 'Biggest problem', backup: 'Backup contact', must: 'Degree', pay: 'Budget', pitch: 'Why they’d join' }
+  };
+  var NOTE_DEFAULT = { pay: 'Budget', pitch: 'Why they’d join', lasthire: 'Last hire', first: 'First priority' };
+  function noteLabel(k) { var m = NOTE_LABELS[Q && Q.week] || {}; return m[k] || NOTE_DEFAULT[k] || ''; }
+  function noteItem(k) {
+    var lab = noteLabel(k);
+    return h('li', {}, lab ? [h('span', { 'class': 'sim-qnote-l', text: lab }), QS.clues[k]] : [QS.clues[k]]);
+  }
   function qNotes(page, openByDefault) {   // 11-16 redesign: notes are a small button that opens a panel
     var keys = Object.keys(QS.clues || {});
     QS.nb = QS.nb || {};
     var open = QS.nb[page] == null ? !!openByDefault : QS.nb[page];
     var panel = h('div', { 'class': 'sim-nb-panel', id: 'sim-nb-panel', hidden: !open }, [
-      keys.length ? h('ul', { 'class': 'sim-qnotes' }, keys.map(function (k) { return h('li', { text: QS.clues[k] }); }))
+      keys.length ? h('ul', { 'class': 'sim-qnotes' }, keys.map(noteItem))
         : h('p', { 'class': 'sim-hint', text: 'Nothing yet. The real story shows up here when you ask good questions.' })]);
     var btn = h('button', { type: 'button', 'class': 'sim-nb-btn' + (QS.newClue && page === 'talk' ? ' pulse' : ''), 'data-k': 'nb-' + page,
       'aria-expanded': open ? 'true' : 'false', 'aria-controls': 'sim-nb-panel' }, [
@@ -882,6 +901,22 @@
         }))])
     ], 'What ' + Q.manager.first + ' needs');
   }
+  // 11-25 round 4: phones only (CSS), a compact side-by-side of the candidates above the tall cards
+  function qGlance() {
+    // when every candidate has the same title ("Salesperson at ..."), show only where they work now
+    var pre = function (j) { var m = j.match(/^(.*?) at an? /); return m ? m[1] : null; };
+    var same = pre(Q.candidates[0].job) && Q.candidates.every(function (c) { return pre(c.job) === pre(Q.candidates[0].job); });
+    return h('div', { 'class': 'sim-glance' }, [
+      h('table', {}, [
+        h('caption', { text: 'At a glance' }),
+        h('thead', {}, [h('tr', {}, [h('th', { scope: 'col', text: 'Candidate' }), h('th', { scope: 'col', text: 'Now' }), h('th', { scope: 'col', text: 'Wants' })])]),
+        h('tbody', {}, Q.candidates.map(function (c) {
+          return h('tr', {}, [
+            h('th', { scope: 'row' }, [h('a', { href: '#sim-c-' + c.id, text: c.name })]),
+            h('td', { text: same ? c.job.replace(/^.*? at an? /, '').replace(/^./, function (x) { return x.toUpperCase(); }) : c.job }),
+            h('td', { text: c.ask })]);
+        }))])]);
+  }
   function qPick() {
     screen([
       qSteps(2),
@@ -889,6 +924,7 @@
       h('p', { 'class': 'sim-yourline' }, [h('strong', { text: 'You said ' + Q.manager.first + ' needs: ' }), Q.needs[QS.need] + ' ',
         h('button', { type: 'button', 'class': 'sim-linkbtn', on: { click: qNeed }, text: 'Change' })]),
       (function () { var nb = qNotes('pick', false); return h('div', { 'class': 'sim-nbwrap' }, [nb.btn, nb.panel]); })(),
+      qGlance(),
       h('div', { 'class': 'sim-grid sim-grid-pick' }, [
         h('div', { 'class': 'sim-qcards' }, Q.candidates.map(function (c) {
           return qCard(c, h('button', { type: 'button', 'class': 'btn btn-primary sim-choosebtn', 'data-k': 'pick-' + c.id,
