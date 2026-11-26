@@ -65,6 +65,12 @@
         <legend>Roles you’re interested in <span aria-hidden="true">*</span> <span class="optional">(choose at least one)</span></legend>
         <div class="checks"><label class="check"><input type="checkbox" name="areas" value="Sales"> Sales</label><label class="check"><input type="checkbox" name="areas" value="Marketing"> Marketing</label><label class="check"><input type="checkbox" name="areas" value="Customer success"> Customer success</label><label class="check"><input type="checkbox" name="areas" value="Product &amp; design"> Product &amp; design</label><label class="check"><input type="checkbox" name="areas" value="Engineering"> Engineering</label><label class="check"><input type="checkbox" name="areas" value="Finance"> Finance</label><label class="check"><input type="checkbox" name="areas" value="Other" id="c-area-other"> Other</label><div class="field area-other" hidden><label for="c-area-other-text">Which kind of role?</label><input id="c-area-other-text" maxlength="80" placeholder="For example, operations or supply chain"></div></div>
       </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-pay">Target base salary <span class="optional">(optional)</span></label>
+          <select id="c-pay" name="pay"><option value="">Choose one</option><option>Under $80K</option><option>$80K to $100K</option><option>$100K to $130K</option><option>$130K+</option><option>Prefer not to say</option></select></div>
+        <div class="field"><label for="c-work">Work setup <span class="optional">(optional)</span></label>
+          <select id="c-work" name="work"><option value="">Choose one</option><option>Remote only</option><option>Remote or hybrid</option><option>Open to on-site</option></select></div>
+      </div>
       <label class="check consent"><input type="checkbox" name="consent" value="yes" required> <span>Yes, Morley Talent Solutions Inc. may email me about new roles that match my interests. I can unsubscribe at any time using the link in any email. <span aria-hidden="true">*</span></span></label>
       <p class="small form-note">Please don’t include your SIN, date of birth or other sensitive details. See the <a href="/privacy/">Privacy Policy</a>.</p>
       <button class="btn btn-primary" type="submit">Subscribe to new roles</button>
